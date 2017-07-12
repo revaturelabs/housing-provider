@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingProvider.Data.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingProvider.Data.Library", "HousingProvider.Data.Library\HousingProvider.Data.Library.csproj", "{53CD0913-F08A-4D83-836A-5F323CA16960}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HousingProvider.Data.Tests", "HousingProvider.Data.Tests\HousingProvider.Data.Tests.csproj", "{6CA71521-4106-4C84-B029-1127DA406264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{53CD0913-F08A-4D83-836A-5F323CA16960}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53CD0913-F08A-4D83-836A-5F323CA16960}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53CD0913-F08A-4D83-836A-5F323CA16960}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CA71521-4106-4C84-B029-1127DA406264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CA71521-4106-4C84-B029-1127DA406264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CA71521-4106-4C84-B029-1127DA406264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CA71521-4106-4C84-B029-1127DA406264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
