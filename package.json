@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://gitlab.com/revatureatlas/housing-provider/issues"
   },
-  "homepage": "https://gitlab.com/revatureatlas/housing-provider#README"
+  "homepage": "https://gitlab.com/revatureatlas/housing-provider#README",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-route": "^1.6.5"
+  }
 }
