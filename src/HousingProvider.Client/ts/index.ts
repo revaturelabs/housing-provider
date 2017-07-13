@@ -10,8 +10,8 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
         method: "GET",
         url: "http://pokeapi.co/api/v2/pokemon/1"
     }).then(function success(response) {
-        $scope.request = JSON.parse(response.data);
-        request = JSON.parse(response.data);
+        $scope.request = response.data;
+        request = response.data;
         
     }, function error(response) {
         $scope.request = response.statusText;
@@ -20,7 +20,8 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
     $scope.showRequest = function() {
 
         console.log("displaying Request...");
-        console.log($scope.request);
+        request = JSON.parse(request);
+        console.log(request);
     }
 
 

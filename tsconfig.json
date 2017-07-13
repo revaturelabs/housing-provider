@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "baseUrl": ".",
+    "baseUrl": "src/HousingProvider.Client/",
     "charset": "utf-8",
     "module": "commonjs",
     "outDir": "js",
