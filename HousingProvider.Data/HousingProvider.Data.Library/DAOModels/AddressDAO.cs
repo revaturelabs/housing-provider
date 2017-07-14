@@ -3,6 +3,7 @@ using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HousingProvider.Data.Library.DAOModels
 {
@@ -12,17 +13,46 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Add(Address ObjectToBeAdded)
         {
-            throw new NotImplementedException();
+            if (ObjectToBeAdded != null)
+            {
+                _Context.Address.Add(ObjectToBeAdded);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public bool Delete(Address ObjectToBeDeleted)
         {
-            throw new NotImplementedException();
+            Address AddressInDb;
+
+            AddressInDb = _Context.Address.Where(x => (x.Street1 == ObjectToBeDeleted.Street1) && (x.Street2 == ObjectToBeDeleted.Street2) && (x.ApartmentNum == ObjectToBeDeleted.ApartmentNum) ).FirstOrDefault();
+
+            if (AddressInDb != null)
+            { 
+                _Context.Address.Remove(AddressInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
+            
         }
 
         public Address Get(string obj)
         {
-            throw new NotImplementedException();
+            int AddressId = int.Parse(obj);
+
+            var Address = _Context.Address.FirstOrDefault(x => x.AddressId == AddressId);
+
+            if(Address != null)
+            {
+                return Address;
+            }
+
+            return null;
+            
         }
 
         public List<Address> GetAll()
@@ -32,7 +62,19 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Update(Address ObjectToBeUpdated)
         {
-            throw new NotImplementedException();
+            Address AddressInDb;
+
+            AddressInDb = _Context.Address.Where(x => (x.Street1 == ObjectToBeUpdated.Street1) && (x.Street2 == ObjectToBeUpdated.Street2) && (x.ApartmentNum == ObjectToBeUpdated.ApartmentNum)).FirstOrDefault();
+
+            if (AddressInDb != null)
+            {
+                _Context.Address.Remove(AddressInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
+
         }
     }
 }
