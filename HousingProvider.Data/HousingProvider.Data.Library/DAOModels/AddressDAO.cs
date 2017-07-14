@@ -6,29 +6,29 @@ using System.Text;
 
 namespace HousingProvider.Data.Library.DAOModels
 {
-    public class RequestDAO : ICrud<Request, string>
+    public class AddressDAO : ICrud<Address, string>
     {
-        public bool Add(Request ObjectToBeAdded)
+        public bool Add(Address ObjectToBeAdded)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(Request ObjectToBeDeleted)
+        public bool Delete(Address ObjectToBeDeleted)
         {
             throw new NotImplementedException();
         }
 
-        public Request Get(string obj)
+        public Address Get(string obj)
         {
             throw new NotImplementedException();
         }
 
-        public List<Request> GetAll()
+        public List<Address> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(Request ObjectToBeUpdated)
+        public bool Update(Address ObjectToBeUpdated)
         {
             throw new NotImplementedException();
         }
