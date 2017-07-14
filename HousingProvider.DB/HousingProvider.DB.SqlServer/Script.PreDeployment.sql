@@ -207,7 +207,6 @@ INSERT INTO [Provider].[Contact](Email,Phone,Active)
 values
     ('fake@email.com','123-555-1234',1);
 
-
 INSERT INTO [Provider].[Address](Street1,Street2,ApartmentNum,City,[State],ZipCode,Active)
 values
     ('11180 Sunrise Valley','Suite 400','','Herndon','VA','20190',1), --BridgeStreet
@@ -228,6 +227,11 @@ values
     ('Camden Dulles Station',4,1,1),
     ('Fairway Apartments',5,1,1),
     ('The Sycamores',6,1,1);
+
+INSERT INTO [Provider].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active)
+values
+    (1,'John','Smith',1,1,1),
+    (1,'Jane','Doe',1,1,1);
 
 INSERT INTO [Provider].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active)
 values
