@@ -6,11 +6,11 @@ namespace HousingProvider.Data.Library
 {
     public static class ContextFactory
     {
-        private static HousingProviderDBContext _Context = new HousingProviderDBContext();
+        //private static HousingProviderDBContext _Context = new HousingProviderDBContext();
 
-        public static HousingProviderDBContext GetContext()
-        {
-            return _Context;
-        }
+        //public static HousingProviderDBContext GetContext()
+        //{
+        //    return _Context;
+        //}
     }
 }
