@@ -12,6 +12,7 @@ namespace HousingProvider.Data.Tests
     [TestFixture]
     public class DaoTests
     {
+        // :)
 
         [Test]
         public void TestAddPerson()
