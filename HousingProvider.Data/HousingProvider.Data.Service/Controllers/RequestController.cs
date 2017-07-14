@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using HousingProvider.Data.Library;
+using HousingProvider.Data.Library.Models;
 
 namespace HousingProvider.Data.Service.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class RequestController : Controller
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Request> Get()
         {
-            return new string[] { "value1", "value2" };
+            DaoHandler handler = new DaoHandler();
+            var requests = handler.RequestDao.GetAll();
+            return requests;
         }
 
         // GET api/values/5
@@ -25,8 +29,13 @@ namespace HousingProvider.Data.Service.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]Request request)
         {
+            if(request!=null)
+            {
+                DaoHandler handler = new DaoHandler();
+                handler.RequestDao.Add(request);
+            }
         }
 
         // PUT api/values/5

@@ -4,9 +4,10 @@ using System.Text;
 
 namespace HousingProvider.Data.Library.Interfaces
 {
-    public interface ICrud<T>
+    public interface ICrud<T, U>
+        where U : class
     {
-        T Get(T obj);
+        T Get(U obj);
         List<T> GetAll();
         bool Add(T ObjectToBeAdded);
         bool Delete(T ObjectToBeDeleted);
