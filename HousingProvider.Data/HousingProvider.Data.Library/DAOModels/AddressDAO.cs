@@ -27,7 +27,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Address AddressInDb;
 
-            AddressInDb = _Context.Address.Where(x => (x.Street1 == ObjectToBeDeleted.Street1) && (x.Street2 == ObjectToBeDeleted.Street2) && (x.ApartmentNum == ObjectToBeDeleted.ApartmentNum) ).FirstOrDefault();
+            AddressInDb = _Context.Address.FirstOrDefault(x => (x.Street1 == ObjectToBeDeleted.Street1) && (x.Street2 == ObjectToBeDeleted.Street2) && (x.ApartmentNum == ObjectToBeDeleted.ApartmentNum));
 
             if (AddressInDb != null)
             { 
@@ -75,7 +75,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Address AddressInDb;
 
-            AddressInDb = _Context.Address.Where(x => (x.Street1 == ObjectToBeUpdated.Street1) && (x.Street2 == ObjectToBeUpdated.Street2) && (x.ApartmentNum == ObjectToBeUpdated.ApartmentNum)).FirstOrDefault();
+            AddressInDb = _Context.Address.FirstOrDefault(x => (x.Street1 == ObjectToBeUpdated.Street1) && (x.Street2 == ObjectToBeUpdated.Street2) && (x.ApartmentNum == ObjectToBeUpdated.ApartmentNum));
 
             if (AddressInDb != null)
             {
