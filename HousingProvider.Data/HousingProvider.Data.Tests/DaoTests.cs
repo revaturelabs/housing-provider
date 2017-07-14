@@ -34,14 +34,18 @@ namespace HousingProvider.Data.Tests
         {
             //Set Up
             var h = new DaoHandler();
+            string fn = "Yolanda Molina";
 
             //Result
-            int result = -1;
+            Person result = h.PersonDao.Get(fn);
+
+            //Output
+            Console.WriteLine($"{result.PersonId} + {result.FirstName} + {result.LastName}" );
 
             //Expectation
-            int expected = 0;
+            // person
 
-            Assert.IsTrue(result > expected);
+            Assert.IsTrue(result != null);
         }
 
         [Test]
@@ -49,29 +53,33 @@ namespace HousingProvider.Data.Tests
         {
             //Set Up
             var h = new DaoHandler();
+            int id = 3;
 
             //Result
-            int result = -1;
+            bool result = h.PersonDao.DeleteById(id);
 
             //Expectation
-            int expected = 0;
+            bool expected = true;
 
-            Assert.IsTrue(result > expected);
+            Assert.IsTrue(result == expected);
         }
 
         [Test]
-        public void DeletePerson()
+        public void DeletePersonByObject()
         {
             //Set Up
             var h = new DaoHandler();
+            string fn = "Yolanda Molina";
+            Person PersonToBeDeleted = h.PersonDao.Get(fn);
+
 
             //Result
-            int result = -1;
+            bool result = h.PersonDao.Delete(PersonToBeDeleted);
 
             //Expectation
-            int expected = 0;
+            bool expected = true;
 
-            Assert.IsTrue(result > expected);
+            Assert.IsTrue(result == expected);
         }
 
 
