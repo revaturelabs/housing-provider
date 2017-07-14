@@ -5,7 +5,11 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Data.Service.Interfaces
 {
-    interface ICrud
+    public interface ICrud<T> where T: new()
     {
+        List<T> Get();
+        bool Create(T obj);
+        bool Update(T obj);
+        bool Delete(T obj);
     }
 }
