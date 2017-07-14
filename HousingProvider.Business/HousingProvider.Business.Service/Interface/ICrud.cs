@@ -5,7 +5,12 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Business.Service.Interface
 {
-    public class ICrud
+    public interface ICrud
     {
+        List<Object> Get();
+        bool Create(Object obj);
+        bool Delete(Object obj);
+        bool Update(Object obj);
+
     }
 }
