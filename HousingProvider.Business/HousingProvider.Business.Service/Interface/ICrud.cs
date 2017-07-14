@@ -7,7 +7,7 @@ namespace HousingProvider.Business.Service.Interface
 {
     public interface ICrud<T> where T : new()
     {
-        List<T> Get();
+        //List<T> Get();
         bool Create(T obj);
         bool Delete(T obj);
         bool Update(T obj);
