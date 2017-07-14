@@ -3,6 +3,7 @@ using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace HousingProvider.Data.Library.DAOModels
 {
@@ -12,7 +13,14 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Add(Request ObjectToBeAdded)
         {
-            throw new NotImplementedException();
+            if(ObjectToBeAdded != null)
+            {
+                _Context.Request.Add(ObjectToBeAdded);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public bool Delete(Request ObjectToBeDeleted)
@@ -20,9 +28,18 @@ namespace HousingProvider.Data.Library.DAOModels
             throw new NotImplementedException();
         }
 
-        public Request Get(string obj)
+        //
+        public Request Get(string title)
         {
-            throw new NotImplementedException();
+            if(!string.IsNullOrEmpty(title))
+            {
+                Request request = _Context.Request.FirstOrDefault(x => x.RequestTitle == title);
+                if(request != null)
+                {
+                    return request;
+                }
+            }
+            return null;
         }
 
         public List<Request> GetAll()
