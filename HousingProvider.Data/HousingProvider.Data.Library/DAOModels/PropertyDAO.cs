@@ -2,6 +2,7 @@
 using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HousingProvider.Data.Library.DAOModels
@@ -12,17 +13,56 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Add(Property ObjectToBeAdded)
         {
-            throw new NotImplementedException();
+            if (ObjectToBeAdded != null)
+            {
+                _Context.Property.Add(ObjectToBeAdded);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public bool Delete(Property ObjectToBeDeleted)
         {
-            throw new NotImplementedException();
+            Property PropertyInDb;
+
+            PropertyInDb = _Context.Property.FirstOrDefault(x => x.AddressId == ObjectToBeDeleted.AddressId);
+
+            if(PropertyInDb != null)
+            {
+                _Context.Property.Remove(PropertyInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool DeleteById(int id)
+        {
+            Property PropertyInDb;
+
+            PropertyInDb = _Context.Property.FirstOrDefault(x => x.PropertyId == id);
+
+            if (PropertyInDb != null)
+            {
+                _Context.Property.Remove(PropertyInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public Property Get(Address obj)
         {
-            throw new NotImplementedException();
+            if(obj != null)
+            {
+                return _Context.Property.FirstOrDefault(x => x.AddressId == obj.AddressId);
+            }
+
+            return null;
         }
 
         public List<Property> GetAll()
@@ -30,9 +70,31 @@ namespace HousingProvider.Data.Library.DAOModels
             throw new NotImplementedException();
         }
 
+        //id = PropertyId
+        public Property GetById(int id)
+        {
+            var Property = _Context.Property.FirstOrDefault(x => x.PropertyId == id);
+            if(Property !=null)
+            {
+                return Property;
+            }
+            return null;
+        }
+
         public bool Update(Property ObjectToBeUpdated)
         {
-            throw new NotImplementedException();
+            Property PropertyInDb;
+
+            PropertyInDb = _Context.Property.FirstOrDefault(x => x.AddressId == ObjectToBeUpdated.AddressId);
+
+            if (PropertyInDb != null)
+            {
+                PropertyInDb = ObjectToBeUpdated;
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
     }
 }

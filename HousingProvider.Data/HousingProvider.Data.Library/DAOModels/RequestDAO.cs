@@ -25,10 +25,32 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Delete(Request ObjectToBeDeleted)
         {
-            throw new NotImplementedException();
+            Request RequestInDb;
+            RequestInDb = _Context.Request.FirstOrDefault(x => x.RequestId == ObjectToBeDeleted.RequestId);
+
+            if(RequestInDb != null)
+            {
+                _Context.Request.Remove(RequestInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
-        //
+        public bool DeleteById(int id)
+        {
+            Request RequestInDb;
+            RequestInDb = _Context.Request.FirstOrDefault(x => x.RequestId == id);
+
+            if (RequestInDb != null)
+            {
+                _Context.Request.Remove(RequestInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public Request Get(string title)
         {
             if(!string.IsNullOrEmpty(title))
@@ -55,9 +77,30 @@ namespace HousingProvider.Data.Library.DAOModels
 
         }
 
+        public Request GetById(int id)
+        {
+            var Request = _Context.Request.FirstOrDefault(x => x.RequestId == id);
+
+            if (Request != null)
+            {
+                return Request;
+            }
+
+            return null;
+        }
+
         public bool Update(Request ObjectToBeUpdated)
         {
-            throw new NotImplementedException();
+            Request RequestInDb;
+            RequestInDb = _Context.Request.FirstOrDefault(x => x.RequestId == ObjectToBeUpdated.RequestId);
+
+            if (RequestInDb != null)
+            {
+                RequestInDb = ObjectToBeUpdated;
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
