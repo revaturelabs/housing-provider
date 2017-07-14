@@ -2,6 +2,7 @@
 using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace HousingProvider.Data.Library.DAOModels
@@ -12,17 +13,39 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Add(Provider ObjectToBeAdded)
         {
-            throw new NotImplementedException();
+            if (ObjectToBeAdded != null)
+            {
+                _Context.Provider.Add(ObjectToBeAdded);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
         }
 
         public bool Delete(Provider ObjectToBeDeleted)
         {
-            throw new NotImplementedException();
+            Provider ProviderInDb;
+
+            ProviderInDb = _Context.Provider.FirstOrDefault( x => x.ProviderName == ObjectToBeDeleted.ProviderName);
+
+            if(ProviderInDb != null)
+            {
+                _Context.Provider.Remove(ProviderInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public Provider Get(string obj)
         {
-            throw new NotImplementedException();
+            Provider Provider= _Context.Provider.FirstOrDefault(x => x.ProviderName == obj);
+            if(Provider != null)
+            {
+                return Provider;
+            }
+            return null;
         }
 
         public List<Provider> GetAll()
@@ -32,7 +55,17 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public bool Update(Provider ObjectToBeUpdated)
         {
-            throw new NotImplementedException();
+            Provider ProviderInDb;
+
+            ProviderInDb = _Context.Provider.FirstOrDefault(x => x.ProviderName == ObjectToBeUpdated.ProviderName);
+
+            if (ProviderInDb != null)
+            {
+                ProviderInDb = ObjectToBeUpdated;
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }
