@@ -44,7 +44,15 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public List<Request> GetAll()
         {
-            throw new NotImplementedException();
+            List<Request> listRequests = _Context.Request.ToList();
+
+            if (listRequests != null)
+            {
+                return listRequests;
+            }
+
+            return null;
+
         }
 
         public bool Update(Request ObjectToBeUpdated)

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using HousingProvider.Data.Library;
+using HousingProvider.Data.Library.Models;
 
 namespace HousingProvider.Data.Service.Controllers
 {
@@ -11,9 +13,11 @@ namespace HousingProvider.Data.Service.Controllers
     {
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public List<Request> Get()
         {
-            return new string[] { "value1", "value2" };
+            DaoHandler handler = new DaoHandler();
+            var requests = handler.RequestDao.GetAll();
+            return requests;
         }
 
         // GET api/values/5

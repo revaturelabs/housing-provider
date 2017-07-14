@@ -20,5 +20,8 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HousingProvider.Data.Library\HousingProvider.Data.Library.csproj" />
+  </ItemGroup>
 
 </Project>
