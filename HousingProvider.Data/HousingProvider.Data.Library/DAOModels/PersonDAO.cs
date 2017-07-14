@@ -37,6 +37,21 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
         }
 
+        public bool DeleteById(int id)
+        {
+
+            Person PersonInDb;
+
+            PersonInDb = _Context.Person.FirstOrDefault(x => x.PersonId == id);
+
+            if (PersonInDb != null)
+            {
+                _Context.Person.Remove(PersonInDb);
+                return true;
+            }
+            return false;
+        }
+
         public Person Get(string FullName)
         {
             char[] delimeter = { ' ' };

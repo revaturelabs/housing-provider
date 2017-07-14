@@ -38,6 +38,21 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
         }
 
+        public bool DeleteById(int id)
+        {
+            Provider ProviderInDb;
+
+            ProviderInDb = _Context.Provider.FirstOrDefault(x => x.ProviderId == id);
+
+            if (ProviderInDb != null)
+            {
+                _Context.Provider.Remove(ProviderInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public Provider Get(string obj)
         {
             Provider Provider= _Context.Provider.FirstOrDefault(x => x.ProviderName == obj);

@@ -12,6 +12,7 @@ namespace HousingProvider.Data.Library.Interfaces
         List<T> GetAll();
         bool Add(T ObjectToBeAdded);
         bool Delete(T ObjectToBeDeleted);
+        bool DeleteById(int id);
         bool Update(T ObjectToBeUpdated);
     }
 }

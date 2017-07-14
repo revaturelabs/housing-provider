@@ -39,6 +39,22 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
         }
 
+        public bool DeleteById(int id)
+        {
+            Property PropertyInDb;
+
+            PropertyInDb = _Context.Property.FirstOrDefault(x => x.PropertyId == id);
+
+            if (PropertyInDb != null)
+            {
+                _Context.Property.Remove(PropertyInDb);
+                _Context.SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
+
         public Property Get(Address obj)
         {
             if(obj != null)
