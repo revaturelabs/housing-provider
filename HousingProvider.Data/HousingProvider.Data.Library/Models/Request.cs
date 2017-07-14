@@ -5,7 +5,7 @@ namespace HousingProvider.Data.Library.Models
 {
     public partial class Request
     {
-        public int RequestId { get; set; }
+        public int? RequestId { get; set; }
         public int RequestTypeId { get; set; }
         public bool Urgent { get; set; }
         public string RequestTitle { get; set; }
