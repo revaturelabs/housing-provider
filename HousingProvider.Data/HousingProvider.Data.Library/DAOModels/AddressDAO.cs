@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace HousingProvider.Data.Library.DAOModels
 {
-    public class AddressDAO : ICrud<Address, string>
+    public class AddressDAO : ICrud<Address, Address>
     {
         private HousingProviderDBContext _Context = ContextFactory.GetContext();
 
@@ -39,12 +39,10 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
             
         }
-
-        public Address Get(string obj)
+        
+        public Address Get(Address Addr)
         {
-            int AddressId = int.Parse(obj);
-
-            var Address = _Context.Address.FirstOrDefault(x => x.AddressId == AddressId);
+            var Address = _Context.Address.FirstOrDefault(x => (x.Street1 == Addr.Street1) && (x.Street2 == Addr.Street2) && (x.ApartmentNum == Addr.ApartmentNum));
 
             if(Address != null)
             {
@@ -58,6 +56,19 @@ namespace HousingProvider.Data.Library.DAOModels
         public List<Address> GetAll()
         {
             throw new NotImplementedException();
+        }
+
+        public Address GetById(int id)
+        {
+
+            var Address = _Context.Address.FirstOrDefault(x => x.AddressId == id);
+
+            if (Address != null)
+            {
+                return Address;
+            }
+
+            return null;
         }
 
         public bool Update(Address ObjectToBeUpdated)

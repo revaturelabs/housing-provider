@@ -8,6 +8,7 @@ namespace HousingProvider.Data.Library.Interfaces
         where U : class
     {
         T Get(U obj);
+        T GetById(int id);
         List<T> GetAll();
         bool Add(T ObjectToBeAdded);
         bool Delete(T ObjectToBeDeleted);

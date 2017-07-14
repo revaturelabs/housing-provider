@@ -53,6 +53,18 @@ namespace HousingProvider.Data.Library.DAOModels
             throw new NotImplementedException();
         }
 
+        public Provider GetById(int id)
+        {
+            var Provider = _Context.Provider.FirstOrDefault(x => x.ProviderId == id);
+
+            if (Provider != null)
+            {
+                return Provider;
+            }
+
+            return null;
+        }
+
         public bool Update(Provider ObjectToBeUpdated)
         {
             Provider ProviderInDb;

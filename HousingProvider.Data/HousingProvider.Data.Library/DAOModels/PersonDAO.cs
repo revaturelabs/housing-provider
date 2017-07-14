@@ -37,11 +37,28 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
         }
 
-        public Person Get(string obj)
+        public Person Get(string FullName)
         {
-            int PersonId = int.Parse(obj);
+            char[] delimeter = { ' ' };
+            string[] names = FullName.Split(delimeter);
 
-            var Person = _Context.Person.FirstOrDefault(x => x.PersonId == PersonId);
+            var Person = _Context.Person.FirstOrDefault(x => x.FirstName == names[0] && x.LastName == names[1]);
+
+            if(Person!=null)
+            {
+                return Person;
+            }
+            return null;
+        }
+
+        public List<Person> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Person GetById(int id)
+        {
+            var Person = _Context.Person.FirstOrDefault(x => x.PersonId == id);
 
             if (Person != null)
             {
@@ -49,11 +66,6 @@ namespace HousingProvider.Data.Library.DAOModels
             }
 
             return null;
-        }
-
-        public List<Person> GetAll()
-        {
-            throw new NotImplementedException();
         }
 
         public bool Update(Person ObjectToBeUpdated)

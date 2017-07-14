@@ -54,6 +54,17 @@ namespace HousingProvider.Data.Library.DAOModels
             throw new NotImplementedException();
         }
 
+        //id = PropertyId
+        public Property GetById(int id)
+        {
+            var Property = _Context.Property.FirstOrDefault(x => x.PropertyId == id);
+            if(Property !=null)
+            {
+                return Property;
+            }
+            return null;
+        }
+
         public bool Update(Property ObjectToBeUpdated)
         {
             Property PropertyInDb;
