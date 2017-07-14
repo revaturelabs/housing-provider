@@ -8,6 +8,8 @@ namespace HousingProvider.Data.Library.DAOModels
 {
     public class AddressDAO : ICrud<Address, string>
     {
+        private HousingProviderDBContext _Context = ContextFactory.GetContext();
+
         public bool Add(Address ObjectToBeAdded)
         {
             throw new NotImplementedException();
