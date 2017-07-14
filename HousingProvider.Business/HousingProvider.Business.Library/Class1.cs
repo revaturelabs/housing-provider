@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HousingProvider.Business.Library.Models;
+using System;
 
 namespace HousingProvider.Business.Library
 {
