@@ -9,7 +9,7 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
     $scope.showMe = false;
     $http({
         method: "GET",
-        url: "http://pokeapi.co/api/v2/pokemon/1"
+        url: "http://pokeapi.co/api/v2/pokemon/1" 
     }).then(function success(response) {
         $scope.request = response.data;
         request = response.data;
