@@ -68,7 +68,7 @@ namespace HousingProvider.Data.Library.DAOModels
 
             if (AddressInDb != null)
             {
-                _Context.Address.Remove(AddressInDb);
+                AddressInDb = ObjectToBeUpdated;
                 _Context.SaveChanges();
                 return true;
             }

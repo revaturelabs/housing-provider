@@ -64,7 +64,8 @@ namespace HousingProvider.Data.Library.DAOModels
 
             if (PersonInDb != null)
             {
-                _Context.Person.Remove(PersonInDb);
+                PersonInDb = ObjectToBeUpdated;
+                _Context.SaveChanges();
                 return true;
             }
             return false;
