@@ -20,7 +20,7 @@ namespace HousingProvider.Business.Service.Controllers
         [HttpGet]
         public Task<List<Request>> Get()
         {
-            return rb.Get ();
+            return rb.Get();
         }
 
         /*// GET api/values/5
