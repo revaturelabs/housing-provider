@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Data.Service.Interfaces
 {
-    public interface ICrud<T> where T: new()
+    public interface ICrud<T>
     {
         List<T> Get();
         bool Create(T obj);
