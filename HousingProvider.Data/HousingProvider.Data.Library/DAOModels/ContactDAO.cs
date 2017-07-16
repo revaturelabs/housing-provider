@@ -52,9 +52,15 @@ namespace HousingProvider.Data.Library.DAOModels
             return false;
         }
 
-        public Contact Get(string obj)
+        public Contact Get(string email)
         {
-            throw new NotImplementedException();
+            var ContactInfo =_Context.Contact.FirstOrDefault(x => x.Email == email);
+
+            if(ContactInfo != null)
+            {
+                return ContactInfo;
+            }
+            return null;
         }
 
         public List<Contact> GetAll()
@@ -64,12 +70,28 @@ namespace HousingProvider.Data.Library.DAOModels
 
         public Contact GetById(int id)
         {
-            throw new NotImplementedException();
+            var ContactInfo = _Context.Contact.FirstOrDefault(x => x.ContactId == id);
+
+            if (ContactInfo != null)
+            {
+                return ContactInfo;
+            }
+            return null;
         }
 
         public bool Update(Contact ObjectToBeUpdated)
         {
-            throw new NotImplementedException();
+            Contact ContactInDb;
+
+            ContactInDb = _Context.Contact.FirstOrDefault(x => x.ContactId == ObjectToBeUpdated.ContactId);
+
+            if(ContactInDb != null)
+            {
+                ContactInDb = ObjectToBeUpdated;
+                _Context.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

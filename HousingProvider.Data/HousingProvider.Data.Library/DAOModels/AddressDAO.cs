@@ -91,7 +91,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Address AddressInDb;
 
-            AddressInDb = _Context.Address.FirstOrDefault(x => (x.Street1 == ObjectToBeUpdated.Street1) && (x.Street2 == ObjectToBeUpdated.Street2) && (x.ApartmentNum == ObjectToBeUpdated.ApartmentNum));
+            AddressInDb = _Context.Address.FirstOrDefault(x => x.AddressId == ObjectToBeUpdated.AddressId);
 
             if (AddressInDb != null)
             {
