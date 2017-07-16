@@ -84,7 +84,24 @@ namespace HousingProvider.Data.Tests
         }
 
 
+        [Test]
+        public void UpdateContact()
+        {
+            //Set Up
+            var h = new DaoHandler();
+            //Contact NewContactInfo = new Contact() { ContactId = 2, Active = true, Email = "real@email.com", Phone = "407-993-9999" };
+            Contact nc = h.ContactDao.Get("second@email.com");
+            nc.Email = "real@email.com";
+            nc.Phone = "407-993-9999";
 
+            //Result
+            bool result = h.ContactDao.Update(nc);
+
+            //Expectation
+            bool expected = true;
+
+            Assert.IsTrue(result == expected);
+        }
 
     }
 }
