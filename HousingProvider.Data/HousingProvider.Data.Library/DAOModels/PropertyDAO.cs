@@ -85,7 +85,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Property PropertyInDb;
 
-            PropertyInDb = _Context.Property.FirstOrDefault(x => x.AddressId == ObjectToBeUpdated.AddressId);
+            PropertyInDb = _Context.Property.FirstOrDefault(x => x.PropertyId == ObjectToBeUpdated.PropertyId);
 
             if (PropertyInDb != null)
             {

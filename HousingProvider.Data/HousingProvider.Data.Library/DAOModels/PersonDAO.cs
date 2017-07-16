@@ -87,7 +87,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Person PersonInDb;
 
-            PersonInDb = _Context.Person.FirstOrDefault(x => (x.FirstName == ObjectToBeUpdated.FirstName) && (x.LastName == ObjectToBeUpdated.LastName));
+            PersonInDb = _Context.Person.FirstOrDefault(x => x.PersonId == ObjectToBeUpdated.PersonId);
 
             if (PersonInDb != null)
             {
