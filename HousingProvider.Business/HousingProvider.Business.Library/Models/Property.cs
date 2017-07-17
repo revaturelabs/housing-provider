@@ -15,13 +15,18 @@ namespace HousingProvider.Business.Library.Models
         public Address Address { get; set; }
         public int Bathrooms { get; set; }
         public int Bedrooms { get; set; }
-        private List<Request> _Requests { get; set; }
+        private List<Request> _Requests;
         public List<Request> Requests
         {
             get
             {
                 return _Requests;
             }
+        }
+        
+        public Property()
+        {
+            _Requests = new List<Request>();
         }
         
         /// <summary>
