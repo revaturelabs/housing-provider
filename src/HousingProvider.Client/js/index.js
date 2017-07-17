@@ -24,7 +24,7 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
         //         console.log("passed if statement");
         //         request = JSON.parse(request);
         //     }
-        console.log(request.name);
+        console.log(request);
         $scope.showMe = true;
     };
 });
