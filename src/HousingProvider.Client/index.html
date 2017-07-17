@@ -1,20 +1,116 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-      <meta chatset="utf-8">
-      <meta name="viewport" content="width=device-width", initial-scale="1.0">
-      <link rel="icon" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/favicon_192.png"/>
-  </head>
+
+<head>
+  <meta chatset="utf-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1.0">
+  <link rel="icon" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/favicon_192.png"
+  />
+  <div class="logo"><a href="https://revature.com"><img src="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/logo.png" alt="Revature"/>
+        </a>
+  </div>
+  <link rel="stylesheet" href="css/index.css">
+</head>
 
 
-  <body data-ng-app="ngMainProvider" data-ng-controller="Ctrl">
-    <button type="button" data-ng-click="showRequest()">GET REQUEST</button>
-    <div data-ng-show="showMe">
-      <p id="test">{{request}}</p>
+
+<body>
+  <!-- Displays the request table -->
+  <table id="request_table">
+    <caption>
+      <h1>Requests</h1>
+    </caption>
+    <tr style="background-color: green">
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Urgent?</th>
+    </tr>
+    <!-- Example Rows that can be clicked on -->
+    <tr id="requestRow1" onmouseover="highlightRow(1)" onmouseout="unHighlightRow(1)" onclick="rowDisplay()">
+      <td>Ex. 1: Toilet Malfunction</td>
+      <td>404 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>Toilet's broke. That is all</td>
+      <td>1/1/1970</td>
+      <td>Urgent!</td>
+    </tr>
+    <tr id="requestRow2" onmouseover="highlightRow(2)" onmouseout="unHighlightRow(2)" onclick="rowDisplay()">
+      <td>Ex. 2 Oven Broken</td>
+      <td>404 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>Oven's broke. That is all</td>
+      <td>1/1/1970</td>
+      <td>Urgent!</td>
+    </tr>
+    <!-- Button used to get requests from app service ***Currently using pokeapi as test; change link in index.ts when api link is ready -->
+    <div data-ng-app="ngMainProvider" data-ng-controller="Ctrl">
+      <button type="button" data-ng-click="showRequest()" style="display: block; margin: 0 auto; float: inherit">GET REQUEST</button>
+
+      <div data-ng-show="showMe">
+        <p id="test">{{request.name}}</p>
+      </div>
+
     </div>
-    <script src="public\script.bundle.js"></script>
-  </body>
-  
+  </table>
 
+  <!-- Displays the Requests completed -->
+  <table id="complete_table">
+    <caption>
+      <h1>Completed Requests</h1>
+    </caption>
+    <tr style="background-color: green">
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+    <tr>
+      <td>Outlet Malfunction</td>
+      <td>404 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>Outlet's broke. That is all.</td>
+      <td>Date.now()</td>
+    </tr>
+  </table>
+
+  <!-- Pop-up window when a row from a table is clicked -->
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+
+  </div>
+
+  <script>
+    function highlightRow(id) {
+      document.getElementById("requestRow" + id).style.backgroundColor = "White";
+      document.getElementById("requestRow" + id).style.cursor = "pointer";
+    }
+    function unHighlightRow(id) {
+      document.getElementById("requestRow" + id).style.backgroundColor = "initial";
+      document.getElementById("requestRow" + id).style.cursor = "initial";
+    }
+    function rowDisplay() {
+      modal.style.display = "block";
+    }
+
+    var modal = document.getElementById('myModal');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  <script src="public\script.bundle.js"></script>
+</body>
+ 
 </html>

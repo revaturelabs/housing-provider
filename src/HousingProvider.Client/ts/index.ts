@@ -9,7 +9,7 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
     $scope.showMe = false;
     $http({
         method: "GET",
-        url: "http://pokeapi.co/api/v2/pokemon/1" 
+        url: "http://pokeapi.co/api/v2/pokemon/1" // this should be replaced with project api link when ready
     }).then(function success(response) {
         $scope.request = response.data;
         request = response.data;
@@ -18,7 +18,7 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
     }, function error(response) {
         $scope.request = response.statusText;
     });
-
+    
     $scope.showRequest = function() {
         console.log(showMe);
         console.log("displaying Request...");
@@ -34,7 +34,8 @@ ngMainProvider.controller('Ctrl', function ($scope, $http) {
         
     }
 
-
 });
+
+
 
 
