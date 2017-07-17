@@ -15,37 +15,13 @@ namespace HousingProvider.Business.Service.Controllers
     public class RequestController : Controller
     {
         private static RequestBroker rb = new RequestBroker();
-        private static string url = "http://localhost:58058/api/";
-        private static HttpClient client = new HttpClient { BaseAddress = new Uri (url) };
+
         // GET: api/values
         [HttpGet]
         public Task<List<Request>> Get()
         {
-            //var output = new List<Request> ();
-            ////return new List<Request> ();
-            //output = rb.Get ();
-            return rb.Get ();
+            return rb.Get();
         }
-        //public async Task<List<Request>> Get()
-        //{
-        //    var list = new List<Request> ();
-
-        //    try
-        //    {
-        //        var response = await client.GetAsync ("request", HttpCompletionOption.ResponseContentRead);
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            list = JsonConvert.DeserializeObject<List<Request>> (response.Content.ReadAsStringAsync ().Result);
-        //        }
-        //    }
-        //    catch
-        //    {
-
-        //    }
-
-        //    return list;
-        //}
 
         /*// GET api/values/5
         [HttpGet("{id}")]
