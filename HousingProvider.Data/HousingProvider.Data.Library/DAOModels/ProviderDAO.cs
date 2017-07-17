@@ -84,7 +84,7 @@ namespace HousingProvider.Data.Library.DAOModels
         {
             Provider ProviderInDb;
 
-            ProviderInDb = _Context.Provider.FirstOrDefault(x => x.ProviderName == ObjectToBeUpdated.ProviderName);
+            ProviderInDb = _Context.Provider.FirstOrDefault(x => x.ProviderId == ObjectToBeUpdated.ProviderId);
 
             if (ProviderInDb != null)
             {
