@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using HousingProvider.Data.Library.Models;
 
 namespace HousingProvider.Data.Service
 {
@@ -28,6 +30,8 @@ namespace HousingProvider.Data.Service
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<HousingProviderDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HousingProviderDBContext")));
+            services.AddCors(o => o.AddPolicy("default", b => b.AllowAnyOrigin()));
             services.AddMvc();
         }
 
@@ -36,7 +40,7 @@ namespace HousingProvider.Data.Service
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
+            app.UseCors("default");
             app.UseMvc();
         }
     }
