@@ -12,7 +12,13 @@ namespace HousingProvider.Business.Library.Models
    /// </summary>
    public class LibraryManager
    {
-
+      /// <summary>
+      /// Add all the request that has been submitted against
+      /// this property as a list
+      /// </summary>
+      /// <param name="Properties"></param>
+      /// <param name="Requests"></param>
+      /// <returns></returns>
       public List<Property> AssemblyObject(List<Property> Properties, List<Request> Requests)
       {
          foreach (var property in Properties)
