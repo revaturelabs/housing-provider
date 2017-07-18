@@ -1,5 +1,6 @@
 ﻿CREATE TABLE [Provider].[RequestType] (
-    RequestTypeId INT IDENTITY(1,1) not null,
-    RequestTypeDescription NVARCHAR(50) NOT NULL,
+    RequestTypeId INT primary key clustered IDENTITY(1,1) not null,
+    RequestTypeDescription NVARCHAR(100) NOT NULL,
     Active BIT NOT NULL DEFAULT(1)
+
 );
