@@ -4,104 +4,23 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using HousingProvider.Data.Library.Abstracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace HousingProvider.Data.Library.DAO
 {
-    public class AddressDAO : ICrud<Address, Address>
+    public class AddressDAO : AEntityDataAccess<Address>
     {
-        private HousingProviderDBContext _Context = ContextFactory.GetContext();
+        public AddressDAO(DbContext context) : base(context) {}
 
-        public bool Add(Address ObjectToBeAdded)
+        public override Address Get(Address model)
         {
-            if (ObjectToBeAdded != null)
-            {
-                _Context.Address.Add(ObjectToBeAdded);
-                _Context.SaveChanges();
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool Delete(Address ObjectToBeDeleted)
-        {
-            Address AddressInDb;
-
-            AddressInDb = _Context.Address.FirstOrDefault(x => (x.Street1 == ObjectToBeDeleted.Street1) && (x.Street2 == ObjectToBeDeleted.Street2) && (x.ApartmentNum == ObjectToBeDeleted.ApartmentNum));
-
-            if (AddressInDb != null)
-            { 
-                _Context.Address.Remove(AddressInDb);
-                _Context.SaveChanges();
-                return true;
-            }
-
-            return false;
-            
-        }
-
-        public bool DeleteById(int id)
-        {
-            Address AddressInDb;
-
-            AddressInDb = _Context.Address.FirstOrDefault(x => x.AddressId == id);
-
-            if (AddressInDb != null)
-            {
-                _Context.Address.Remove(AddressInDb);
-                _Context.SaveChanges();
-                return true;
-            }
-
-            return false;
-        }
-
-        public Address Get(Address Addr)
-        {
-            var Address = _Context.Address.FirstOrDefault(x => (x.Street1 == Addr.Street1) && (x.Street2 == Addr.Street2) && (x.ApartmentNum == Addr.ApartmentNum));
-
-            if(Address != null)
-            {
-                return Address;
-            }
-
-            return null;
-            
-        }
-
-        public List<Address> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Address GetById(int id)
-        {
-
-            var Address = _Context.Address.FirstOrDefault(x => x.AddressId == id);
-
-            if (Address != null)
-            {
-                return Address;
-            }
-
-            return null;
-        }
-
-        public bool Update(Address ObjectToBeUpdated)
-        {
-            Address AddressInDb;
-
-            AddressInDb = _Context.Address.FirstOrDefault(x => x.AddressId == ObjectToBeUpdated.AddressId);
-
-            if (AddressInDb != null)
-            {
-                AddressInDb = ObjectToBeUpdated;
-                _Context.SaveChanges();
-                return true;
-            }
-
-            return false;
-
+            return _Context.Set<Address>().FirstOrDefault(a => a.Street1 == model.Street1 &&
+                                                            a.Street2 == model.Street2 &&
+                                                            a.ApartmentNum == model.ApartmentNum &&
+                                                            a.City == model.City &&
+                                                            a.State == model.State &&
+                                                            a.ZipCode == model.ZipCode);
         }
     }
 }
