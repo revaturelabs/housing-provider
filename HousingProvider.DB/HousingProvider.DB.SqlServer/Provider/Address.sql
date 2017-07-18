@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [Provider].[Address] (
-    AddressId INT IDENTITY(1,1),
+    AddressId INT primary key clustered IDENTITY(1,1),
     Street1 NVARCHAR(100) NOT NULL,
     Street2 NVARCHAR(50),
     ApartmentNum INT,
@@ -7,4 +7,7 @@
     [State] NVARCHAR(50) NOT NULL,
     ZipCode NVARCHAR(50) NOT NULL,
     Active BIT NOT NULL DEFAULT(1)
+	ADD CONSTRAINT FK_Provider_Person_ContactId FOREIGN KEY (ContactId) REFERENCES [Provider].[Contact](ContactId);
+
+
 );
