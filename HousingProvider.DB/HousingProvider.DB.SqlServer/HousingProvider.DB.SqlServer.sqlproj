@@ -59,23 +59,24 @@
     <Folder Include="Properties" />
     <Folder Include="Provider" />
     <Folder Include="Schema" />
+    <Folder Include="Person" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Schema\Provide.sql" />
+    <Build Include="Person\Person.sql" />
+    <Build Include="Person\Provider.sql" />
+    <Build Include="Person\Contact.sql" />
+    <Build Include="Person\Role.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Provider\Person.sql" />
     <Build Include="Provider\RequestType.sql" />
     <Build Include="Provider\Request.sql" />
     <Build Include="Provider\Status.sql" />
     <Build Include="Provider\Property.sql" />
     <Build Include="Provider\Complex.sql" />
     <Build Include="Provider\Address.sql" />
-    <Build Include="Provider\Role.sql" />
-    <Build Include="Provider\Provider.sql" />
-    <Build Include="Provider\Contact.sql" />
   </ItemGroup>
 </Project>
