@@ -66,6 +66,7 @@
   <ItemGroup>
     <Build Include="Schema\Request.sql" />
     <Build Include="Schema\Property.sql" />
+    <Build Include="Schema\Person.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Provider\Person.sql" />
