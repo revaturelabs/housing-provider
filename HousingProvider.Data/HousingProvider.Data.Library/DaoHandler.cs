@@ -16,12 +16,12 @@ namespace HousingProvider.Data.Library
 
         public DaoHandler()
         {
-            PropertyDao = new PropertyDAO();
-            PersonDao = new PersonDAO();
-            ProviderDao = new ProviderDAO();
-            AddressDao = new AddressDAO();
-            RequestDao = new RequestDAO();
-            ContactDao = new ContactDAO();
+            //PropertyDao = new PropertyDAO();
+            //PersonDao = new PersonDAO();
+            //ProviderDao = new ProviderDAO();
+            //AddressDao = new AddressDAO();
+            //RequestDao = new RequestDAO();
+            //ContactDao = new ContactDAO();
         }
     }
 }

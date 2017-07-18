@@ -15,9 +15,10 @@ namespace HousingProvider.Data.Service.Controllers
         [HttpGet]
         public List<Request> Get()
         {
-            DaoHandler handler = new DaoHandler();
-            var requests = handler.RequestDao.GetAll();
-            return requests;
+            //DaoHandler handler = new DaoHandler();
+            //var requests = handler.RequestDao.GetAll();
+            //return requests;
+            throw new NotImplementedException();
         }
 
         // GET api/values/5
@@ -34,7 +35,7 @@ namespace HousingProvider.Data.Service.Controllers
             if(request!=null)
             {
                 DaoHandler handler = new DaoHandler();
-                handler.RequestDao.Add(request);
+                //handler.RequestDao.Add(request);
             }
         }
 
