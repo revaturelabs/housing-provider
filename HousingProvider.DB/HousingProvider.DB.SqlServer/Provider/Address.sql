@@ -7,7 +7,6 @@
     [State] NVARCHAR(50) NOT NULL,
     ZipCode NVARCHAR(50) NOT NULL,
     Active BIT NOT NULL DEFAULT(1)
-	ADD CONSTRAINT FK_Provider_Person_ContactId FOREIGN KEY (ContactId) REFERENCES [Provider].[Contact](ContactId);
 
 
 );
