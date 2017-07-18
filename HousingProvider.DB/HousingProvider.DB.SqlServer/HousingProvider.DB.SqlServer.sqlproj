@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Provider\Person.sql" />
+    <Build Include="Provider\Status.sql" />
     <Build Include="Provider\Property.sql" />
     <Build Include="Provider\Complex.sql" />
     <Build Include="Provider\Address.sql" />
