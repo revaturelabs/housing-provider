@@ -60,6 +60,7 @@
     <Folder Include="Provider" />
     <Folder Include="Schema" />
     <Folder Include="Person" />
+    <Folder Include="Property" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
@@ -70,13 +71,13 @@
     <Build Include="Person\Provider.sql" />
     <Build Include="Person\Contact.sql" />
     <Build Include="Person\Role.sql" />
+    <Build Include="Property\Property.sql" />
+    <Build Include="Property\Address.sql" />
+    <Build Include="Property\Complex.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Provider\RequestType.sql" />
     <Build Include="Provider\Request.sql" />
     <Build Include="Provider\Status.sql" />
-    <Build Include="Provider\Property.sql" />
-    <Build Include="Provider\Complex.sql" />
-    <Build Include="Provider\Address.sql" />
   </ItemGroup>
 </Project>
