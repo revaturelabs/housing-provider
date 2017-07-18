@@ -1,4 +1,4 @@
-﻿using HousingProvider.Data.Library.DAOModels;
+﻿using HousingProvider.Data.Library.DAO;
 using System;
 using System.Collections.Generic;
 using System.Text;
