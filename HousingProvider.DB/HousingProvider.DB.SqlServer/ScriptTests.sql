@@ -21,17 +21,11 @@ values
 	('Rejected'),
 	('Hold');
 
-INSERT INTO [Provider].[Role] (RoleDescription)
-values 
-	('Administrator'),
-	('Representative');
-
-
-INSERT INTO [Provider].[Contact](Email,Phone,Active)
+INSERT INTO [Person].[Contact](Email,Phone,Active)
 values
     ('fake@email.com','123-555-1234',1);
 
-INSERT INTO [Provider].[Address](Street1,Street2,ApartmentNum,City,[State],ZipCode,Active)
+INSERT INTO [Property].[Address](Street1,Street2,ApartmentNum,City,[State],ZipCode,Active)
 values
     ('11180 Sunrise Valley','Suite 400','','Herndon','VA','20190',1), --BridgeStreet
     ('13000 Wilkes Way','','','Herndon','VA','20170',1), --Westerly at WorldGate
@@ -40,11 +34,11 @@ values
     ('11659 North Shore Drive','','','Herndon','VA','20190',1), --Fairway Apartments
     ('Sycamore Valley Drive','','','Herndon','VA','20190',1); --The Sycamores
 
-INSERT INTO [Provider].[Provider] (ProviderName,ContactId,AddressId,Active)
+INSERT INTO [Person].[Provider] (ProviderName,ContactId,AddressId,Active)
 values
     ('BridgeStreet',1,1,1);
 
-INSERT INTO [Provider].[Complex] (ComplexName,AddressId,ContactId,Active)
+INSERT INTO [Property].[Complex] (ComplexName,AddressId,ContactId,Active)
 values
     ('Westerly at WorldGate',2,1,1),
     ('The Townes at Herndon Center',3,1,1),
@@ -52,12 +46,12 @@ values
     ('Fairway Apartments',5,1,1),
     ('The Sycamores',6,1,1);
 
-INSERT INTO [Provider].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active)
+INSERT INTO [Person].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active)
 values
     (1,'John','Smith',1,1,1),
     (1,'Jane','Doe',1,1,1);
 
-INSERT INTO [Provider].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active)
+INSERT INTO [Property].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active)
 values
     (3,3,1,1,1,1),
     (3,3,1,1,1,1),
@@ -65,7 +59,7 @@ values
     (3,3,1,1,1,1),
     (3,3,1,1,1,1);
 
-INSERT INTO [Provider].Request (RequestTypeId,Urgent,RequestTitle,
+INSERT INTO [Request].Request (RequestTypeId,Urgent,RequestTitle,
                                 [Description],
                                 RequestorName,PropertyId,RepresentativeName,StatusId,
                                 [Action],Active)
