@@ -64,8 +64,8 @@
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Schema\Provide.sql" />
     <Build Include="Schema\Request.sql" />
+    <Build Include="Schema\Property.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Provider\Person.sql" />
