@@ -1,0 +1,10 @@
+﻿CREATE TABLE [Provider].[Address] (
+    AddressId INT IDENTITY(1,1),
+    Street1 NVARCHAR(100) NOT NULL,
+    Street2 NVARCHAR(50),
+    ApartmentNum INT,
+    City NVARCHAR(50) NOT NULL,
+    [State] NVARCHAR(50) NOT NULL,
+    ZipCode NVARCHAR(50) NOT NULL,
+    Active BIT NOT NULL DEFAULT(1)
+);
