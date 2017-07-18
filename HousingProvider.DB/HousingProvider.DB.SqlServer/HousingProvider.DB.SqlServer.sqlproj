@@ -66,5 +66,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Provider\Person.sql" />
+    <Build Include="Provider\Contact.sql" />
   </ItemGroup>
 </Project>
