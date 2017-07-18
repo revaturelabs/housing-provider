@@ -9,6 +9,6 @@ namespace HousingProvider.Data.Library.Interfaces
         T Create(T model);
         List<T> Read();
         T Update(T model);
-        bool Delete(T model);
+        T Delete(T model);
     }
 }
