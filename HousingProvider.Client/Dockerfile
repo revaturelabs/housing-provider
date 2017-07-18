@@ -1,6 +1,5 @@
 FROM node:latest
 WORKDIR /app
 COPY . /app
-EXPOSE 8000
-RUN npm install
+RUN npm install --global http-server
 CMD ["npm", "start"]

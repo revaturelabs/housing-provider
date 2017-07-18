@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "charset": "utf-8",
+    "module": "commonjs",
+    "outDir": "jsbin",
+    "target": "es5"
+  },
+  "include": [
+    "ngapp/**/*"
+  ]
+}
