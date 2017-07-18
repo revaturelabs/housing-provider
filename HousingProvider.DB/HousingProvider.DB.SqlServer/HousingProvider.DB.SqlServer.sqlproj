@@ -59,6 +59,7 @@
     <Folder Include="Properties" />
     <Folder Include="Provider" />
     <Folder Include="Schema" />
+    <Folder Include="Request" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
