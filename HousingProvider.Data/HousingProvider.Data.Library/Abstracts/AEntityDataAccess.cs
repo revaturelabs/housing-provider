@@ -42,15 +42,11 @@ namespace HousingProvider.Data.Library.Abstracts
 
         public T Update(T model)
         {
-            var m = Get(model);
-            if (m != null)
+            if (Delete(model) != null)
             {
-                if (Delete(m) != null)
-                {
-                    var updated = Create(m);
-                    _Context.SaveChanges();
-                    return updated;
-                }
+                var updated = Create(model);
+                _Context.SaveChanges();
+                return updated;
             }
             return null;
         }
