@@ -61,6 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
-    <None Include="Schema\Provider.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schema\Provide.sql" />
   </ItemGroup>
 </Project>
