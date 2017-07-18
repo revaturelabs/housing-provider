@@ -1,5 +1,4 @@
-﻿using HousingProvider.Data.Library.Interfaces;
-using HousingProvider.Data.Library.Models;
+﻿using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
