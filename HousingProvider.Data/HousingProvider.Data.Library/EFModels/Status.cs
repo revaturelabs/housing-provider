@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.Models
+namespace HousingProvider.Data.Service.EFModels
 {
-    public partial class RequestType
+    public partial class Status
     {
-        public RequestType()
+        public Status()
         {
             Request = new HashSet<Request>();
         }
 
-        public int RequestTypeId { get; set; }
-        public string RequestTypeDescription { get; set; }
+        public int StatusId { get; set; }
+        public string StatusDescription { get; set; }
         public bool Active { get; set; }
 
         public virtual ICollection<Request> Request { get; set; }

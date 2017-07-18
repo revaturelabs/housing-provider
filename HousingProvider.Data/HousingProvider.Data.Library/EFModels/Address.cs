@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.Models
+namespace HousingProvider.Data.Service.EFModels
 {
     public partial class Address
     {
@@ -9,7 +9,6 @@ namespace HousingProvider.Data.Library.Models
         {
             Complex = new HashSet<Complex>();
             Property = new HashSet<Property>();
-            Provider = new HashSet<Provider>();
         }
 
         public int AddressId { get; set; }
@@ -23,6 +22,5 @@ namespace HousingProvider.Data.Library.Models
 
         public virtual ICollection<Complex> Complex { get; set; }
         public virtual ICollection<Property> Property { get; set; }
-        public virtual ICollection<Provider> Provider { get; set; }
     }
 }
