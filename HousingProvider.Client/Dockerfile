@@ -4,5 +4,5 @@ COPY . /app
 EXPOSE 8000
 RUN npm install --global http-server typescript@2.3.4 webpack@2.6.1
 RUN npm install
-RUN npm run build
+# RUN npm run build
 CMD ["npm", "start"]
