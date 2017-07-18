@@ -57,8 +57,10 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Provider" />
+    <Folder Include="Request" />
     <Folder Include="Schema" />
+    <Folder Include="Person" />
+    <Folder Include="Property" />
     <Folder Include="Request" />
   </ItemGroup>
   <ItemGroup>
@@ -70,18 +72,18 @@
     <Build Include="Schema\Request.sql" />
     <Build Include="Schema\Property.sql" />
     <Build Include="Schema\Person.sql" />
+    <Build Include="Person\Person.sql" />
+    <Build Include="Person\Provider.sql" />
+    <Build Include="Person\Contact.sql" />
+    <Build Include="Person\Role.sql" />
+    <Build Include="Property\Property.sql" />
+    <Build Include="Property\Address.sql" />
+    <Build Include="Property\Complex.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Provider\Person.sql" />
-    <Build Include="Provider\RequestType.sql" />
-    <Build Include="Provider\Request.sql" />
-    <Build Include="Provider\Status.sql" />
-    <Build Include="Provider\Property.sql" />
-    <Build Include="Provider\Complex.sql" />
-    <Build Include="Provider\Address.sql" />
-    <Build Include="Provider\Role.sql" />
-    <Build Include="Provider\Provider.sql" />
-    <Build Include="Provider\Contact.sql" />
+    <Build Include="Request\RequestType.sql" />
+    <Build Include="Request\Request.sql" />
+    <Build Include="Request\Status.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HousingProvider.DB.SqlServer.publish.xml" />

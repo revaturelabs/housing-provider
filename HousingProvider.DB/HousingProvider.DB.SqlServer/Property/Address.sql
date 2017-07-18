@@ -1,5 +1,5 @@
-﻿CREATE TABLE [Provider].[Address] (
-    AddressId INT primary key clustered IDENTITY(1,1),
+﻿CREATE TABLE [Property].[Address] (
+    AddressId INT primary key clustered IDENTITY(1,1) not null,
     Street1 NVARCHAR(100) NOT NULL,
     Street2 NVARCHAR(50),
     ApartmentNum INT,
