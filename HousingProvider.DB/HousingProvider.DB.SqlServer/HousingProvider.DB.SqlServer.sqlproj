@@ -62,4 +62,7 @@
   <ItemGroup>
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Provider\Person.sql" />
+  </ItemGroup>
 </Project>
