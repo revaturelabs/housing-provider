@@ -34,6 +34,7 @@ namespace HousingProvider.Business.Service.Controllers
         [HttpPost]
         public void Post([FromBody]Request req)
         {
+            rb.Create(req);
         }
 
         /*// PUT api/values/5
