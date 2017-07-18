@@ -1,5 +1,5 @@
 ﻿using HousingProvider.Data.Library.Abstracts;
-using HousingProvider.Data.Library.Models;
+using HousingProvider.Data.Library.EFModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

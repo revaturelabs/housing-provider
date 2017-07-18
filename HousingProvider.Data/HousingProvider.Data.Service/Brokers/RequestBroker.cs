@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HousingProvider.Data.Library.Models;
+using HousingProvider.Data.Library.EFModels;
 using HousingProvider.Data.Service.Interfaces;
 
 namespace HousingProvider.Data.Service.Brokers

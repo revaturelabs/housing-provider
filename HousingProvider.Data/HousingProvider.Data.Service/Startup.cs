@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using HousingProvider.Data.Library.Models;
+using HousingProvider.Data.Library.EFModels;
 
 namespace HousingProvider.Data.Service
 {

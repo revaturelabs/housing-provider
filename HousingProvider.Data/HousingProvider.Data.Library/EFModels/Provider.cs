@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Service.EFModels
+namespace HousingProvider.Data.Library.EFModels
 {
     public partial class Provider
     {

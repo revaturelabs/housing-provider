@@ -4,7 +4,7 @@
 //using System.Collections.Generic;
 //using System.Text;
 //using System.Linq;
-//using HousingProvider.Data.Library.Models;
+//using HousingProvider.Data.Library.EFModels;
 //using HousingProvider.Data.Library.DAO;
 
 //namespace HousingProvider.Data.Tests

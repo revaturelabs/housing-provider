@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HousingProvider.Data.Library;
-using HousingProvider.Data.Library.Models;
+using HousingProvider.Data.Library.EFModels;
 
 namespace HousingProvider.Data.Service.Controllers
 {
