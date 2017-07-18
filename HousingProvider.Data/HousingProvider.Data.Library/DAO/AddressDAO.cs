@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace HousingProvider.Data.Library.DAOModels
+namespace HousingProvider.Data.Library.DAO
 {
     public class AddressDAO : ICrud<Address, Address>
     {
