@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Provider].[Provider] (
+﻿CREATE TABLE [Person].[Provider] (
     ProviderId INT primary key clustered IDENTITY(1,1),
     ProviderName NVARCHAR(50) NOT NULL,
     ContactId INT NOT NULL,
