@@ -1,2 +1,2 @@
 ﻿CREATE SCHEMA [Provider]
-Go
+GO
