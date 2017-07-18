@@ -1,4 +1,4 @@
-﻿CREATE TABLE [Provider].Request (
+﻿CREATE TABLE [Request].Request (
     RequestId INT primary key clustered IDENTITY(1,1) not null,
     RequestTypeId INT NOT NULL,
     RequestTitle NVARCHAR(100) NOT NULL,
@@ -11,12 +11,12 @@
     StatusId INT NOT NULL,
     [Action] NVARCHAR(1000),
 	 Urgent BIT NOT NULL DEFAULT(0),
-    Active BIT NOT NULL DEFAULT(1)
-CONSTRAINT FK_Provider_request_requesttypeid FOREIGN KEY (RequestTypeId) REFERENCES [Provider].[RequestType](RequestTypeId),
+    Active BIT NOT NULL DEFAULT(1),
+CONSTRAINT FK_Request_request_requesttypeid FOREIGN KEY (RequestTypeId) REFERENCES [Request].[RequestType](RequestTypeId),
 
-CONSTRAINT FK_Provider_request_propertyid FOREIGN KEY (PropertyId) REFERENCES [Provider].Property(PropertyId),
+CONSTRAINT FK_Request_request_propertyid FOREIGN KEY (PropertyId) REFERENCES [Property].Property(PropertyId),
     
-CONSTRAINT FK_Provider_Request_Statusid FOREIGN KEY (StatusId) REFERENCES [Provider].[Status](StatusId)
+CONSTRAINT FK_Request_Request_Statusid FOREIGN KEY (StatusId) REFERENCES [Request].[Status](StatusId)
     
 
 

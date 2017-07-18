@@ -57,7 +57,7 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
-    <Folder Include="Provider" />
+    <Folder Include="Request" />
     <Folder Include="Schema" />
     <Folder Include="Person" />
     <Folder Include="Property" />
@@ -66,7 +66,6 @@
     <PreDeploy Include="Script.PreDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Schema\Provide.sql" />
     <Build Include="Person\Person.sql" />
     <Build Include="Person\Provider.sql" />
     <Build Include="Person\Contact.sql" />
@@ -76,8 +75,8 @@
     <Build Include="Property\Complex.sql" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Provider\RequestType.sql" />
-    <Build Include="Provider\Request.sql" />
-    <Build Include="Provider\Status.sql" />
+    <Build Include="Request\RequestType.sql" />
+    <Build Include="Request\Request.sql" />
+    <Build Include="Request\Status.sql" />
   </ItemGroup>
 </Project>
