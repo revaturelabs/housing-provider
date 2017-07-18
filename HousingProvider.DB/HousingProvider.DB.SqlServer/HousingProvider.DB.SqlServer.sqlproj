@@ -74,7 +74,6 @@
     <Build Include="Person\Person.sql" />
     <Build Include="Person\Provider.sql" />
     <Build Include="Person\Contact.sql" />
-    <Build Include="Person\Role.sql" />
     <Build Include="Property\Property.sql" />
     <Build Include="Property\Address.sql" />
     <Build Include="Property\Complex.sql" />
