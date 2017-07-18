@@ -15,7 +15,7 @@ namespace HousingProvider.Data.Library.DAO
         public override Contact Get(Contact model)
         {
             return _Context.Set<Contact>().FirstOrDefault(c => c.Phone == model.Phone &&
-                                                            sc.Email == model.Email);
+                                                            c.Email == model.Email);
         }
     }
 }
