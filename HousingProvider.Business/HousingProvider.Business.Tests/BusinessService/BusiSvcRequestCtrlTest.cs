@@ -5,6 +5,10 @@ using NUnit.Framework;
 using System.Net.Http;
 using HousingProvider.Business.Library.Models;
 using Newtonsoft.Json;
+using HousingProvider.Business.Service.Controllers;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
+
 
 namespace HousingProvider.Business.Tests.BusinessService
 {
@@ -36,5 +40,18 @@ namespace HousingProvider.Business.Tests.BusinessService
 
             Assert.IsTrue (actual.Count > expected);
         }
+
+    [Test]
+    //[AsyncStateMachine(typeof(Task))]
+    public void PostTest()
+    {
+      
+      var request = new Request();
+      
+      var controller = new RequestController();
+      var result = controller.Post(request);
+
+      Assert.IsTrue(result);
     }
+  }
 }
