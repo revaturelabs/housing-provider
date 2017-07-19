@@ -1,4 +1,5 @@
-﻿using HousingProvider.Data.Library.EFModels;
+﻿using HousingProvider.Data.Library.DAO;
+using HousingProvider.Data.Library.EFModels;
 using HousingProvider.Data.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,9 +24,34 @@ namespace HousingProvider.Data.Library.Abstracts
             }
         }
 
-        public static IDataAccess<T> GetDAO<T>()
+        public static IDataAccess<Address> GetAddressDAO()
         {
-            
+            return new AddressDAO(_Context);
+        }
+
+        public static IDataAccess<Contact> GetContextDAO()
+        {
+            return new ContactDAO(_Context);
+        }
+
+        public static IDataAccess<Person> GetPersonDAO()
+        {
+            return new PersonDAO(_Context);
+        }
+
+        public static IDataAccess<Property> GetPropettyDAO()
+        {
+            return new PropertyDAO(_Context);
+        }
+
+        public static IDataAccess<Provider> GetProviderDAO()
+        {
+            return new ProviderDAO(_Context);
+        }
+
+        public static IDataAccess<Request> GetRequestDAO()
+        {
+            return new RequestDAO(_Context);
         }
     }
 }
