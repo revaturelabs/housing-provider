@@ -18,7 +18,7 @@ namespace HousingProvider.Business.Service
 
         public bool Create(Request obj)
         {
-            throw new NotImplementedException ();
+            return true;
         }
 
         public bool Delete(Request obj)
