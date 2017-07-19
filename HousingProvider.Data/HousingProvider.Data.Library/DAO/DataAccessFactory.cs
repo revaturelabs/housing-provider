@@ -26,32 +26,32 @@ namespace HousingProvider.Data.Library.DAO
 
         public static IDataAccess<Address> GetAddressDAO()
         {
-            return new AddressDAO(_Context);
+            return new AddressDAO(Context);
         }
 
         public static IDataAccess<Contact> GetContextDAO()
         {
-            return new ContactDAO(_Context);
+            return new ContactDAO(Context);
         }
 
         public static IDataAccess<Person> GetPersonDAO()
         {
-            return new PersonDAO(_Context);
+            return new PersonDAO(Context);
         }
 
         public static IDataAccess<Property> GetPropettyDAO()
         {
-            return new PropertyDAO(_Context);
+            return new PropertyDAO(Context);
         }
 
         public static IDataAccess<Provider> GetProviderDAO()
         {
-            return new ProviderDAO(_Context);
+            return new ProviderDAO(Context);
         }
 
         public static IDataAccess<Request> GetRequestDAO()
         {
-            return new RequestDAO(_Context);
+            return new RequestDAO(Context);
         }
     }
 }
