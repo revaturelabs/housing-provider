@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace HousingProvider.Data.Library.Abstracts
+namespace HousingProvider.Data.Library.DAO
 {
-    public abstract class ADataAccessFactory
+    public static class DataAccessFactory
     {
         private static DbContext _Context;
 
