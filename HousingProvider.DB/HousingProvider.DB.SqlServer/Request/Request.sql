@@ -12,7 +12,8 @@
     [Action] NVARCHAR(1000),
 	 Urgent BIT NOT NULL DEFAULT(0),
     Active BIT NOT NULL DEFAULT(1),
-CONSTRAINT FK_Request_request_requesttypeid FOREIGN KEY (RequestTypeId) REFERENCES [Request].[RequestType](RequestTypeId),
+[Guid] UNIQUEIDENTIFIER NOT NULL, 
+    CONSTRAINT FK_Request_request_requesttypeid FOREIGN KEY (RequestTypeId) REFERENCES [Request].[RequestType](RequestTypeId),
 
 CONSTRAINT FK_Request_request_propertyid FOREIGN KEY (PropertyId) REFERENCES [Property].Property(PropertyId),
     
