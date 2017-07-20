@@ -59,6 +59,8 @@ namespace HousingProvider.Data.Library.EFModels
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
+
                 entity.HasOne(d => d.Address)
                     .WithMany(p => p.Complex)
                     .HasForeignKey(d => d.AddressId)
@@ -143,6 +145,8 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.ToTable("Provider", "Person");
 
                 entity.Property(e => e.Active).HasDefaultValueSql("1");
+
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
 
                 entity.Property(e => e.ProviderName)
                     .IsRequired()
