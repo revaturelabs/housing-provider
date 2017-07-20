@@ -5,6 +5,7 @@
     LastName NVARCHAR(50) NOT NULL,
     ContactId INT NOT NULL,
     Active BIT NOT NULL DEFAULT(1),
-		CONSTRAINT FK_Person_Person_ProviderId FOREIGN KEY (ProviderId) REFERENCES [Person].[Provider](ProviderId),
+		[Guid] UNIQUEIDENTIFIER NOT NULL, 
+    CONSTRAINT FK_Person_Person_ProviderId FOREIGN KEY (ProviderId) REFERENCES [Person].[Provider](ProviderId),
     CONSTRAINT FK_Person_Person_ContactId FOREIGN KEY (ContactId) REFERENCES [Person].[Contact](ContactId)
 );
