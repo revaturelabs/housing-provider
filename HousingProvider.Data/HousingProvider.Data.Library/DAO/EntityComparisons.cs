@@ -16,5 +16,10 @@ namespace HousingProvider.Data.Library.DAO
                    adr1.State == adr2.State &&
                    adr1.ZipCode == adr2.ZipCode;
         }
+
+        public static bool ContactEquals(Contact con1, Contact con2)
+        {
+            return con1.Phone == con2.Phone && con1.Email == con2.Email;
+        }
     }
 }
