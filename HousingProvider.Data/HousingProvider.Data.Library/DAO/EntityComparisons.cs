@@ -31,5 +31,12 @@ namespace HousingProvider.Data.Library.DAO
         {
             return AddressEquals(prop1.Address, prop2.Address);
         }
+
+        public static bool RequestEquals(Request req1, Request req2)
+        {
+            return req1.RequestTitle == req2.RequestTitle &&
+                req1.RequestorName == req2.RequestorName &&
+                req2.RepresentativeName == req2.RepresentativeName;
+        }
     }
 }
