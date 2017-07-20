@@ -30,7 +30,7 @@ namespace HousingProvider.Data.Library.Abstracts
 
         public T Delete(T model)
         {
-            var m = Get(model);
+            var m = Find(model);
             if (m != null)
             {
                 var deleted = _Context.Set<T>().Remove(m).Entity;
@@ -45,9 +45,9 @@ namespace HousingProvider.Data.Library.Abstracts
             return _Context.Set<T>().ToList();
         }
 
-        public T Read(Func<T, bool> comparer)
+        public T Find(T model)
         {
-            return _Context.Set<T>().FirstOrDefault<T>(comparer);
+            return _Context.Set<T>().FirstOrDefault(m => Eq(m, model));
         }
 
         public T Update(T model)
