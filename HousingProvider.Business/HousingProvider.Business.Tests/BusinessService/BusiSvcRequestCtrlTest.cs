@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using HousingProvider.Business.Service.Controllers;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using HousingProvider.Business.Library.Interfaces;
+using HousingProvider.Business.Service.DataModels;
 
 
 namespace HousingProvider.Business.Tests.BusinessService
@@ -15,43 +17,19 @@ namespace HousingProvider.Business.Tests.BusinessService
     [TestFixture]
     public class BusiSvcRequestCtrlTest
     {
-        private static string url = "http://localhost:58072/api/";
-        private static HttpClient client = new HttpClient { BaseAddress = new Uri (url) };
-
-        [Test]
-        public async void GetAllTest()
-        {
-            var actual = new List<Request> ();
-            var expected = 0;
-
-            try
-            {
-                var response = await client.GetAsync ("request", HttpCompletionOption.ResponseContentRead);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    actual = JsonConvert.DeserializeObject<List<Request>> (response.Content.ReadAsStringAsync ().Result);
-                }
-            }
-            catch
-            {
-
-            }
-
-            Assert.IsTrue (actual.Count > expected);
-        }
+        
 
     [Test]
     //[AsyncStateMachine(typeof(Task))]
-    public void PostTest()
+    public void PostTest<T>() where T: ILibraryModel 
     {
       
       var request = new Request();
+     
+      var controller = DataFactory<T>.Access().Create((T)Convert.ChangeType(request, typeof(T)));
       
-      var controller = new RequestController();
-      var result = controller.Post(request);
 
-      Assert.IsTrue(result);
+      Assert.That(controller, Is.True);
     }
   }
 }
