@@ -28,7 +28,7 @@ namespace HousingProvider.Business.Tests.BusinessService
       var controller = request.Post(r);
     
       Console.WriteLine(controller);
-      //Assert.True(controller);
+      Assert.True(controller);
     }
   }
 }
