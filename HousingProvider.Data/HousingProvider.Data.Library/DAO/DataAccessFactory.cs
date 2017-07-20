@@ -1,5 +1,4 @@
-﻿using HousingProvider.Data.Library.DAO;
-using HousingProvider.Data.Library.EFModels;
+﻿using HousingProvider.Data.Library.EFModels;
 using HousingProvider.Data.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -26,32 +25,32 @@ namespace HousingProvider.Data.Library.DAO
 
         public static IDataAccess<Address> GetAddressDAO()
         {
-            return new AddressDAO(Context);
+            return new EntityDataAccess<Address>(Context, EntityComparisons.AddressEquals);
         }
 
         public static IDataAccess<Contact> GetContextDAO()
         {
-            return new ContactDAO(Context);
+            return new EntityDataAccess<Contact>(Context, EntityComparisons.ContactEquals);
         }
 
         public static IDataAccess<Person> GetPersonDAO()
         {
-            return new PersonDAO(Context);
+            return new EntityDataAccess<Person>(Context, EntityComparisons.PersonEquals);
         }
 
         public static IDataAccess<Property> GetPropettyDAO()
         {
-            return new PropertyDAO(Context);
+            return new EntityDataAccess<Property>(Context, EntityComparisons.PropertyEquals);
         }
 
         public static IDataAccess<Provider> GetProviderDAO()
         {
-            return new ProviderDAO(Context);
+            return new EntityDataAccess<Provider>(Context, EntityComparisons.ProviderEquals);
         }
 
         public static IDataAccess<Request> GetRequestDAO()
         {
-            return new RequestDAO(Context);
+            return new EntityDataAccess<Request>(Context, EntityComparisons.RequestEquals);
         }
     }
 }

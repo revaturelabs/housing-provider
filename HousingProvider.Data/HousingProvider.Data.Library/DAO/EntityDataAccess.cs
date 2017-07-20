@@ -5,15 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HousingProvider.Data.Library.Abstracts
+namespace HousingProvider.Data.Library.DAO
 {
-    public abstract class AEntityDataAccess<T> : IDataAccess<T> where T: class
+    public class EntityDataAccess<T> : IDataAccess<T> where T: class
     {
+        public delegate bool EntityEquals(T model1, T model2);
+
         protected DbContext _Context;
 
-        public AEntityDataAccess(DbContext context)
+        private EntityEquals Eq;
+
+        public EntityDataAccess(DbContext context, EntityEquals eq)
         {
             _Context = context;
+            Eq = eq;
         }
 
         public T Create(T model)
@@ -25,7 +30,7 @@ namespace HousingProvider.Data.Library.Abstracts
 
         public T Delete(T model)
         {
-            var m = Get(model);
+            var m = Find(model);
             if (m != null)
             {
                 var deleted = _Context.Set<T>().Remove(m).Entity;
@@ -40,6 +45,11 @@ namespace HousingProvider.Data.Library.Abstracts
             return _Context.Set<T>().ToList();
         }
 
+        public T Find(T model)
+        {
+            return _Context.Set<T>().FirstOrDefault(m => Eq(m, model));
+        }
+
         public T Update(T model)
         {
             if (Delete(model) != null)
@@ -50,7 +60,5 @@ namespace HousingProvider.Data.Library.Abstracts
             }
             return null;
         }
-
-        public abstract T Get(T model);
     }
 }
