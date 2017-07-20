@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace HousingProvider.Data.Service.EFModels
+namespace HousingProvider.Data.Library.EFModels
 {
     public partial class HousingProviderDBContext : DbContext
     {
