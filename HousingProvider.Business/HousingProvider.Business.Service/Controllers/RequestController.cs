@@ -18,7 +18,7 @@ namespace HousingProvider.Business.Service.Controllers
     public class RequestController : Controller 
     {
         [HttpPost]
-        public Task<bool> Post<T>([FromBody]Request req) where T : ILibraryModel
+        public bool Post([FromBody]Request req)
         {
           return DataFactory<Request>.Access().Create(req);
         }

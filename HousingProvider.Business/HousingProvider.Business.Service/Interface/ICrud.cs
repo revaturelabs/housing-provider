@@ -9,6 +9,6 @@ namespace HousingProvider.Business.Service.Interface
     public interface ICrud<T> where T : ILibraryModel
     {
         //List<T> Get();
-        Task<bool> Create(T obj);
+        bool Create(T obj);
     }
 }
