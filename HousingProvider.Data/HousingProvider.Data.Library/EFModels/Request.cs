@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Service.EFModels
 {
     public partial class Request
     {
@@ -18,6 +18,7 @@ namespace HousingProvider.Data.Library.EFModels
         public string Action { get; set; }
         public bool Urgent { get; set; }
         public bool Active { get; set; }
+        public Guid Guid { get; set; }
 
         public virtual Property Property { get; set; }
         public virtual RequestType RequestType { get; set; }

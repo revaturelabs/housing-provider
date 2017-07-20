@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Service.EFModels
 {
     public partial class HousingProviderDBContext : DbContext
     {
@@ -58,6 +58,8 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.Property(e => e.ComplexName)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
 
                 entity.HasOne(d => d.Address)
                     .WithMany(p => p.Complex)
@@ -143,6 +145,8 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.ToTable("Provider", "Person");
 
                 entity.Property(e => e.Active).HasDefaultValueSql("1");
+
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
 
                 entity.Property(e => e.ProviderName)
                     .IsRequired()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Service.EFModels
 {
     public partial class Contact
     {

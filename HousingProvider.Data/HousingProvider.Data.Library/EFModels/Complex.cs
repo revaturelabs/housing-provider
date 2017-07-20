@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Service.EFModels
 {
     public partial class Complex
     {
@@ -15,6 +15,7 @@ namespace HousingProvider.Data.Library.EFModels
         public int AddressId { get; set; }
         public int ContactId { get; set; }
         public bool Active { get; set; }
+        public Guid Guid { get; set; }
 
         public virtual ICollection<Property> Property { get; set; }
         public virtual Address Address { get; set; }
