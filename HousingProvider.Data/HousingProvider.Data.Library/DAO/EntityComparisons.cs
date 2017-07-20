@@ -27,6 +27,9 @@ namespace HousingProvider.Data.Library.DAO
             return per1.FirstName == per2.FirstName && per1.LastName == per2.LastName;
         }
 
-
+        public static bool PropertyEquals(Property prop1, Property prop2)
+        {
+            return AddressEquals(prop1.Address, prop2.Address);
+        }
     }
 }
