@@ -21,15 +21,14 @@ namespace HousingProvider.Business.Tests.BusinessService
 
     [Test]
     //[AsyncStateMachine(typeof(Task))]
-    public void PostTest<T>() where T: ILibraryModel 
+    public void PostTest() 
     {
-      
-      var request = new Request();
-     
-      var controller = DataFactory<T>.Access().Create((T)Convert.ChangeType(request, typeof(T)));
-      
-
-      Assert.That(controller, Is.True);
+      var r = new Request();
+      var request = new RequestController();
+      var controller = request.Post(r);
+    
+      Console.WriteLine(controller);
+      //Assert.True(controller);
     }
   }
 }

@@ -13,11 +13,12 @@ namespace HousingProvider.Business.Service.DataModels
   public class DataModel<T> : ICrud<T> where T:ILibraryModel
   {
     protected HttpClient client = new HttpClient();
-    public virtual async Task<bool> Create(T obj)
+    public virtual bool Create(T obj)
     {
       var json = JsonConvert.SerializeObject(obj);
+      
       var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-      var response = await client.PostAsync(client.BaseAddress.AbsoluteUri, content);
+      var response = client.PostAsync(client.BaseAddress.AbsoluteUri, content).Result;
         if (response.IsSuccessStatusCode)
         {
           return true;
