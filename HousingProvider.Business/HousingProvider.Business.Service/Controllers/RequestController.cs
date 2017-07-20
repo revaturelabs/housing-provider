@@ -4,49 +4,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HousingProvider.Business.Library.Models;
+using HousingProvider.Business.Service.DataModels;
+
 using Newtonsoft.Json;
 using System.Net.Http;
+using HousingProvider.Business.Library.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace HousingProvider.Business.Service.Controllers
 {
     [Route("api/[controller]")]
-    public class RequestController : Controller
+    public class RequestController : Controller 
     {
-        private static RequestBroker rb = new RequestBroker();
-
-        // GET: api/values
-        [HttpGet]
-        public Task<List<Request>> Get()
-        {
-            return rb.Get();
-        }
-
-        /*// GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }*/
-
-        // POST api/values
         [HttpPost]
-        public bool Post([FromBody]Request req)
+        public Task<bool> Post<T>([FromBody]Request req) where T : ILibraryModel
         {
-            return rb.Create(req);
+          return DataFactory<Request>.Access().Create(req);
         }
-
-        /*// PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }*/
     }
 }
