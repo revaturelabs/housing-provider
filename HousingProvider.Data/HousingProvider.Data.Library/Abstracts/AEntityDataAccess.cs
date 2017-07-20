@@ -9,11 +9,16 @@ namespace HousingProvider.Data.Library.Abstracts
 {
     public abstract class AEntityDataAccess<T> : IDataAccess<T> where T: class
     {
+        public delegate bool EntityEquals(T model1, T model2);
+
         protected DbContext _Context;
 
-        public AEntityDataAccess(DbContext context)
+        private EntityEquals Eq;
+
+        public AEntityDataAccess(DbContext context, EntityEquals eq)
         {
             _Context = context;
+            Eq = eq;
         }
 
         public T Create(T model)
