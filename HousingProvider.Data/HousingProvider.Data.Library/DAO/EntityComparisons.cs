@@ -38,5 +38,10 @@ namespace HousingProvider.Data.Library.DAO
                 req1.RequestorName == req2.RequestorName &&
                 req2.RepresentativeName == req2.RepresentativeName;
         }
+
+        public static bool ProviderEquals(Provider pro1, Provider pro2)
+        {
+            return pro1.ProviderName == pro2.ProviderName;
+        }
     }
 }
