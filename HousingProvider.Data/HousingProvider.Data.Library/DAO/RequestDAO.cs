@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HousingProvider.Data.Library.DAO
 {
-    public class RequestDAO : AEntityDataAccess<Request>
+    public class RequestDAO : EntityDataAccess<Request>
     {
         public RequestDAO(DbContext context) : base(context) {}
 

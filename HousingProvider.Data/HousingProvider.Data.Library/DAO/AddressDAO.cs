@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HousingProvider.Data.Library.DAO
 {
-    public class AddressDAO : AEntityDataAccess<Address>
+    public class AddressDAO : EntityDataAccess<Address>
     {
         public AddressDAO(DbContext context) : base(context) {}
 

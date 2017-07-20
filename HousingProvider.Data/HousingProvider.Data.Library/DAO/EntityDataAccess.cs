@@ -5,9 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HousingProvider.Data.Library.Abstracts
+namespace HousingProvider.Data.Library.DAO
 {
-    public abstract class AEntityDataAccess<T> : IDataAccess<T> where T: class
+    public class EntityDataAccess<T> : IDataAccess<T> where T: class
     {
         public delegate bool EntityEquals(T model1, T model2);
 
@@ -15,7 +15,7 @@ namespace HousingProvider.Data.Library.Abstracts
 
         private EntityEquals Eq;
 
-        public AEntityDataAccess(DbContext context, EntityEquals eq)
+        public EntityDataAccess(DbContext context, EntityEquals eq)
         {
             _Context = context;
             Eq = eq;
@@ -60,7 +60,5 @@ namespace HousingProvider.Data.Library.Abstracts
             }
             return null;
         }
-
-        public abstract T Get(T model);
     }
 }
