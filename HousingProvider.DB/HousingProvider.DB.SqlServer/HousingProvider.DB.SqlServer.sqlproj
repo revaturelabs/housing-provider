@@ -74,6 +74,7 @@
     <Build Include="Property\Property.sql" />
     <Build Include="Property\Address.sql" />
     <Build Include="Property\Complex.sql" />
+    <Build Include="TestProcedures.sql" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Request\RequestType.sql" />

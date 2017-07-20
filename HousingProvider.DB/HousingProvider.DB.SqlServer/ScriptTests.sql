@@ -46,7 +46,7 @@ values
     ('Fairway Apartments',5,1,1),
     ('The Sycamores',6,1,1);
 
-INSERT INTO [Person].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active)
+INSERT INTO [Person].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active,[Guid])
 values
     (1,'John','Smith',1,1,1),
     (1,'Jane','Doe',1,1,1);
