@@ -1,4 +1,4 @@
-var fn = require('../jsbin/index.js');
+var fn = require('../public/js/script.bundle.js');
 // var ng1 = require('angular');
 var ng2 = require('angular-mocks');
 

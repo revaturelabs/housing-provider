@@ -69,14 +69,14 @@
 
 "use strict";
 
-// import 'file-loader?name=[name].[ext]&outputPath=ngapp/home/!./home/template.html';
-// // import './home/template.html';
-// import './css/index.css';
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(1);
+// import './home/template.html';
+__webpack_require__(2);
 // export function addNumbers(n1: number, n2: number) {
 //   return n1 + n2;
 // }
-var ng = __webpack_require__(1);
+var ng = __webpack_require__(3);
 var ngApp = ng.module('ngApp', []);
 ngApp.controller('TestController', ['$scope', '$http', function ($scope, $http) {
         $scope.something = 'hello mock';
@@ -95,12 +95,24 @@ ngApp.controller('TestController', ['$scope', '$http', function ($scope, $http) 
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(2);
+module.exports = __webpack_require__.p + "ngapp/home/template.html";
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "css/index.css";
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(4);
 module.exports = angular;
 
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports) {
 
 /**
