@@ -40,6 +40,11 @@ namespace HousingProvider.Data.Library.Abstracts
             return _Context.Set<T>().ToList();
         }
 
+        public T Read(Func<T, bool> comparer)
+        {
+            return _Context.Set<T>().FirstOrDefault<T>(comparer);
+        }
+
         public T Update(T model)
         {
             if (Delete(model) != null)
