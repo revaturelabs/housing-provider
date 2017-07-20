@@ -13,3 +13,16 @@ begin
 end;
 go
 
+create procedure testTeardown
+as
+begin
+	begin transaction
+		begin try
+			delete from Property.[Address] where City = 'Test';
+			commit tran;
+		end try
+		begin catch
+			rollback transaction;
+		end catch
+end;
+go
