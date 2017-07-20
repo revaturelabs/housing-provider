@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HousingProvider.Business.Library.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,7 +8,7 @@ namespace HousingProvider.Business.Library.Models
    /// <summary>
    /// Represent a request for accommodation or supplies
    /// </summary>
-   public class Request
+   public class Request : ILibraryModel
    {
       public bool Urgent { get; set; }
       public string Initiator { get; set; }
