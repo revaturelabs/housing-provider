@@ -21,5 +21,12 @@ namespace HousingProvider.Data.Library.DAO
         {
             return con1.Phone == con2.Phone && con1.Email == con2.Email;
         }
+
+        public static bool PersonEquals(Person per1, Person per2)
+        {
+            return per1.FirstName == per2.FirstName && per1.LastName == per2.LastName;
+        }
+
+
     }
 }
