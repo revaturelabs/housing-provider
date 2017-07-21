@@ -17,6 +17,11 @@ namespace HousingProvider.Business.Service.Controllers
     [Route("api/[controller]")]
     public class RequestController : DataSvcController 
     {
+        public RequestController()
+        {
+            DataSvcUrl += "request";
+        }
+
         [HttpPost]
         public bool Post([FromBody]Request req)
         {

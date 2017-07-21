@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using HousingProvider.Business.Library.Models;
-using HousingProvider.Business.Service.DataModels;
+using HousingProvider.Data.Library.EFModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace HousingProvider.Business.Service.Controllers
+namespace HousingProvider.Data.Service.Controllers
 {
     [Route("api/[controller]")]
-    public class ComplexController : DataSvcController
+    public class ComplexController : Controller
     {
-        public ComplexController()
-        {
-            DataSvcUrl += "complex";
-        }
-
         // GET: api/values
         [HttpGet]
         public IEnumerable<Complex> Get()
         {
-            return DataFactory<Complex>.Access(DataSvcUrl).GetAll();
+            return new Complex[] { new Complex { ComplexName = "Westerly"} };
         }
     }
 }

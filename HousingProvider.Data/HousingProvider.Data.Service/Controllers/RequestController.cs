@@ -15,6 +15,12 @@ namespace HousingProvider.Data.Service.Controllers
   [Route("api/[controller]")]
     public class RequestController : Controller
     {
+        [HttpGet]
+        public string Get()
+        {
+            return "legitimate database data";
+        }
+
         [HttpPost]
         public HttpResponseMessage Post([FromBody]Request request)
         {

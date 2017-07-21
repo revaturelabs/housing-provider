@@ -16,6 +16,7 @@ namespace HousingProvider.Business.Service.DataModels
 
         internal DataSvcModel(string url)
         {
+            _Client = new HttpClient();
             _Client.BaseAddress = new Uri(url);
         }
 
