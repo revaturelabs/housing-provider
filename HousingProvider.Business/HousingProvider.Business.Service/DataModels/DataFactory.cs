@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Business.Service.DataModels
 {
-    public class DataFactory<T>  where T: ILibraryModel
+    public class DataFactory<T> where T: ILibraryModel
     {
-      public static DataModel<T> Access()
+      public static DataSvcModel<T> Access(string url)
       {
-        return new DataModel<T>();
+        return new DataSvcModel<T>(url);
       }
     }
 }

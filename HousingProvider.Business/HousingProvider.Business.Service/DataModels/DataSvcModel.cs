@@ -10,16 +10,21 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Business.Service.DataModels
 {
-    public class DataModel<T> : ICrud<T> where T : ILibraryModel
+    public class DataSvcModel<T> : IDataModel<T> where T : ILibraryModel
     {
-        protected HttpClient client = new HttpClient();
+        private HttpClient _Client;
 
-        public virtual bool Create(T obj)
+        internal DataSvcModel(string url)
+        {
+            _Client.BaseAddress = new Uri(url);
+        }
+
+        public bool Create(T obj)
         {
             var json = JsonConvert.SerializeObject(obj);
 
             var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-            var response = client.PostAsync(client.BaseAddress.AbsoluteUri, content).Result;
+            var response = _Client.PostAsync(_Client.BaseAddress.AbsoluteUri, content).Result;
             if (response.IsSuccessStatusCode)
             {
                 return true;
@@ -30,9 +35,9 @@ namespace HousingProvider.Business.Service.DataModels
             }
         }
 
-        public virtual List<T> GetAll()
+        public List<T> GetAll()
         {
-            var response = client.GetAsync(client.BaseAddress.AbsoluteUri).Result;
+            var response = _Client.GetAsync(_Client.BaseAddress.AbsoluteUri).Result;
             if (response.IsSuccessStatusCode)
             {
                 return JsonConvert.DeserializeObject<List<T>>(response.Content.ReadAsStringAsync().Result);
