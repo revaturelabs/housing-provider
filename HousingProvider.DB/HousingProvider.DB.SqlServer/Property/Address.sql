@@ -6,7 +6,8 @@
     City NVARCHAR(50) NOT NULL,
     [State] NVARCHAR(50) NOT NULL,
     ZipCode NVARCHAR(50) NOT NULL,
-    Active BIT NOT NULL DEFAULT(1)
+    Active BIT NOT NULL DEFAULT(1), 
+    [Guid ] UNIQUEIDENTIFIER NOT NULL
 
 
 );
