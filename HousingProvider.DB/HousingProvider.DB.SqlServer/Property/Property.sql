@@ -6,7 +6,9 @@
     AddressId INT NOT NULL,
     ComplexId INT NOT NULL,
     Active BIT NOT NULL DEFAULT(1),
-	 CONSTRAINT FK_Property_Property_ProviderId FOREIGN KEY (ProviderId) REFERENCES [Person].[Provider](ProviderId),
+	 [Guid ] UNIQUEIDENTIFIER NOT NULL, 
+    [ModifiedDate] DATETIME NOT NULL, 
+    CONSTRAINT FK_Property_Property_ProviderId FOREIGN KEY (ProviderId) REFERENCES [Person].[Provider](ProviderId),
 	 CONSTRAINT FK_Property_Property_AddressId FOREIGN KEY (AddressId) REFERENCES [Property].[Address](AddressId),
 	 CONSTRAINT FK_Property_Property_ComplexId FOREIGN KEY (ComplexId) REFERENCES [Property].[Complex](ComplexId)
 );
