@@ -38,10 +38,10 @@ namespace HousingProvider.Business.Tests.BusinessService
     {
       var r = new Complex();
       var request = new ServiceController();
-      //var controller = request.Get(r);
+      var controller = request.Get(r);
 
-      Console.WriteLine(request.Get(r));
-      //Assert.IsNotNull(controller);
+      Console.WriteLine(controller.ToString());
+      //Assert.IsNull(controller);
     }
   }
 }

@@ -12,11 +12,11 @@ namespace HousingProvider.Business.Service.Controllers
     {
         public List<Complex> Get(Complex c)
         {
-            return FactoryController<Complex>.Route(c.GetType().ToString(), c).Get();
+            return FactoryController<Complex>.Route(c.GetType().Name, c).Get();
         }
         public List<Request> Get(Request r)
         {
-            return FactoryController<Request>.Route(r.GetType().ToString(), r).Get();
+            return FactoryController<Request>.Route(r.GetType().Name, r).Get();
         }
         public bool Post(Request r)
         {
