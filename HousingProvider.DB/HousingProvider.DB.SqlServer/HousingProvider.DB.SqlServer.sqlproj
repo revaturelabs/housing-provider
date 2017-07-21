@@ -85,4 +85,7 @@
     <None Include="ScriptTests.sql" />
     <None Include="HousingProvider.DB.SqlServer.publish.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="HousingProvider.DB.SqlServer.refactorlog" />
+  </ItemGroup>
 </Project>
