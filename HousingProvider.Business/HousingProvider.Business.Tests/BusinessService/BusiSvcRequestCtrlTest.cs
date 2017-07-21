@@ -14,34 +14,35 @@ using HousingProvider.Business.Service.DataModels;
 
 namespace HousingProvider.Business.Tests.BusinessService
 {
-    [TestFixture]
-    public class BusiSvcRequestCtrlTest
-    {
-        
+  [TestFixture]
+  public class BusiSvcRequestCtrlTest
+  {
+
 
     [Test]
     //[AsyncStateMachine(typeof(Task))]
-    public void PostTest() 
+    public void GetComplexTest()
+    {
+      var request = new ComplexController();
+      var controller = request.Get();
+
+      
+
+      Assert.IsNotNull(controller);
+    }
+
+    [Test]
+    //[AsyncStateMachine(typeof(Task))]
+    public void GetRequestTest()
     {
       var r = new Request();
-      var request = new ServiceController();
+      var request = new RequestController();
       var controller = request.Post(r);
-      
-      Console.WriteLine(controller);
-      
-      Assert.True(controller);
+
+     
+
+      Assert.IsTrue(controller);
     }
 
-    [Test]
-    //[AsyncStateMachine(typeof(Task))]
-    public void GetTest()
-    {
-      var r = new Complex();
-      var request = new ServiceController();
-      var controller = request.Get(r);
-
-      Console.WriteLine(controller.ToString());
-      //Assert.IsNull(controller);
-    }
   }
 }
