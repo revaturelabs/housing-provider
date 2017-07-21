@@ -10,24 +10,37 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Business.Service.DataModels
 {
-  public class DataModel<T> : ICrud<T> where T:ILibraryModel
-  {
-    protected HttpClient client = new HttpClient();
-    public virtual bool Create(T obj)
+    public class DataModel<T> : ICrud<T> where T : ILibraryModel
     {
-      var json = JsonConvert.SerializeObject(obj);
-      
-      var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
-      var response = client.PostAsync(client.BaseAddress.AbsoluteUri, content).Result;
-        if (response.IsSuccessStatusCode)
+        protected HttpClient client = new HttpClient();
+
+        public virtual bool Create(T obj)
         {
-          return true;
+            var json = JsonConvert.SerializeObject(obj);
+
+            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+            var response = client.PostAsync(client.BaseAddress.AbsoluteUri, content).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-      else
-      {
-        return false;
-      }
-    
+
+        public virtual List<T> GetAll()
+        {
+            var response = client.GetAsync(client.BaseAddress.AbsoluteUri).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<T>>(response.Content.ReadAsStringAsync().Result);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
-  }
 }

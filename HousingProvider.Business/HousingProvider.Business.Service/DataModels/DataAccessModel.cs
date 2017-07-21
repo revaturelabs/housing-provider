@@ -13,7 +13,7 @@ namespace HousingProvider.Business.Service.DataModels
     
     internal DataAccessModel()
     {
-      client.BaseAddress = new Uri("http://housingproviderdata.azurewebsites.net/api/request");
+      client.BaseAddress = new Uri("http://housingproviderdata.azurewebsites.net/api/complex");
     }
     
   }
