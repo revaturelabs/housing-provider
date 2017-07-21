@@ -4,7 +4,7 @@
     RequestTitle NVARCHAR(100) NOT NULL,
     [Description] NVARCHAR(1000) NOT NULL,
     RequestDate DATETIME NOT NULL DEFAULT(GETDATE()),
-    RequestModifiedDate DATETIME,
+    RequestModifiedDate DATETIME NULL,
     RequestorName NVARCHAR(50) NOT NULL,
     PropertyId INT not null,
     RepresentativeName NVARCHAR(50) NOT NULL,
