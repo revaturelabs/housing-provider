@@ -15,12 +15,12 @@ using HousingProvider.Business.Library.Interfaces;
 namespace HousingProvider.Business.Service.Controllers
 {
     [Route("api/[controller]")]
-    public class RequestController : Controller 
+    public class RequestController : DataSvcController 
     {
         [HttpPost]
         public bool Post([FromBody]Request req)
         {
-          return DataFactory<Request>.Access().Create(req);
+          return DataFactory<Request>.Access(DataSvcUrl).Create(req);
         }
     }
 }
