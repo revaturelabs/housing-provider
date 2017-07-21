@@ -24,11 +24,24 @@ namespace HousingProvider.Business.Tests.BusinessService
     public void PostTest() 
     {
       var r = new Request();
-      var request = new RequestController();
+      var request = new ServiceController();
       var controller = request.Post(r);
-    
+      
       Console.WriteLine(controller);
+      
       Assert.True(controller);
+    }
+
+    [Test]
+    //[AsyncStateMachine(typeof(Task))]
+    public void GetTest()
+    {
+      var r = new Complex();
+      var request = new ServiceController();
+      var controller = request.Get(r);
+
+      Console.WriteLine(controller.ToString());
+      //Assert.IsNull(controller);
     }
   }
 }
