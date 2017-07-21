@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HousingProvider.Business.Service.Interface
 {
-    public interface ICrud<T> where T : ILibraryModel
+    public interface IDataModel<T> where T : ILibraryModel
     {
-        //List<T> Get();
+        List<T> GetAll();
         bool Create(T obj);
     }
 }
