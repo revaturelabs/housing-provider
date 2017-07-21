@@ -52,5 +52,10 @@ namespace HousingProvider.Data.Library.DAO
         {
             return new EntityDataAccess<Request>(Context, EntityComparisons.RequestEquals);
         }
+
+        public static IDataAccess<Complex> GetComplexDAO()
+        {
+            return new EntityDataAccess<Complex>(Context, EntityComparisons.ComplexEquals);
+        }
     }
 }

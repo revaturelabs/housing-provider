@@ -43,5 +43,10 @@ namespace HousingProvider.Data.Library.DAO
         {
             return pro1.ProviderName == pro2.ProviderName;
         }
+
+        public static bool ComplexEquals(Complex com1, Complex com2)
+        {
+            return com1.Guid.Equals(com2.Guid);
+        }
     }
 }
