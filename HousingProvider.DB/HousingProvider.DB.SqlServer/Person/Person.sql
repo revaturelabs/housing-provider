@@ -6,6 +6,7 @@
     ContactId INT NOT NULL,
     Active BIT NOT NULL DEFAULT(1),
 		[Guid] UNIQUEIDENTIFIER NOT NULL, 
+    [ModifiedDate] DATETIME NOT NULL, 
     CONSTRAINT FK_Person_Person_ProviderId FOREIGN KEY (ProviderId) REFERENCES [Person].[Provider](ProviderId),
     CONSTRAINT FK_Person_Person_ContactId FOREIGN KEY (ContactId) REFERENCES [Person].[Contact](ContactId)
 );

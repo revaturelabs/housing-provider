@@ -3,6 +3,7 @@
     ProviderName NVARCHAR(200) NOT NULL,
     AddressId INT NOT NULL,
     Active BIT NOT NULL DEFAULT(1), 
-    [Guid ] UNIQUEIDENTIFIER NOT NULL
+    [Guid ] UNIQUEIDENTIFIER NOT NULL, 
+    [ModifiedDate] DATETIME NOT NULL
 
 );
