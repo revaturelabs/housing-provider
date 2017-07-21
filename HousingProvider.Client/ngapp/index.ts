@@ -1,25 +1,37 @@
-import 'file-loader?name=[name].[ext]&outputPath=ngapp/home/!./home/template.html';
-// import './home/template.html';
-import './css/index.css';
-
-// export function addNumbers(n1: number, n2: number) {
-//   return n1 + n2;
-// }
-
 import * as ng from 'angular';
+import 'angular-route';
+import './css/index.css';
+import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
+import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
 
-var ngApp = ng.module('ngApp', []);
+var ngHousingProvider = ng.module('ngHousingProvider', []);
 
-ngApp.controller('TestController', ['$scope', '$http', function ($scope, $http) {
-  $scope.something = 'hello mock';
+ngHousingProvider.controller('complexController', ['$scope', '$http', function($scope, $http) {
+  $scope.getComplexes = function () {
+    $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
+      $scope.complexes = res.data;
 
-  $scope.addNumbers = function(n1, n2) {
-    return n1 + n2;
-  };
-
-  $scope.seeYouLater = function () {
-    $http.get('/someurl').then(function (res) {
-      $scope.success = res;
+      var count = 1;
+      $scope.complexes.forEach(function(element) {
+        element.counter = count++;
+      });
     });
   };
 }]);
+
+// ngMainProvider.controller('Ctrl', function ($scope, $http) {
+//   $scope.showRequest = function () {
+//     $http({
+//       method: "GET",
+//       url: "http://housingproviderbusiness.azurewebsites.net/api/complex" // this should be replaced with project api link when ready
+//     }).then(function success(response) {
+//       $scope.request = response.data;
+//     }, function error(response) {
+//       $scope.request = response.statusText;
+//     });
+//   }
+// });
+
+
+
+

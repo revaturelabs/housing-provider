@@ -1,22 +1,160 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
 
-  <body>
-    <header>
-      <h1>Revature Housing</h1>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/favicon_192.png">
 
-    <main>
-      Housing Provider
-    </main>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
 
-    <footer>
-      <small>copyright &copy; 2017 fred belotte, all rights reserved.</small>
-    </footer>
-  </body>
+  <script src="https://use.typekit.net/pvo4jdm.js"></script>
+  <script>
+    try { Typekit.load({ async: true }); } catch (e) { }
+  </script>
+  <style type="text/css">
+    .wf-loading {
+      visibility: hidden;
+    }
+  </style>
+  <script src="https://use.fontawesome.com/8d8fa1da46.js"></script>
+  <script>
+    (function (html) { html.className = html.className.replace(/\bno-js\b/, 'js') })(document.documentElement);
+  </script>
+  <link type="text/css" media="all" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/cache/autoptimize/1/css/autoptimize_b16dec850912caaeb8ea4e7717d27677.css"
+    rel="stylesheet" />
+  <link type="text/css" media="screen" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/cache/autoptimize/1/css/autoptimize_bf0dffd3bc2440f535d4cfbc2556223a.css"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+  <script type='text/javascript'>
+    var wpum_frontend_js = { "ajax": "https:\/\/revature.com\/wp-admin\/admin-ajax.php", "checking_credentials": "Checking credentials...", "pwd_meter": "", "disable_ajax": "" };
+  </script>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body data-ng-app="ngHousingProvider">
+  <nav data-ng-include="'./partials/navbar-header.html'"></nav>
+
+  <!-- Button used to get complexes from database -->
+  <div data-ng-controller="complexController">
+    <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>
+
+    <ul data-ng-repeat="complex in complexes">
+      <li>{{complex.complexName}}</li>
+    </ul>
+
+  </div>
+
+  <!-- Displays the request table -->
+  <table id="request_table">
+    <caption>
+      <h1>Requests</h1>
+    </caption>
+    <tr style="background-color: rgb(255,255,102)">
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Urgent?</th>
+    </tr>
+    <!-- Example Rows that can be clicked on -->
+    <tr id="requestRow1" onmouseover="highlightRow(1)" onmouseout="unHighlightRow(1)" onclick="rowDisplay()">
+      <td>Toilet Malfunction</td>
+      <td>404 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>Toilet does not flush.</td>
+      <td>1/1/1970</td>
+      <td>No</td>
+    </tr>
+    <tr id="requestRow2" onmouseover="highlightRow(2)" onmouseout="unHighlightRow(2)" onclick="rowDisplay()">
+      <td>Oven Broken</td>
+      <td>405 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>Oven spits fire.</td>
+      <td>1/1/1982</td>
+      <td>Urgent!</td>
+    </tr>
+    <tr id="requestRow3" onmouseover="highlightRow(3)" onmouseout="unHighlightRow(3)" onclick="rowDisplay()">
+      <td>NO FLOORS</td>
+      <td>406 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>floors were dug up.</td>
+      <td>1/1/1953</td>
+      <td>No</td>
+    </tr>
+    <tr id="requestRow4" onmouseover="highlightRow(4)" onmouseout="unHighlightRow(4)" onclick="rowDisplay()">
+      <td>Dead body in closet</td>
+      <td>407 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>.....</td>
+      <td>1/1/1974</td>
+      <td>Urgent!</td>
+    </tr>
+  </table>
+
+  <!-- Displays the Requests completed -->
+  <table id="complete_table">
+    <caption>
+      <h1>Completed Requests</h1>
+    </caption>
+    <tr style="background-color: green">
+      <th>Title</th>
+      <th>Address</th>
+      <th>Description</th>
+      <th>Date</th>
+    </tr>
+    <tr>
+      <td>Outlet Malfunction</td>
+      <td>401 Nobody Ln, Nowhere, N/A, 50404</td>
+      <td>None of the outlets work!</td>
+      <td>6/4/2011</td>
+    </tr>
+    <tr>
+      <td>Fridge Malfunction</td>
+      <td>421 Nobody Ln, Nodwhere, CA, 50404</td>
+      <td>There is no power going to the fridge, food is spoiled.</td>
+      <td>8/9/2010</td>
+    </tr>
+  </table>
+
+  <!-- Pop-up window when a row from a table is clicked -->
+  <div id="myModal" class="modal">
+
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+
+  </div>
+
+  <script>
+    function highlightRow(id) {
+      document.getElementById("requestRow" + id).style.backgroundColor = "White";
+      document.getElementById("requestRow" + id).style.cursor = "pointer";
+    }
+    function unHighlightRow(id) {
+      document.getElementById("requestRow" + id).style.backgroundColor = "initial";
+      document.getElementById("requestRow" + id).style.cursor = "initial";
+    }
+    function rowDisplay() {
+      modal.style.display = "block";
+    }
+
+    var modal = document.getElementById('myModal');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  </script>
+  <footer id="footer" data-ng-include="'./partials/footer.html'"></footer>
+
+  <script src="./js/script.bundle.js"></script>
+</body>
+
 </html>
