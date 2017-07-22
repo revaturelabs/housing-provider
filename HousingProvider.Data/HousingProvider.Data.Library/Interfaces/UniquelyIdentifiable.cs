@@ -6,6 +6,6 @@ namespace HousingProvider.Data.Library.Interfaces
 {
     public interface UniquelyIdentifiable
     {
-        Guid guid { get; set; }
+        Guid Guid { get; set; }
     }
 }
