@@ -29,14 +29,12 @@ namespace HousingProvider.Data.Library.DAO
             return added;
         }
 
-        public T Delete(T model)
+        public T Delete(Guid guid)
         {
-            var m = Find(model);
+            var m = Find(guid);
             if (m != null)
             {
-                var deleted = _Context.Set<T>().Remove(m).Entity;
-                _Context.SaveChanges();
-                return deleted;
+                return _Context.Set<T>().Remove(m).Entity;
             }
             return null;
         }
