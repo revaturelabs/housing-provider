@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Library.Models
 {
     public partial class Status
     {

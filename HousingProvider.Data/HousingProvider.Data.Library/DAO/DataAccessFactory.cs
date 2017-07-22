@@ -1,4 +1,4 @@
-﻿using HousingProvider.Data.Library.EFModels;
+﻿using HousingProvider.Data.Library.Models;
 using HousingProvider.Data.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Library.Models
 {
     public partial class Request
     {
@@ -10,7 +10,7 @@ namespace HousingProvider.Data.Library.EFModels
         public string RequestTitle { get; set; }
         public string Description { get; set; }
         public DateTime RequestDate { get; set; }
-        public DateTime? RequestModifiedDate { get; set; }
+        public DateTime RequestModifiedDate { get; set; }
         public string RequestorName { get; set; }
         public int PropertyId { get; set; }
         public string RepresentativeName { get; set; }

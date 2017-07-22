@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Library.Models
 {
     public partial class HousingProviderDBContext : DbContext
     {
@@ -19,7 +19,7 @@ namespace HousingProvider.Data.Library.EFModels
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-            optionsBuilder.UseSqlServer(@"Data Source=revature-housing.database.windows.net;Initial Catalog=HousingProviderDB;User ID=dotnet;Password=2017Housing");
+            optionsBuilder.UseSqlServer(@"Data Source=revhousing.database.windows.net;Initial Catalog=HousingProviderDB;User ID=providerteam;Password=2017Housing");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -33,6 +33,10 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
+
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.State)
                     .IsRequired()
@@ -61,6 +65,8 @@ namespace HousingProvider.Data.Library.EFModels
 
                 entity.Property(e => e.Guid).HasColumnName("Guid ");
 
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+
                 entity.HasOne(d => d.Address)
                     .WithMany(p => p.Complex)
                     .HasForeignKey(d => d.AddressId)
@@ -84,6 +90,8 @@ namespace HousingProvider.Data.Library.EFModels
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+
                 entity.Property(e => e.Phone)
                     .IsRequired()
                     .HasMaxLength(50);
@@ -103,6 +111,8 @@ namespace HousingProvider.Data.Library.EFModels
                     .IsRequired()
                     .HasMaxLength(50);
 
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
+
                 entity.HasOne(d => d.Contact)
                     .WithMany(p => p.Person)
                     .HasForeignKey(d => d.ContactId)
@@ -120,6 +130,10 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.ToTable("Property", "Property");
 
                 entity.Property(e => e.Active).HasDefaultValueSql("1");
+
+                entity.Property(e => e.Guid).HasColumnName("Guid ");
+
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Address)
                     .WithMany(p => p.Property)
@@ -147,6 +161,8 @@ namespace HousingProvider.Data.Library.EFModels
                 entity.Property(e => e.Active).HasDefaultValueSql("1");
 
                 entity.Property(e => e.Guid).HasColumnName("Guid ");
+
+                entity.Property(e => e.ModifiedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.ProviderName)
                     .IsRequired()

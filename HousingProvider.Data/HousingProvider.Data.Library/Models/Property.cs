@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HousingProvider.Data.Library.EFModels
+namespace HousingProvider.Data.Library.Models
 {
     public partial class Property
     {
@@ -17,6 +17,8 @@ namespace HousingProvider.Data.Library.EFModels
         public int AddressId { get; set; }
         public int ComplexId { get; set; }
         public bool Active { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         public virtual ICollection<Request> Request { get; set; }
         public virtual Address Address { get; set; }

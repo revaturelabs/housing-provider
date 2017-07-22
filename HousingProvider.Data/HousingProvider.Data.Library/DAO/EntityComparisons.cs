@@ -1,4 +1,4 @@
-﻿using HousingProvider.Data.Library.EFModels;
+﻿using HousingProvider.Data.Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
