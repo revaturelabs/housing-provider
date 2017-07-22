@@ -21,30 +21,30 @@ values
 	('Rejected'),
 	('Hold');
 
-INSERT INTO [Person].[Contact](Email,Phone,Active)
+INSERT INTO [Person].[Contact](Email,Phone,Active,ModifiedDate,[Guid])
 values
-    ('fake@email.com','123-555-1234',1);
+    ('fake@email.com','123-555-1234',1,GETDATE(),NEWID());
 
-INSERT INTO [Property].[Address](Street1,Street2,ApartmentNum,City,[State],ZipCode,Active)
+INSERT INTO [Property].[Address](Street1,Street2,ApartmentNum,City,[State],ZipCode,Active,ModifiedDate,[Guid])
 values
-    ('11180 Sunrise Valley','Suite 400','','Herndon','VA','20190',1), --BridgeStreet
-    ('13000 Wilkes Way','','','Herndon','VA','20170',1), --Westerly at WorldGate
-    ('508 Pride Avenue','','','Herndon','VA','20170',1), -- The Townes at Herndon Center
-    ('2320 Dulles Station Blvd.','','','Herndon','VA','20171',1), --Camden Dulles Station
-    ('11659 North Shore Drive','','','Herndon','VA','20190',1), --Fairway Apartments
-    ('Sycamore Valley Drive','','','Herndon','VA','20190',1); --The Sycamores
+    ('11180 Sunrise Valley','Suite 400','','Herndon','VA','20190',1,GETDATE(),NEWID()), --BridgeStreet
+    ('13000 Wilkes Way','','','Herndon','VA','20170',1,GETDATE(),NEWID()), --Westerly at WorldGate
+    ('508 Pride Avenue','','','Herndon','VA','20170',1,GETDATE(),NEWID()), -- The Townes at Herndon Center
+    ('2320 Dulles Station Blvd.','','','Herndon','VA','20171',1,GETDATE(),NEWID()), --Camden Dulles Station
+    ('11659 North Shore Drive','','','Herndon','VA','20190',1,GETDATE(),NEWID()), --Fairway Apartments
+    ('Sycamore Valley Drive','','','Herndon','VA','20190',1,GETDATE(),NEWID()); --The Sycamores
 
 INSERT INTO [Person].[Provider] (ProviderName,ContactId,AddressId,Active)
 values
     ('BridgeStreet',1,1,1);
 
-INSERT INTO [Property].[Complex] (ComplexName,AddressId,ContactId,Active)
+INSERT INTO [Property].[Complex] (ComplexName,AddressId,ContactId,Active,ModifiedDate,[Guid])
 values
-    ('Westerly at WorldGate',2,1,1),
-    ('The Townes at Herndon Center',3,1,1),
-    ('Camden Dulles Station',4,1,1),
-    ('Fairway Apartments',5,1,1),
-    ('The Sycamores',6,1,1);
+    ('Westerly at WorldGate',2,1,1,GETDATE(),NEWID()),
+    ('The Townes at Herndon Center',3,1,1,GETDATE(),NEWID()),
+    ('Camden Dulles Station',4,1,1,GETDATE(),NEWID()),
+    ('Fairway Apartments',5,1,1,GETDATE(),NEWID()),
+    ('The Sycamores',6,1,1,GETDATE(),NEWID());
 
 INSERT INTO [Person].[Person](ProviderId, FirstName, LastName, ContactId, RoleId, Active,[Guid])
 values
