@@ -34,7 +34,9 @@ namespace HousingProvider.Data.Library.DAO
             var m = Find(guid);
             if (m != null)
             {
-                return _Context.Set<T>().Remove(m).Entity;
+                var e = _Context.Set<T>().Remove(m).Entity;
+                _Context.SaveChanges();
+                return e;
             }
             return null;
         }
@@ -54,13 +56,13 @@ namespace HousingProvider.Data.Library.DAO
             throw new InvalidOperationException("Cannot find a model that lacks a Guid property.");
         }
 
-        public T Update(T model)
+        public T Update(Guid guid, T model)
         {
-            if (Delete(model) != null)
+            if (Delete(guid) != null)
             {
-                var updated = Create(model);
+                var e = _Context.Set<T>().Add(model);
                 _Context.SaveChanges();
-                return updated;
+                return e;
             }
             return null;
         }
