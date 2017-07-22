@@ -8,7 +8,8 @@ namespace HousingProvider.Data.Library.Interfaces
     {
         T Create(T model);
         List<T> Read();
-        T Update(T model);
-        T Delete(T model);
+        T Find(Guid guid);
+        T Update(Guid guid, T model);
+        T Delete(Guid guid);
     }
 }
