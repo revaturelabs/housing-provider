@@ -23,39 +23,9 @@ namespace HousingProvider.Data.Library.DAO
             }
         }
 
-        public static IDataAccess<Address> GetAddressDAO()
+        public static IDataAccess<T> GetDataAccessObject<T>() where T: class
         {
-            return new EntityDataAccess<Address>(Context, EntityComparisons.AddressEquals);
-        }
-
-        public static IDataAccess<Contact> GetContextDAO()
-        {
-            return new EntityDataAccess<Contact>(Context, EntityComparisons.ContactEquals);
-        }
-
-        public static IDataAccess<Person> GetPersonDAO()
-        {
-            return new EntityDataAccess<Person>(Context, EntityComparisons.PersonEquals);
-        }
-
-        public static IDataAccess<Property> GetPropettyDAO()
-        {
-            return new EntityDataAccess<Property>(Context, EntityComparisons.PropertyEquals);
-        }
-
-        public static IDataAccess<Provider> GetProviderDAO()
-        {
-            return new EntityDataAccess<Provider>(Context, EntityComparisons.ProviderEquals);
-        }
-
-        public static IDataAccess<Request> GetRequestDAO()
-        {
-            return new EntityDataAccess<Request>(Context, EntityComparisons.RequestEquals);
-        }
-
-        public static IDataAccess<Complex> GetComplexDAO()
-        {
-            return new EntityDataAccess<Complex>(Context, EntityComparisons.ComplexEquals);
+            return new EntityDataAccess<T>(Context);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace HousingProvider.Data.Service.Controllers
         [HttpGet]
         public IEnumerable<Complex> Get()
         {
-            return DataAccessFactory.GetComplexDAO().Read();
+            return DataAccessFactory.GetDataAccessObject<Complex>().Read();
         }
     }
 }
