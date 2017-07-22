@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace HousingProvider.Data.Library.DAO
@@ -45,9 +46,14 @@ namespace HousingProvider.Data.Library.DAO
             return _Context.Set<T>().ToList();
         }
 
-        public T Find(T model)
+        public T Find(Guid guid)
         {
-            return _Context.Set<T>().FirstOrDefault(m => Eq(m, model));
+            var g = typeof(T).GetProperty("Guid");
+            if (g != null)
+            {
+                return _Context.Set<T>().FirstOrDefault(m => ((Guid)g.GetValue(m)) == guid);
+            }
+            throw new InvalidOperationException("Cannot find a model that lacks a Guid property.");
         }
 
         public T Update(T model)
