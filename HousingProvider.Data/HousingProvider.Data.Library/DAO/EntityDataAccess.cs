@@ -10,16 +10,11 @@ namespace HousingProvider.Data.Library.DAO
 {
     public class EntityDataAccess<T> : IDataAccess<T> where T: class
     {
-        public delegate bool EntityEquals(T model1, T model2);
-
         protected DbContext _Context;
 
-        private EntityEquals Eq;
-
-        public EntityDataAccess(DbContext context, EntityEquals eq)
+        public EntityDataAccess(DbContext context)
         {
             _Context = context;
-            Eq = eq;
         }
 
         public T Create(T model)
