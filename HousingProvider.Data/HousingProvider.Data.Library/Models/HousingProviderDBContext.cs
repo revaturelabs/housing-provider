@@ -16,6 +16,8 @@ namespace HousingProvider.Data.Library.Models
         public virtual DbSet<RequestType> RequestType { get; set; }
         public virtual DbSet<Status> Status { get; set; }
 
+        public HousingProviderDBContext(DbContextOptions options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Address>(entity =>
