@@ -8,15 +8,14 @@ using HousingProvider.Data.Library.Models;
 
 using Microsoft.Net.Http;
 using System.Net.Http;
-using Microsoft.EntityFrameworkCore;
 
 namespace HousingProvider.Data.Service.Controllers
 {
   [Produces("application/json")]
   [Route("api/[controller]")]
-    public class RequestController : BaseController
+    public class RequestController : ProviderDBController
     {
-        public RequestController(DbContext context) : base(context) { }
+        public RequestController(HousingProviderDBContext context) : base(context) { }
 
         [HttpGet]
         public string Get()
