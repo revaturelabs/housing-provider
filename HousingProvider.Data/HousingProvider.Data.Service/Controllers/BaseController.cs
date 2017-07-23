@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using HousingProvider.Data.Library.Models;
-using HousingProvider.Data.Library.DAO;
 using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,15 +10,15 @@ using Microsoft.EntityFrameworkCore;
 namespace HousingProvider.Data.Service.Controllers
 {
     [Route("api/[controller]")]
-    public class ComplexController : BaseController
+    public abstract class BaseController : Controller
     {
-        public ComplexController(DbContext context) : base(context) { }
+        private DbContext _Context;
 
-        // GET: api/values
-        [HttpGet]
-        public IEnumerable<Complex> Get()
+        protected DbContext Context { get { return _Context; } }
+
+        public BaseController(DbContext context)
         {
-            return DataAccessFactory.GetDataAccessObject<Complex>().Read();
+            _Context = context;
         }
     }
 }
