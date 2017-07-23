@@ -9,23 +9,9 @@ namespace HousingProvider.Data.Library.DAO
 {
     public static class DataAccessFactory
     {
-        private static DbContext _Context;
-
-        public static DbContext Context
+        public static IDataAccess<T> GetDataAccessObject<T>(DbContext context) where T: class
         {
-            get
-            {
-                if (_Context == null)
-                {
-                    _Context = new HousingProviderDBContext();
-                }
-                return _Context;
-            }
-        }
-
-        public static IDataAccess<T> GetDataAccessObject<T>() where T: class
-        {
-            return new EntityDataAccess<T>(Context);
+            return new EntityDataAccess<T>(context);
         }
     }
 }
