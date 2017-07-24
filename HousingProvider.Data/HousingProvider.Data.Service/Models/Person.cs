@@ -12,5 +12,7 @@ namespace HousingProvider.Data.Service.Models
         public bool Active { get; set; }
         public Contact Contact { get; set; }
         public Provider Provider { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

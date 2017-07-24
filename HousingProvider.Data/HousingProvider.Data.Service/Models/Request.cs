@@ -19,5 +19,6 @@ namespace HousingProvider.Data.Service.Models
         public Property Property { get; set; }
         public RequestType RequesType { get; set; }
         public Status Status { get; set; }
+        public Guid Guid { get; set; }
     }
 }

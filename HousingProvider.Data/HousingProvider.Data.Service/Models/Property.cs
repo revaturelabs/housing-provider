@@ -13,5 +13,7 @@ namespace HousingProvider.Data.Service.Models
         public Address Address { get; set; }
         public Complex Complex { get; set; }
         public Provider Provider { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

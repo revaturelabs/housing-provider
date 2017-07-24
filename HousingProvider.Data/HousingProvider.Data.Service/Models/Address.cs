@@ -14,5 +14,7 @@ namespace HousingProvider.Data.Service.Models
         public string State { get; set; }
         public string ZipCode { get; set; }
         public bool Active { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }
