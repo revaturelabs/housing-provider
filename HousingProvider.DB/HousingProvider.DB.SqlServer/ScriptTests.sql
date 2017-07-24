@@ -66,3 +66,15 @@ INSERT INTO [Request].Request (RequestTypeId,Urgent,RequestTitle,
 values
     (1,0,'This is A Demo Request Title','This is a Demo Request Description','Tenant 1',1,'BridgeStreet Rep',1,'This is a Demo Action on Request.',1),
     (1,0,'This is A Demo Request Title 2','This is a Demo Request Description 2','Tenant 2',1,'BridgeStreet Rep',1,'This is a Demo Action on Request 2.',1);
+
+
+
+
+
+
+drop table [person].person;
+drop table [person].Contact;
+drop table [person].[Provider];
+drop table [property].complex;
+
+
