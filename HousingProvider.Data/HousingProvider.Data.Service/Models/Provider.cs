@@ -9,5 +9,7 @@ namespace HousingProvider.Data.Service.Models
     {
         public string ProviderName { get; set; }
         public bool Active { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }
