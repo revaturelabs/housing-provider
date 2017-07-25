@@ -124,34 +124,9 @@
 
   </div>
 
-  <script>
-    function highlightRow(id) {
-      document.getElementById("requestRow" + id).style.backgroundColor = "White";
-      document.getElementById("requestRow" + id).style.cursor = "pointer";
-    }
-    function unHighlightRow(id) {
-      document.getElementById("requestRow" + id).style.backgroundColor = "initial";
-      document.getElementById("requestRow" + id).style.cursor = "initial";
-    }
-    function rowDisplay() {
-      modal.style.display = "block";
-    }
 
-    var modal = document.getElementById('myModal');
-
-    var span = document.getElementsByClassName("close")[0];
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-
-  </script>
+  <div data-ng-view></div>
+  
   <footer id="footer" data-ng-include="'./partials/footer.html'"></footer>
 
   <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.15/js/adal.min.js"></script>
