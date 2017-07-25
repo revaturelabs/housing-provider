@@ -15,7 +15,7 @@ namespace HousingProvider.Data.Service.Controllers
     [Route("api/[controller]")]
     public class ComplexController : ProviderDBController
     {
-        private EntityMapper<Library.Models.Complex, Models.Complex> _Mapper = new EntityMapper<Library.Models.Complex, Models.Complex>();
+        private EntityDTOMapper<Library.Models.Complex, Models.Complex> _Mapper = new EntityDTOMapper<Library.Models.Complex, Models.Complex>();
 
         public ComplexController(HousingProviderDBContext context) : base(context) { }
 
