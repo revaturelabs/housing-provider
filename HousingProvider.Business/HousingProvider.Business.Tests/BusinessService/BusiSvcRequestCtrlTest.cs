@@ -48,7 +48,7 @@ namespace HousingProvider.Business.Tests.BusinessService
     //[AsyncStateMachine(typeof(Task))]
     public void GetRequestTest()
     {
-      var r = new Request();
+      
       var request = new RequestController();
       var controller = request.Get();
 
