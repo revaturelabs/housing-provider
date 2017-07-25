@@ -4,8 +4,8 @@ import 'adal-angular';
 import './css/index.css';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
-import 'file-loader?name=[name].[ext]&outputPath=partials/!./home/home-template.html';
-import 'file-loader?name=[name].[ext]&outputPath=partials/!./complex/complex-template.html';
+import 'file-loader?name=[name].[ext]&outputPath=html/!./home/home-template.html';
+import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/complex-template.html';
 
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 
