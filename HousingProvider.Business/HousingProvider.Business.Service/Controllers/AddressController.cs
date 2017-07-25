@@ -10,18 +10,18 @@ using HousingProvider.Business.Service.DataModels;
 namespace HousingProvider.Business.Service.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Property")]
-    public class PropertyController : DataSvcController
+    [Route("api/Address")]
+    public class AddressController : DataSvcController
     {
-        public PropertyController()
+        public AddressController()
         {
-            DataSvcUrl += "property";
+            DataSvcUrl += "address";
         }
-        
+
         [HttpGet("{guid}")]
-        public IEnumerable<Property> Get(string guid)
+        public IEnumerable<Address> Get(string guid)
         {
-            return DataFactory<Property>.Access(DataSvcUrl).GetByGuid(Guid.Parse(guid));
+            return DataFactory<Address>.Access(DataSvcUrl).GetByGuid(Guid.Parse(guid));
         }
     }
 }
