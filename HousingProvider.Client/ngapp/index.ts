@@ -11,7 +11,10 @@ import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/complex-templat
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, auth) {
-  $location.html5Mode(true).hashPrefix('!');
+  $location.html5Mode({
+    enabled: true,
+    requireBase: false
+  }).hashPrefix('!');
 
   $route
     .when('/', {
@@ -28,8 +31,9 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     });
 
   auth.init({
-    clientId: 'fredbelotterevature.onmicrosoft.com',
-    tenant: '7729d52b-dc10-40e5-a605-f77b0b77faaa'
+    clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c',
+    instance: 'https://login.microsoftonline.com/',
+    tenant: 'fredbelotterevature.onmicrosoft.com'
   }, $http);
 }]);
 
