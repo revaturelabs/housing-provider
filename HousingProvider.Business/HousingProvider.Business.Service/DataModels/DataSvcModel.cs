@@ -51,7 +51,7 @@ namespace HousingProvider.Business.Service.DataModels
 
         public List<T> GetByGuid(Guid guid)
         {
-            var response = _Client.GetAsync("/" + guid.ToString()).Result;
+            var response = _Client.GetAsync(_Client.BaseAddress.AbsoluteUri + "/" + guid.ToString()).Result;
             if (response.IsSuccessStatusCode)
             {
                 return JsonConvert.DeserializeObject<List<T>>(response.Content.ReadAsStringAsync().Result);
