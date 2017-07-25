@@ -1,5 +1,6 @@
 import * as ng from 'angular';
 import 'angular-route';
+import 'adal-angular/lib/adal';
 import 'adal-angular/lib/adal-angular';
 import './css/index.css';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
