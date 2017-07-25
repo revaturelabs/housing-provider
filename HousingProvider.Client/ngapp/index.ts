@@ -10,7 +10,7 @@ import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/complex-templat
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, auth) {
-  $location.html5node(true).hashPrefix('!');
+  $location.html5Mode(true).hashPrefix('!');
 
   $route
     .when('/', {
