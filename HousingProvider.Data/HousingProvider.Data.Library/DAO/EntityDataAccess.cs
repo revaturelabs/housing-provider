@@ -36,17 +36,33 @@ namespace HousingProvider.Data.Library.DAO
             return false;
         }
 
-        public List<T> Read()
+        public List<T> Read(string[] includes = null)
         {
-            return _Context.Set<T>().ToList();
+            IQueryable<T> query = _Context.Set<T>();
+            if (includes != null)
+            {
+                foreach (var include in includes)
+                {
+                    query = query.Include(include);
+                }
+            }
+            return query.ToList();
         }
 
-        public T Find(Guid guid)
+        public T Find(Guid guid, string[] includes = null)
         {
             var g = typeof(T).GetProperty("Guid");
             if (g != null)
             {
-                return _Context.Set<T>().FirstOrDefault(m => ((Guid)g.GetValue(m)) == guid);
+                IQueryable<T> query = _Context.Set<T>();
+                if (includes != null)
+                {
+                    foreach (var include in includes)
+                    {
+                        query = query.Include(include);
+                    }
+                }
+                return query.FirstOrDefault(m => ((Guid)g.GetValue(m)) == guid);
             }
             throw new InvalidOperationException("Cannot find a model that lacks a Guid property.");
         }

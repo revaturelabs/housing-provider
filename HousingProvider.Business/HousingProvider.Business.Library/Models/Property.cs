@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HousingProvider.Business.Library.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +11,7 @@ namespace HousingProvider.Business.Library.Models
     /// problem that is being experienced within the property that
     /// they reside in.
     /// </summary>
-    public class Property : IProperty
+    public class Property : IProperty, ILibraryModel
     {
         public Address Address { get; set; }
         public int Bathrooms { get; set; }
