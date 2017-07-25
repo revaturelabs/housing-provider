@@ -1,7 +1,7 @@
 import * as ng from 'angular';
 import 'angular-route';
 import 'adal-angular/lib/adal';
-// import 'adal-angular/lib/adal-angular';
+import 'adal-angular/lib/adal-angular';
 import './css/index.css';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
@@ -27,10 +27,10 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
       redirectTo: '/'
     });
 
-  auth.init({
-    clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c',
-    tenant: '7729d52b-dc10-40e5-a605-f77b0b77faaa'
-  }, $http);
+  // auth.init({
+  //   clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c',
+  //   tenant: '7729d52b-dc10-40e5-a605-f77b0b77faaa'
+  // }, $http);
 }]);
 
 ngHousingProvider.controller('complexController', ['$scope', '$http', function($scope, $http) {
