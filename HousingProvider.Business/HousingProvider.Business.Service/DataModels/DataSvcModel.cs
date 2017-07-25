@@ -48,5 +48,18 @@ namespace HousingProvider.Business.Service.DataModels
                 return null;
             }
         }
+
+        public List<T> GetByGuid(Guid guid)
+        {
+            var response = _Client.GetAsync("/" + guid.ToString()).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<List<T>>(response.Content.ReadAsStringAsync().Result);
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }
