@@ -17,7 +17,7 @@ namespace HousingProvider.Data.Service.Controllers
 
         protected DbContext Context { get { return _Context; } }
 
-        public ProviderDBController(HousingProviderDBContext context)
+        public ProviderDBController(DbContext context)
         {
             _Context = context;
         }
