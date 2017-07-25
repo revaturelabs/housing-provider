@@ -80,15 +80,15 @@ __webpack_require__(9);
 __webpack_require__(10);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, auth) {
-        $location.html5node(true).hashPrefix('!');
+        $location.html5Mode(true).hashPrefix('!');
         $route
             .when('/', {
             controller: 'homeController',
-            templateUrl: '../html/home-template.html'
+            templateUrl: './html/home-template.html'
         })
             .when('/complex', {
             controller: 'complexController',
-            templateUrl: '../html/complex-template.html',
+            templateUrl: './html/complex-template.html',
             requireADLogin: true
         })
             .otherwise({

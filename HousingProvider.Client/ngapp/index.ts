@@ -15,11 +15,11 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
   $route
     .when('/', {
       controller: 'homeController',
-      templateUrl: '../html/home-template.html'
+      templateUrl: './html/home-template.html'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: '../html/complex-template.html',
+      templateUrl: './html/complex-template.html',
       requireADLogin: true
     })
     .otherwise({
