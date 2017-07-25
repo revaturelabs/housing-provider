@@ -8,6 +8,7 @@ using HousingProvider.Data.Library.Models;
 
 using Microsoft.Net.Http;
 using System.Net.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace HousingProvider.Data.Service.Controllers
 {
@@ -15,7 +16,7 @@ namespace HousingProvider.Data.Service.Controllers
   [Route("api/[controller]")]
     public class RequestController : ProviderDBController
     {
-        public RequestController(HousingProviderDBContext context) : base(context) { }
+        public RequestController(DbContext context) : base(context) { }
 
         [HttpGet]
         public string Get()
