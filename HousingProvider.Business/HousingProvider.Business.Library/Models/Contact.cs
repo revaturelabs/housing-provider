@@ -8,7 +8,8 @@ namespace HousingProvider.Business.Library.Models
     public class Contact: ILibraryModel
     {
         public string Email { get; set; }
-
         public string Phone { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

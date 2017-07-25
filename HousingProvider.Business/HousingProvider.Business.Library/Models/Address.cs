@@ -12,6 +12,8 @@ namespace HousingProvider.Business.Library.Models
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         public override bool Equals(object obj)
         {

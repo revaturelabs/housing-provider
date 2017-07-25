@@ -11,5 +11,6 @@ namespace HousingProvider.Business.Library.Models
         public string ComplexName { get; set; }
         public Address Address { get; set; }
         public Contact Contact { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

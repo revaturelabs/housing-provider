@@ -12,19 +12,21 @@ namespace HousingProvider.Business.Library.Models
    public class MaintenanceRequest : Request
    {
       public Address PropertyAddress { get; set; }
+      public Guid Guid { get; set; }
+      public DateTime ModifiedDate { get; set; }
 
-      /// <summary>
-      /// Compares two Request for equality using the address for which
-      /// the request is logged and the description of the request.
-      /// </summary>
-      /// <param name="obj">
-      /// The request that this request is being compared
-      /// </param>
-      /// <returns>
-      /// True if the address and the description of both request are the same,
-      /// false otherwise
-      /// </returns>
-      public override bool Equals(object obj)
+        /// <summary>
+        /// Compares two Request for equality using the address for which
+        /// the request is logged and the description of the request.
+        /// </summary>
+        /// <param name="obj">
+        /// The request that this request is being compared
+        /// </param>
+        /// <returns>
+        /// True if the address and the description of both request are the same,
+        /// false otherwise
+        /// </returns>
+        public override bool Equals(object obj)
       {
          if (obj != null && obj.GetType() == GetType())
          {

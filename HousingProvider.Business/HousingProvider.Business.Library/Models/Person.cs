@@ -11,6 +11,8 @@ namespace HousingProvider.Business.Library.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public string PhoneNumber { get; set; }
+        public Guid Guid { get; set; }
+        public DateTime ModifiedDate { get; set; }
 
         public override bool Equals(object obj)
         {

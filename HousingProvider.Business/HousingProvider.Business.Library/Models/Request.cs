@@ -19,19 +19,20 @@ namespace HousingProvider.Business.Library.Models
       public DateTime DateSubmitted { get; set; }
       public DateTime DateModified { get; set; }
       public StatusEnum Status { get; set; }
+      public Guid Guid { get; set; }
 
-      /// <summary>
-      /// Compares two Request for equality using the descriptions and
-      /// statuses of each request. 
-      /// </summary>
-      /// <param name="obj">
-      /// The request that this request is being compared
-      /// </param>
-      /// <returns>
-      /// True if the description of both request are the same and there statuses are either pending or in-work,
-      /// false otherwise
-      /// </returns>
-      public override bool Equals(object obj)
+        /// <summary>
+        /// Compares two Request for equality using the descriptions and
+        /// statuses of each request. 
+        /// </summary>
+        /// <param name="obj">
+        /// The request that this request is being compared
+        /// </param>
+        /// <returns>
+        /// True if the description of both request are the same and there statuses are either pending or in-work,
+        /// false otherwise
+        /// </returns>
+        public override bool Equals(object obj)
       {
          if (obj != null && obj.GetType() == GetType())
          {
