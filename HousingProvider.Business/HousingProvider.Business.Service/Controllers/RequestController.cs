@@ -28,7 +28,7 @@ namespace HousingProvider.Business.Service.Controllers
       return DataFactory<Request>.Access(DataSvcUrl).Create(req);
     }
 
-    [HttpPost]
+    [HttpGet]
     public IEnumerable<Request> Get()
     {
       var r1 = new Request();
