@@ -4,8 +4,10 @@ import 'adal-angular';
 import './css/index.css';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
+import 'file-loader?name=[name].[ext]&outputPath=partials/!./home/home-template.html';
+import 'file-loader?name=[name].[ext]&outputPath=partials/!./complex/complex-template.html';
 
-var ngHousingProvider = ng.module('ngHousingProvider', ['AdalAngular']);
+var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, auth) {
   $location.html5node(true).hashPrefix('!');
@@ -13,11 +15,11 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
   $route
     .when('/', {
       controller: 'homeController',
-      templateUrl: ''
+      templateUrl: '../html/home-template.html'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: '',
+      templateUrl: '../html/complex-template.html',
       requireADLogin: true
     })
     .otherwise({
