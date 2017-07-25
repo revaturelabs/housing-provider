@@ -18,10 +18,10 @@ namespace HousingProvider.Data.Service.Controllers
 
         public PropertyController(DbContext context) : base(context) { }
         
-        [HttpGet("{id}")]
-        public IEnumerable<Models.Property> Get(Guid guid)
+        [HttpGet("{guid}")]
+        public IEnumerable<Models.Property> Get(string guid)
         {
-            var complex = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Find(guid);
+            var complex = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Find(Guid.Parse(guid), new string[] { "Property" });
             var dtos = new List<Models.Property>();
             foreach (var prop in complex.Property)
             {
