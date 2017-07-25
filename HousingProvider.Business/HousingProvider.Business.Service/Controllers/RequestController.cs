@@ -29,7 +29,7 @@ namespace HousingProvider.Business.Service.Controllers
     }
 
     [HttpPost]
-    public List<Request> Get()
+    public IEnumerable<Request> Get()
     {
       var r1 = new Request();
       var request = new List<Request>();

@@ -33,7 +33,7 @@ namespace HousingProvider.Business.Tests.BusinessService
 
     [Test]
     //[AsyncStateMachine(typeof(Task))]
-    public void GetRequestTest()
+    public void PostRequestTest()
     {
       var r = new Request();
       var request = new RequestController();
@@ -42,6 +42,17 @@ namespace HousingProvider.Business.Tests.BusinessService
      
 
       Assert.IsTrue(controller);
+    }
+
+    [Test]
+    //[AsyncStateMachine(typeof(Task))]
+    public void GetRequestTest()
+    {
+      var r = new Request();
+      var request = new RequestController();
+      var controller = request.Get();
+
+      Assert.IsNotNull(controller);
     }
 
   }
