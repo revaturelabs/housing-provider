@@ -16,7 +16,9 @@ namespace HousingProvider.Data.Service.Controllers
     [Route("api/[controller]")]
     public class ComplexController : ProviderDBController
     {
-        public ComplexController(HousingProviderDBContext context) : base(context) { }
+        private EntityDTOMapper<Library.Models.Complex, Models.Complex> _Mapper = new EntityDTOMapper<Library.Models.Complex, Models.Complex>();
+
+        public ComplexController(DbContext context) : base(context) { }
 
         // GET: api/values
         [HttpGet]
@@ -29,7 +31,6 @@ namespace HousingProvider.Data.Service.Controllers
                 dtos.Add(_Mapper.MapToDTO(com));
             }
             return dtos;
-
         }
     }
 }
