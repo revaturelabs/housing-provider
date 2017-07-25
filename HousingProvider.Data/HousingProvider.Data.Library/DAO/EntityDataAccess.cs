@@ -36,12 +36,12 @@ namespace HousingProvider.Data.Library.DAO
             return false;
         }
 
-        public List<T> Read()
+        public List<T> Read(string[] includes = null)
         {
             return _Context.Set<T>().ToList();
         }
 
-        public T Find(Guid guid)
+        public T Find(Guid guid, string[] includes = null)
         {
             var g = typeof(T).GetProperty("Guid");
             if (g != null)
