@@ -1,6 +1,5 @@
 import * as ng from 'angular';
 import 'angular-route';
-import 'adal-angular/lib/adal';
 import 'adal-angular/lib/adal-angular';
 import './css/index.css';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
@@ -23,8 +22,8 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: './html/complex-template.html'
-      //requireADLogin: true
+      templateUrl: './html/complex-template.html',
+      requireADLogin: true
     })
     .otherwise({
       redirectTo: '/'
