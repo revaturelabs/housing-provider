@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using HousingProvider.Business.Library.Models;
+using HousingProvider.Business.Service.DataModels;
 
 namespace HousingProvider.Business.Service.Controllers
 {
@@ -18,9 +20,9 @@ namespace HousingProvider.Business.Service.Controllers
 
         
         [HttpGet("{guid}")]
-        public IEnumerable<string> Get(string guid)
+        public IEnumerable<Property> Get(string guid)
         {
-            throw new NotImplementedException();
+            return DataFactory<Property>.Access(DataSvcUrl).GetByGuid(Guid.Parse(guid));
         }
     }
 }
