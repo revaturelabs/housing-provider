@@ -27,5 +27,63 @@ namespace HousingProvider.Business.Service.Controllers
     {
       return DataFactory<Request>.Access(DataSvcUrl).Create(req);
     }
+
+    [HttpPost]
+    public List<Request> Get()
+    {
+      var r1 = new Request();
+      var request = new List<Request>();
+
+      //var r1 = new Request();
+
+      request.Add(new Request()
+      {
+        
+        Description = "Sink Leak",
+        Status = StatusEnum.PENDING,
+        Title = "Bathroom",
+        Urgent = true,
+        DateSubmitted = DateTime.Now
+      });
+
+      request.Add(new Request()
+      {
+        Description = "Blows hot air",
+        Status = StatusEnum.INWORK,
+        Title = "Air Conditioning",
+        Urgent = true,
+        DateSubmitted = DateTime.Now
+      });
+
+      request.Add(new Request()
+      {
+        Description = "Tissue",
+        Status = StatusEnum.REJECTED,
+        Title = "Bathroom",
+        Urgent = true,
+        DateSubmitted = DateTime.Now
+      });
+
+      request.Add(new Request()
+      {
+        Description = "Kitchen",
+        Status = StatusEnum.INWORK,
+        Title = "Paper Towels",
+        Urgent = false,
+        DateModified = DateTime.Now
+      });
+
+      request.Add(new Request()
+      {
+        Description = "Kitchen",
+        Status = StatusEnum.PENDING,
+        Title = "Broken Microwave",
+        Urgent = true,
+        DateSubmitted = DateTime.Now
+      });
+
+      return request;
+
+    }
   }
 }
