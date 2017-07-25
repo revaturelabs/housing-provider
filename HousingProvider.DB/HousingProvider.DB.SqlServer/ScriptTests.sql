@@ -6,7 +6,13 @@ SELECT * FROM Request.RequestType;
 
 SELECT * FROM Request.[Status];
 
+select * from Property.Property;
 
+select * from Property.Complex;
+
+select * from Person.[Provider];
+
+select * from Property.[Address];
 
 INSERT INTO [Request].[RequestType] (RequestTypeDescription)
 values 
@@ -34,9 +40,9 @@ values
     ('11659 North Shore Drive','','','Herndon','VA','20190',1,GETDATE(),NEWID()), --Fairway Apartments
     ('Sycamore Valley Drive','','','Herndon','VA','20190',1,GETDATE(),NEWID()); --The Sycamores
 
-INSERT INTO [Person].[Provider] (ProviderName,ContactId,AddressId,Active)
+INSERT INTO [Person].[Provider] (ProviderName,AddressId,Active,[Guid], ModifiedDate)
 values
-    ('BridgeStreet',1,1,1);
+    ('BridgeStreet',1,1,NEWID(),GETDATE());
 
 INSERT INTO [Property].[Complex] (ComplexName,AddressId,ContactId,Active,ModifiedDate,[Guid])
 values
@@ -51,13 +57,13 @@ values
     (1,'John','Smith',1,1,1),
     (1,'Jane','Doe',1,1,1);
 
-INSERT INTO [Property].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active)
+INSERT INTO [Property].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active,[Guid], ModifiedDate)
 values
-    (3,3,1,1,1,1),
-    (3,3,1,1,1,1),
-    (3,3,1,1,1,1),
-    (3,3,1,1,1,1),
-    (3,3,1,1,1,1);
+    (3,3,1,3,1,1,NEWID(),GETDATE()),
+    (3,3,1,3,1,1,NEWID(),GETDATE()),
+    (3,3,1,3,1,1,NEWID(),GETDATE()),
+    (3,3,1,3,1,1,NEWID(),GETDATE()),
+    (3,3,1,3,1,1,NEWID(),GETDATE());
 
 INSERT INTO [Request].Request (RequestTypeId,Urgent,RequestTitle,
                                 [Description],
