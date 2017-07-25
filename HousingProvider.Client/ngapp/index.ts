@@ -10,7 +10,7 @@ import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/complex-templat
 
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
 
-ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, auth) {
+ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
   $location.html5Mode({
     enabled: true,
     requireBase: false
@@ -23,17 +23,15 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: './html/complex-template.html',
-      requireADLogin: true
+      templateUrl: './html/complex-template.html'
+      //requireADLogin: true
     })
     .otherwise({
       redirectTo: '/'
     });
 
-  auth.init({
-    clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c',
-    instance: 'https://login.microsoftonline.com/',
-    tenant: 'fredbelotterevature.onmicrosoft.com'
+  adalAuth.init({
+    clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
   }, $http);
 }]);
 
@@ -50,12 +48,12 @@ ngHousingProvider.controller('complexController', ['$scope', '$http', function($
   };
 }]);
 
-ngHousingProvider.controller('homeController', ['$scope', 'adalAuthenticationService', function($scope, auth) {
+ngHousingProvider.controller('homeController', ['$scope', 'adalAuthenticationService', function($scope, adalAuth) {
   $scope.signIn = function () {
-    auth.login();
+    adalAuth.login();
   };
 
   $scope.signOut = function () {
-    auth.logOut();
+    adalAuth.logOut();
   }
 }]);
