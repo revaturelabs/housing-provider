@@ -14,17 +14,17 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
   $location.html5Mode(true).hashPrefix('!');
 
   $route
-    .when('#!/', {
+    .when('#/', {
       controller: 'homeController',
       templateUrl: 'home/template.html'
     })
-    .when('#!/complex', {
+    .when('#/complex', {
       controller: 'complexController',
       templateUrl: 'complex/complex-template.html',
       requireADLogin: true
     })
     .otherwise({
-      redirectTo: '#!/'
+      redirectTo: '#/'
     });
 
   adalAuth.init({

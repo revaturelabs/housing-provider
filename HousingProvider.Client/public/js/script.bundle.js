@@ -104,17 +104,17 @@ exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
         $location.html5Mode(true).hashPrefix('!');
         $route
-            .when('#!/', {
+            .when('#/', {
             controller: 'homeController',
             templateUrl: 'home/template.html'
         })
-            .when('#!/complex', {
+            .when('#/complex', {
             controller: 'complexController',
             templateUrl: 'complex/complex-template.html',
             requireADLogin: true
         })
             .otherwise({
-            redirectTo: '#!/'
+            redirectTo: '#/'
         });
         adalAuth.init({
             clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
