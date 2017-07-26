@@ -34,7 +34,8 @@ namespace HousingProvider.Data.Service.Controllers
         [HttpPost]
         public void Post([FromBody] Complex com)
         {
-
+            var comDAO = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context);
+            comDAO.Create(_Mapper.MapFromDTO(com));
         }
     }
 }
