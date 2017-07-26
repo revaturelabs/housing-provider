@@ -1,4 +1,11 @@
-<section style="text-align: center">
-  <button type="button" data-ng-click="signin()">Signin</button>
-  <button type="button" data-ng-click="signout()">Signout</button>
-</section>
+<div class="container-fluid">
+  <section class="row">
+    <div id="loginPic" class="col col-md-6">
+      <img src="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/uploads/2016/10/3-RevaturePro_Image2.jpg" alt="Login Page Pic">
+    </div>
+    <div class="col col-md-6" id="auth">
+      <button id="authButton" type="button" class="btn btn-primary btn-lg" data-ng-click="signin()">Sign In</button>
+      <button id="authButton" type="button" class="btn btn-danger btn-lg" data-ng-click="signout()">Sign Out</button>
+    </div>
+  </section>
+</div>

@@ -96,8 +96,6 @@ __webpack_require__(6);
 __webpack_require__(1);
 __webpack_require__(7);
 __webpack_require__(9);
-// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/header.html';
-// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
 __webpack_require__(10);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
 exports.ngHousingProvider = ngHousingProvider;

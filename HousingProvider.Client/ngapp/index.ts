@@ -4,8 +4,6 @@ import 'adal-angular/lib/adal-angular';
 import './home/module';
 import './home/controller';
 import './css/index.css';
-// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/header.html';
-// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/template.html';
 
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
