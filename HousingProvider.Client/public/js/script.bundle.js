@@ -99,25 +99,22 @@ __webpack_require__(9);
 __webpack_require__(10);
 __webpack_require__(11);
 __webpack_require__(12);
-__webpack_require__(13);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
-        $location.html5Mode({
-            enabled: true
-        }).hashPrefix('!');
+        $location.html5Mode(true).hashPrefix('!');
         $route
-            .when('/', {
+            .when('#!/', {
             controller: 'homeController',
             templateUrl: 'home/template.html'
         })
-            .when('/complex', {
+            .when('#!/complex', {
             controller: 'complexController',
             templateUrl: 'complex/complex-template.html',
             requireADLogin: true
         })
             .otherwise({
-            redirectTo: '/'
+            redirectTo: '#!/'
         });
         adalAuth.init({
             clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
@@ -35744,12 +35741,6 @@ module.exports = __webpack_require__.p + "partials/footer.html";
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "html/template.html";
-
-/***/ }),
-/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "html/template.html";

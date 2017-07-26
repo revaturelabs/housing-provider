@@ -11,22 +11,20 @@ import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/template.html';
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
-  $location.html5Mode({
-    enabled: true
-  }).hashPrefix('!');
+  $location.html5Mode(true).hashPrefix('!');
 
   $route
-    .when('/', {
+    .when('#!/', {
       controller: 'homeController',
       templateUrl: 'home/template.html'
     })
-    .when('/complex', {
+    .when('#!/complex', {
       controller: 'complexController',
       templateUrl: 'complex/complex-template.html',
       requireADLogin: true
     })
     .otherwise({
-      redirectTo: '/'
+      redirectTo: '#!/'
     });
 
   adalAuth.init({
