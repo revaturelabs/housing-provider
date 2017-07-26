@@ -1,26 +1,82 @@
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <base href="/">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Housing Provider</title>
-    
-    <link rel="stylesheet" href="css/index.css">
-  </head>
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body data-ng-app="ngHousingProvider">
-    <header data-ng-include="'partials/header.html'"></header>
+  <title>Housing Provider</title>
 
-    <main>
-      <div data-ng-view></div>
-    </main>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.4/angular-material.min.css">
+  <script src="https://use.typekit.net/pvo4jdm.js"></script>
+  <script>
+    try { Typekit.load({ async: true }); } catch (e) { }
+  </script>
+  <script src="https://use.fontawesome.com/8d8fa1da46.js"></script>
+  <script>
+    (function (html) { html.className = html.className.replace(/\bno-js\b/, 'js') })(document.documentElement);
+  </script>
+  <link type="text/css" media="all" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/cache/autoptimize/1/css/autoptimize_b16dec850912caaeb8ea4e7717d27677.css"
+    rel="stylesheet" />
+  <link type="text/css" media="screen" href="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/cache/autoptimize/1/css/autoptimize_bf0dffd3bc2440f535d4cfbc2556223a.css"
+    rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
 
-    <footer data-ng-include="'partials/footer.html'"></footer>
+<body data-ng-app="ngHousingProvider">
 
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.15/js/adal.min.js"></script>
-    <script src="js/script.bundle.js"></script>
-  </body>
+  <div class="navbar-wrapper hero-bm">
+    <div class="container">
+      <nav class="navbar navbar-revature navbar-static-top navbar-bg">
+        <div class="container">
+          <div class="navbar-header"> <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+              aria-controls="navbar"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+            <div class="logo"><a href="https://revature.com"><img src="https://3g4d13k75x47q7v53surz1gi-wpengine.netdna-ssl.com/wp-content/themes/revature/imgs/logo.png" alt="Revature"/></a></div>
+            <li class="mobile_user_icon"><a href="https://app.revature.com/login" target="_blank"><span class="glyphicon glyphicon-user" style="color:#f26925"></a></li>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse rev-menu">
+            <ul id="menu-header-menu" class="nav navbar-nav">
+              <li id="menu-item-1795" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1795"><a title="COMPLEXES" href="#">COMPLEXES</a></li>
+              <li id="menu-item-1962" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1962"><a title="PENDING REQUESTS" href="#">PENDING REQUESTS</a></li>
+              <li id="menu-item-1959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1959"><a title="MAINTENANCE" href="#">MAINTENANCE</a></li>
+              <li id="menu-item-1787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a title="SUPPLY" href="#">SUPPLY</a></li>
+              <li id="menu-item-1785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1785"><a title="SETTINGS" href="#">SETTINGS</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <div data-ng-view></div>
+  </main>
+
+  <section class="footer padding-50">
+    <div class="container">
+      <div class="row no-margin border-bottom-line padding-bottom-35">
+      </div>
+      <div class="row no-margin">
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+          <nav class="under-footer">
+            <ul>
+              <li><a href="/eeo-policy/">Equal Employment</a></li>
+              <li><a href="/privacy-policy/">Privacy Policy</a></li>
+              <li><a href="/terms-and-conditions/">Terms &amp; Service</a></li>
+              <li><a href="/revaturepro/#faq">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-top-20"><span class="copyright"><i class="fa fa-copyright" aria-hidden="true"></i> 2017  All rights reserved.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.15/js/adal.min.js"></script>
+  <script src="./js/script.bundle.js"></script>
+</body>
+
 </html>

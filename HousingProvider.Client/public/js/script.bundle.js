@@ -96,9 +96,9 @@ __webpack_require__(6);
 __webpack_require__(1);
 __webpack_require__(7);
 __webpack_require__(9);
+// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/header.html';
+// import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
 __webpack_require__(10);
-__webpack_require__(11);
-__webpack_require__(12);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
@@ -106,12 +106,11 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
         $route
             .when('/', {
             controller: 'homeController',
-            templateUrl: 'home/template.html'
+            templateUrl: './home/template.html'
         })
             .when('/complex', {
             controller: 'complexController',
-            templateUrl: 'complex/complex-template.html',
-            requireADLogin: true
+            templateUrl: './complex/template.html',
         })
             .otherwise({
             redirectTo: '/'
@@ -35731,19 +35730,7 @@ module.exports = __webpack_require__.p + "css/index.css";
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "partials/header.html";
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "partials/footer.html";
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "html/template.html";
+module.exports = __webpack_require__.p + "complex/template.html";
 
 /***/ })
 /******/ ]);
