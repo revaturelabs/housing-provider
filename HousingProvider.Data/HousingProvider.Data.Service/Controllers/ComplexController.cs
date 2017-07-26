@@ -38,6 +38,7 @@ namespace HousingProvider.Data.Service.Controllers
             var efCom = _Mapper.MapFromDTO(com);
             efCom.Guid = Guid.NewGuid();
             efCom.ModifiedDate = DateTime.Now;
+            efCom.Active = true;
             comDAO.Create(efCom);
         }
     }
