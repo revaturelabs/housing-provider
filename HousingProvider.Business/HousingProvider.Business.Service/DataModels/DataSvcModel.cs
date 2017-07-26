@@ -49,7 +49,7 @@ namespace HousingProvider.Business.Service.DataModels
             }
         }
 
-        public List<T> GetByGuid(Guid guid)
+        public List<T> GetAllByGuid(Guid guid)
         {
             var response = _Client.GetAsync(_Client.BaseAddress.AbsoluteUri + "/" + guid.ToString()).Result;
             if (response.IsSuccessStatusCode)
@@ -60,6 +60,16 @@ namespace HousingProvider.Business.Service.DataModels
             {
                 return null;
             }
+        }
+
+        public T FindByGuid(Guid guid)
+        {
+            var response = _Client.GetAsync(_Client.BaseAddress.AbsoluteUri + "/" + guid.ToString()).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<T>(response.Content.ReadAsStringAsync().Result);
+            }
+            throw new KeyNotFoundException("No object with the specified Guid was found");
         }
     }
 }
