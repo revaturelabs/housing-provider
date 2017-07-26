@@ -21,7 +21,7 @@ namespace HousingProvider.Business.Service.Controllers
         [HttpGet("{guid}")]
         public IEnumerable<Property> Get(string guid)
         {
-            return DataFactory<Property>.Access(DataSvcUrl).GetByGuid(Guid.Parse(guid));
+            return DataFactory<Property>.Access(DataSvcUrl).GetAllByGuid(Guid.Parse(guid));
         }
     }
 }
