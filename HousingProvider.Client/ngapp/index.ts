@@ -1,28 +1,28 @@
 import * as ng from 'angular';
 import 'angular-route';
 import 'adal-angular/lib/adal-angular';
+import './home/module';
+import './home/controller';
 import './css/index.css';
-import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/navbar-header.html';
+import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/header.html';
 import 'file-loader?name=[name].[ext]&outputPath=partials/!./partials/footer.html';
-import 'file-loader?name=[name].[ext]&outputPath=html/!./home/home-template.html';
-import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/complex-template.html';
+import 'file-loader?name=[name].[ext]&outputPath=html/!./complex/template.html';
 
-var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
+var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
   $location.html5Mode({
-    enabled: true,
-    requireBase: false
+    enabled: true
   }).hashPrefix('!');
 
   $route
     .when('/', {
       controller: 'homeController',
-      templateUrl: './html/home-template.html'
+      templateUrl: 'home/template.html'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: './html/complex-template.html',
+      templateUrl: 'complex/complex-template.html',
       requireADLogin: true
     })
     .otherwise({
@@ -34,25 +34,4 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
   }, $http);
 }]);
 
-ngHousingProvider.controller('complexController', ['$scope', '$http', function($scope, $http) {
-  $scope.getComplexes = function () {
-    $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
-      $scope.complexes = res.data;
-
-      var count = 1;
-      $scope.complexes.forEach(function(element) {
-        element.counter = count++;
-      });
-    });
-  };
-}]);
-
-ngHousingProvider.controller('homeController', ['$scope', 'adalAuthenticationService', function($scope, adalAuth) {
-  $scope.signIn = function () {
-    adalAuth.login();
-  };
-
-  $scope.signOut = function () {
-    adalAuth.logOut();
-  }
-}]);
+export { ngHousingProvider };

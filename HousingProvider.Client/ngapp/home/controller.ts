@@ -1,22 +1,12 @@
-import { home as h } from './module'
-import './service';
+import { home } from './module';
+import 'file-loader?name=[name].[ext]&outputPath=home/!./template.html'
 
-class Request{
-  sender: string;
-  address: string;
-  description: string;
-  dateCreated: number;
-  urgent: boolean;
+home.controller('homeController', ['$scope', function ($scope) {
+  $scope.signin = function () {
 
-  constructor(){
-    this.sender = "no one";
-    this.address = "404 nobody ln, apt. 404, nowhere, N/A, 50404";
-    this.description = "";
-    this.dateCreated = Date.now();
-    this.urgent = true;
-  }
-}
+  };
 
-h.controller('homeController', ['$scope', 'homeFactory', function($scope, homeFactory){
-  
-}])
+  $scope.signout = function () {
+
+  };
+}]);

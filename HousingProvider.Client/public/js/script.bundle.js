@@ -60,38 +60,60 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(3);
+module.exports = angular;
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng = __webpack_require__(1);
-__webpack_require__(3);
-__webpack_require__(5);
+var ng = __webpack_require__(0);
+var home = ng.module('providerHome', []);
+exports.home = home;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ng = __webpack_require__(0);
+__webpack_require__(4);
 __webpack_require__(6);
+__webpack_require__(1);
 __webpack_require__(7);
-__webpack_require__(8);
 __webpack_require__(9);
 __webpack_require__(10);
-var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular']);
+__webpack_require__(11);
+__webpack_require__(12);
+__webpack_require__(13);
+var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome']);
+exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
         $location.html5Mode({
-            enabled: true,
-            requireBase: false
+            enabled: true
         }).hashPrefix('!');
         $route
             .when('/', {
             controller: 'homeController',
-            templateUrl: './html/home-template.html'
+            templateUrl: 'home/template.html'
         })
             .when('/complex', {
             controller: 'complexController',
-            templateUrl: './html/complex-template.html',
+            templateUrl: 'complex/complex-template.html',
             requireADLogin: true
         })
             .otherwise({
@@ -101,37 +123,10 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
             clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
         }, $http);
     }]);
-ngHousingProvider.controller('complexController', ['$scope', '$http', function ($scope, $http) {
-        $scope.getComplexes = function () {
-            $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
-                $scope.complexes = res.data;
-                var count = 1;
-                $scope.complexes.forEach(function (element) {
-                    element.counter = count++;
-                });
-            });
-        };
-    }]);
-ngHousingProvider.controller('homeController', ['$scope', 'adalAuthenticationService', function ($scope, adalAuth) {
-        $scope.signIn = function () {
-            adalAuth.login();
-        };
-        $scope.signOut = function () {
-            adalAuth.logOut();
-        };
-    }]);
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(2);
-module.exports = angular;
-
-
-/***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /**
@@ -33967,15 +33962,15 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(4);
+__webpack_require__(5);
 module.exports = 'ngRoute';
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports) {
 
 /**
@@ -35210,7 +35205,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 //----------------------------------------------------------------------
@@ -35707,34 +35702,57 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "css/index.css";
-
-/***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "partials/navbar-header.html";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var module_1 = __webpack_require__(1);
+__webpack_require__(8);
+module_1.home.controller('homeController', ['$scope', function ($scope) {
+        $scope.signin = function () {
+        };
+        $scope.signout = function () {
+        };
+    }]);
+
 
 /***/ }),
 /* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "partials/footer.html";
+module.exports = __webpack_require__.p + "home/template.html";
 
 /***/ }),
 /* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "html/home-template.html";
+module.exports = __webpack_require__.p + "css/index.css";
 
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "html/complex-template.html";
+module.exports = __webpack_require__.p + "partials/header.html";
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "partials/footer.html";
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "html/template.html";
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "html/template.html";
 
 /***/ })
 /******/ ]);
