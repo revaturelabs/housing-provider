@@ -32,7 +32,7 @@ namespace HousingProvider.Data.Service.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] Complex com)
+        public Guid Post([FromBody] Complex com)
         {
             var comDAO = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context);
             var efCom = _Mapper.MapFromDTO(com);
@@ -41,7 +41,7 @@ namespace HousingProvider.Data.Service.Controllers
             efCom.ModifiedDate = DateTime.Now;
             efCom.Active = true;
             efCom.ContactId = 1;
-            comDAO.Create(efCom);
+            return comDAO.Create(efCom).Guid;
         }
     }
 }
