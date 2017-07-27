@@ -9,6 +9,6 @@ namespace HousingProvider.Business.Service.Interface
     public interface IDataModel<T> where T : ILibraryModel
     {
         List<T> GetAll();
-        bool Create(T obj);
+        Guid Create(T obj);
     }
 }

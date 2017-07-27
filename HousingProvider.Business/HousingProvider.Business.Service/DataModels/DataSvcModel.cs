@@ -20,7 +20,7 @@ namespace HousingProvider.Business.Service.DataModels
             _Client.BaseAddress = new Uri(url);
         }
 
-        public bool Create(T obj)
+        public Guid Create(T obj)
         {
             var json = JsonConvert.SerializeObject(obj);
 
@@ -28,12 +28,10 @@ namespace HousingProvider.Business.Service.DataModels
             var response = _Client.PostAsync(_Client.BaseAddress.AbsoluteUri, content).Result;
             if (response.IsSuccessStatusCode)
             {
-                return true;
+                var r = response.Content.ReadAsStringAsync().Result;
+                JsonConvert.DeserializeObject<Guid>(r);
             }
-            else
-            {
-                return false;
-            }
+            throw new HttpRequestException();
         }
 
         public List<T> GetAll()
