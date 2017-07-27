@@ -22,7 +22,7 @@ namespace HousingProvider.Data.Service.Controllers
         [HttpGet]
         public IEnumerable<Complex> Get()
         {
-            var comList = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Read();
+            var comList = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Read(new string[] { "Address" });
             var dtos = new List<Complex>();
             foreach (var com in comList)
             {
