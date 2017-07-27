@@ -23,7 +23,7 @@ namespace HousingProvider.Business.Service.Controllers
     }
 
     [HttpPost]
-    public bool Post([FromBody]Request req)
+    public Guid Post([FromBody]Request req)
     {
       return DataFactory<Request>.Access(DataSvcUrl).Create(req);
     }

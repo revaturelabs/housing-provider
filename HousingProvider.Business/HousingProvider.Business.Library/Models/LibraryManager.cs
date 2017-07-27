@@ -75,8 +75,8 @@ namespace HousingProvider.Business.Library.Models
 
       private bool IsAddressValid(Address address)
       {
-         return address.Address1.Length > 2 &&
-            address.ApartmentNumber.Length > 0 &&
+         return address.Street1.Length > 2 &&
+            address.Street2.Length > 0 &&
             address.City.Length > 0 &&
             address.State.Length == 2 &&
             address.ZipCode.Length >= 5;

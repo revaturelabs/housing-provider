@@ -29,7 +29,7 @@ namespace HousingProvider.Business.Service.DataModels
             if (response.IsSuccessStatusCode)
             {
                 var r = response.Content.ReadAsStringAsync().Result;
-                JsonConvert.DeserializeObject<Guid>(r);
+                return JsonConvert.DeserializeObject<Guid>(r);
             }
             throw new HttpRequestException();
         }
