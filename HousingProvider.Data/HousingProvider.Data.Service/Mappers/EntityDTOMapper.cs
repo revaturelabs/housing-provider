@@ -11,7 +11,10 @@ namespace HousingProvider.Data.Service.Mappers
     public class EntityDTOMapper <T, U>
     {
         private MapperConfiguration _MCfg = new MapperConfiguration(cfg => { cfg.CreateMap<T, U>();
-                                                                     cfg.CreateMap<U, T>(); });
+            cfg.CreateMap<U, T>();
+            cfg.CreateMap<Library.Models.Address, Models.Address>();
+            cfg.CreateMap<Models.Address, Library.Models.Address>();
+        });
 
         public U MapToDTO(T entity) 
         {

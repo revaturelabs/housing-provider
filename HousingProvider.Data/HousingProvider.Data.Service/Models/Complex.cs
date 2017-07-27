@@ -9,6 +9,7 @@ namespace HousingProvider.Data.Service.Models
     {
         public string ComplexName { get; set; }
         public bool Active { get; set; }
+        public Address Address { get; set; }
         public Guid AddressGuid { get; set; }
         public Guid Guid { get; set; }
         public DateTime ModifiedDate { get; set; }
