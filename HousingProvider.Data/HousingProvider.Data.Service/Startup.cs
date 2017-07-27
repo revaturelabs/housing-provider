@@ -30,7 +30,7 @@ namespace HousingProvider.Data.Service
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddScoped<DbContext, HousingProviderDBContext>().AddDbContext<HousingProviderDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("AltProviderDB")));
+            services.AddScoped<DbContext, HousingProviderDBContext>().AddDbContext<HousingProviderDBContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("ProviderDB")));
             services.AddCors(o => o.AddPolicy("default", b => b.AllowAnyOrigin()));
             services.AddMvc();
         }
