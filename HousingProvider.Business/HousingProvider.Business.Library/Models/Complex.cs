@@ -12,5 +12,7 @@ namespace HousingProvider.Business.Library.Models
         public Address Address { get; set; }
         public Guid AddressGuid { get; set; }
         public DateTime ModifiedDate { get; set; }
+        public string Url { get; set; }
+        public string Description { get; set; }
     }
 }
