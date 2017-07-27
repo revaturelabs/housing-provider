@@ -14,6 +14,8 @@ select * from Person.[Provider];
 
 select * from Property.[Address];
 
+select * from Person.Contact;
+
 INSERT INTO [Request].[RequestType] (RequestTypeDescription)
 values 
 	('Maintenance'),
@@ -74,9 +76,18 @@ values
     (1,0,'This is A Demo Request Title 2','This is a Demo Request Description 2','Tenant 2',1,'BridgeStreet Rep',1,'This is a Demo Action on Request 2.',1);
 
 
-
-
-
+INSERT INTO [Property].Complex (ComplexName,AddressId,ContactId,Active,ModifiedDate,[Guid])
+VALUES
+('Dulles Greene', 1, 1, 1, GETDATE(), NEWID() ),
+('The Madison Belmont', 2, 2, 1, GETDATE(), NEWID() ),
+('Lakeview Terrace', 3, 3, 1, GETDATE(), NEWID() ),
+('Twilight Shores', 4, 4, 1, GETDATE(), NEWID() ),
+('Ashford Meadows', 5, 5, 1, GETDATE(), NEWID() ),
+('Park Avenue Apartments', 1, 1, 1, GETDATE(), NEWID() ),
+('Van Metre Woodland Park', 2, 2, 1, GETDATE(), NEWID() ),
+('Monroe Place', 3, 3, 1, GETDATE(), NEWID() ),
+('Stuart Woods', 4, 4, 1, GETDATE(), NEWID() ),
+('Avalon Reston Landing', 5, 5, 1, GETDATE(), NEWID() );
 
 drop table [person].person;
 drop table [person].Contact;

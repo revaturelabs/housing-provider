@@ -1,6 +1,7 @@
-import { ngHousingProvider } from '../index';
+import { complex } from './module';
+import 'file-loader?name=[name].[ext]&outputPath=complex/!./template.html'
 
-ngHousingProvider.controller('complexController', ['$scope', '$http', function($scope, $http) {
+complex.controller('complexController', ['$scope', '$http', function($scope, $http) {
   $scope.getComplexes = function () {
     $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
       $scope.complexes = res.data;

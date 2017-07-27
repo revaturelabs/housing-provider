@@ -1,8 +1,13 @@
-<div data-ng-controller="complexController">
-  <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>
+<div class="container-fluid">
+  <section class="row">
+    <div class="col col-md-2">
+      <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>
+    </div>
 
-  <ul data-ng-repeat="complex in complexes">
-    <li>{{complex.complexName}}</li>
-  </ul>
-
+    <div class="col col-md-10">
+      <ul data-ng-repeat=" complex in complexes ">
+        <li>{{complex.complexName}}</li>
+      </ul>
+    </div>
+  </section>
 </div>
