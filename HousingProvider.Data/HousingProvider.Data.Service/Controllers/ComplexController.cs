@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using HousingProvider.Data.Library.Models;
 using HousingProvider.Data.Service.Models;
 using HousingProvider.Data.Library.DAO;
 using Microsoft.EntityFrameworkCore;
@@ -16,21 +15,33 @@ namespace HousingProvider.Data.Service.Controllers
     [Route("api/[controller]")]
     public class ComplexController : ProviderDBController
     {
-        private EntityDTOMapper<Library.Models.Complex, Models.Complex> _Mapper = new EntityDTOMapper<Library.Models.Complex, Models.Complex>();
+        private EntityDTOMapper<Library.Models.Complex, Complex> _Mapper = new EntityDTOMapper<Library.Models.Complex, Complex>();
 
         public ComplexController(DbContext context) : base(context) { }
 
-        // GET: api/values
         [HttpGet]
-        public IEnumerable<Models.Complex> Get()
+        public IEnumerable<Complex> Get()
         {
             var comList = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Read();
-            var dtos = new List<Models.Complex>();
+            var dtos = new List<Complex>();
             foreach (var com in comList)
             {
                 dtos.Add(_Mapper.MapToDTO(com));
             }
             return dtos;
+        }
+
+        [HttpPost]
+        public void Post([FromBody] Complex com)
+        {
+            var comDAO = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context);
+            var efCom = _Mapper.MapFromDTO(com);
+            efCom.AddressId = DataAccessFactory.GetDataAccessObject<Library.Models.Address>(Context).Find(com.AddressGuid).AddressId;
+            efCom.Guid = Guid.NewGuid();
+            efCom.ModifiedDate = DateTime.Now;
+            efCom.Active = true;
+            efCom.ContactId = 1;
+            comDAO.Create(efCom);
         }
     }
 }

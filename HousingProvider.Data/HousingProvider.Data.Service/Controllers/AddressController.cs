@@ -33,5 +33,15 @@ namespace HousingProvider.Data.Service.Controllers
             }
             return null;
         }
+
+        [HttpPost]
+        public Guid Post([FromBody] Address adr)
+        {
+            var efAdr = _Mapper.MapFromDTO(adr);
+            efAdr.ModifiedDate = DateTime.Now;
+            efAdr.Guid = Guid.NewGuid();
+            efAdr.Active = true;
+            return DataAccessFactory.GetDataAccessObject<Library.Models.Address>(Context).Create(efAdr).Guid;
+        }
     }
 }
