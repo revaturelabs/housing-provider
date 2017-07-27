@@ -1,8 +1,25 @@
-<div data-ng-controller="complexController">
-  <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>
+<div class="container-fluid" data-ng-controller="complexController">
+  <section class="row">
+    <div class="col col-md-2">
+       <!-- <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>  -->
+    <p>
+      Search:
+      <input ng-model="query">
+    </p>
 
-  <ul data-ng-repeat="complex in complexes">
-    <li>{{complex.complexName}}</li>
-  </ul>
+    <p>
+      Sort By:
+      <select ng-model="orderProp">
+        <option value="complexName">Alphabetical</option>
+        <option value="-complexName">Reverse Alphabetical</option>
+      </select>
+    </p>
+    </div>
 
+    <div class="col col-md-10">
+      <ul id="complexList" data-ng-repeat="complex in complexes | filter:query | orderBy:orderProp">
+        <li id="complexItem">{{complex.complexName}}</li>
+      </ul>
+    </div>
+  </section>
 </div>

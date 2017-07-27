@@ -1,14 +1,14 @@
-import { ngHousingProvider } from '../index';
+import { complex } from './module';
+import 'file-loader?name=[name].[ext]&outputPath=complex/!./template.html'
 
-ngHousingProvider.controller('complexController', ['$scope', '$http', function($scope, $http) {
-  $scope.getComplexes = function () {
-    $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
-      $scope.complexes = res.data;
+complex.controller('complexController', ['$scope', '$http', function ($scope, $http) {
+  $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
+    $scope.complexes = res.data;
+    $scope.orderProp = 'complexName';
 
-      var count = 1;
-      $scope.complexes.forEach(function(element) {
-        element.counter = count++;
-      });
-    });
-  };
+    // var count = 1;
+    // $scope.complexes.forEach(function(element) {
+    //   element.counter = count++;
+    // });
+  });
 }]);

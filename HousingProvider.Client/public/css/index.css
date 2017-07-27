@@ -59,7 +59,7 @@ td {
 
 .padding-50 {
     padding: 20px;
-    margin-top: 200px;
+    margin-top: 60px;
 } 
 
 #auth {
@@ -76,4 +76,18 @@ td {
 
 #authButton {
     margin: 10px;
+}
+
+#headNav {
+    margin-bottom: 2em;
+}
+
+#complexItem {
+    border: 1px solid black;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#complexList {
+    list-style-type: none;
 }
