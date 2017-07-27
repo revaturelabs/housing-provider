@@ -18,8 +18,12 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: './complex/template.html',
+      templateUrl: './complex/template.html'
       // requireADLogin: true
+    })
+    .when('/complexDetail', {
+      controller: 'complexDetailController',
+      templateURL: './complex-detail/template.html'
     })
     .otherwise({
       redirectTo: '/'
