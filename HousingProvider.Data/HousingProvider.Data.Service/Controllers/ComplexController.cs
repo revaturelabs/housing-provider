@@ -35,20 +35,12 @@ namespace HousingProvider.Data.Service.Controllers
         public void Post([FromBody] Complex com)
         {
             var comDAO = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context);
-            var adrDAO = DataAccessFactory.GetDataAccessObject<Library.Models.Address>(Context);
-            var efAdr = new EntityDTOMapper<Library.Models.Address, Address>().MapFromDTO(com.Address);
-            efAdr.Guid = Guid.NewGuid();
-            efAdr.ModifiedDate = DateTime.Now;
-            efAdr.Active = true;
-            efAdr = adrDAO.Create(efAdr);
-            com.Address = null;
-
             var efCom = _Mapper.MapFromDTO(com);
+            efCom.AddressId = DataAccessFactory.GetDataAccessObject<Library.Models.Address>(Context).Find(com.AddressGuid).AddressId;
             efCom.Guid = Guid.NewGuid();
             efCom.ModifiedDate = DateTime.Now;
             efCom.Active = true;
             efCom.ContactId = 1;
-            efCom.AddressId = efAdr.AddressId;
             comDAO.Create(efCom);
         }
     }
