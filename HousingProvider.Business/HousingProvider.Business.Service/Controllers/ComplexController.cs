@@ -10,19 +10,25 @@ using HousingProvider.Business.Service.DataModels;
 
 namespace HousingProvider.Business.Service.Controllers
 {
-  [Route("api/[controller]")]
-  public class ComplexController : DataSvcController
-  {
-    public ComplexController()
+    [Route("api/[controller]")]
+    public class ComplexController : DataSvcController
     {
-      DataSvcUrl += "complex";
-    }
+        public ComplexController()
+        {
+            DataSvcUrl += "complex";
+        }
 
-    // GET: api/values
-    [HttpGet]
-    public IEnumerable<Complex> Get()
-    {
-      return DataFactory<Complex>.Access(DataSvcUrl).GetAll();
+        // GET: api/values
+        [HttpGet]
+        public IEnumerable<Complex> Get()
+        {
+            return DataFactory<Complex>.Access(DataSvcUrl).GetAll();
+        }
+
+        [HttpPost]
+        public Guid Post([FromBody] Complex com)
+        {
+            return DataFactory<Complex>.Access(DataSvcUrl).Create(com);
+        }
     }
-  }
 }

@@ -23,5 +23,11 @@ namespace HousingProvider.Business.Service.Controllers
         {
             return DataFactory<Address>.Access(DataSvcUrl).FindByGuid(Guid.Parse(guid));
         }
+
+        [HttpPost]
+        public Guid Post([FromBody] Address adr)
+        {
+            return DataFactory<Address>.Access(DataSvcUrl).Create(adr);
+        }
     }
 }
