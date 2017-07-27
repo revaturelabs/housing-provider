@@ -85,9 +85,17 @@ td {
 #complexItem {
     border: 2px solid black;
     padding: 10px;
+}
+
+#complexName {
     font-weight: bold;
 }
 
 #complexList {
     list-style-type: none;
+}
+
+#complexThumbnail {
+    width: 120px;
+    height: 120px;
 }

@@ -60,14 +60,14 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(3);
+__webpack_require__(4);
 module.exports = angular;
 
 
@@ -75,22 +75,35 @@ module.exports = angular;
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "complex/template.html";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ng = __webpack_require__(0);
+__webpack_require__(2);
+var complex = ng.module('providerComplex', []);
+exports.complex = complex;
+
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "complex/template.html";
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ng = __webpack_require__(0);
-__webpack_require__(4);
-__webpack_require__(6);
+__webpack_require__(5);
 __webpack_require__(7);
-__webpack_require__(10);
-__webpack_require__(12);
-__webpack_require__(1);
+__webpack_require__(8);
+__webpack_require__(11);
+__webpack_require__(13);
+__webpack_require__(2);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
@@ -102,7 +115,12 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
         })
             .when('/complex', {
             controller: 'complexController',
-            templateUrl: './complex/template.html',
+            templateUrl: './complex/template.html'
+            // requireADLogin: true
+        })
+            .when('/complexDetail', {
+            controller: 'complexDetailController',
+            templateURL: './complex-detail/template.html'
         })
             .otherwise({
             redirectTo: '/'
@@ -114,7 +132,7 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 /**
@@ -33950,15 +33968,15 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(5);
+__webpack_require__(6);
 module.exports = 'ngRoute';
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 /**
@@ -35193,7 +35211,7 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports) {
 
 //----------------------------------------------------------------------
@@ -35690,14 +35708,14 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var module_1 = __webpack_require__(8);
-__webpack_require__(9);
+var module_1 = __webpack_require__(9);
+__webpack_require__(10);
 module_1.home.controller('homeController', ['$scope', function ($scope) {
         $scope.signin = function () {
         };
@@ -35707,7 +35725,7 @@ module_1.home.controller('homeController', ['$scope', function ($scope) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -35719,31 +35737,10 @@ exports.home = home;
 
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "home/template.html";
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var module_1 = __webpack_require__(11);
-__webpack_require__(1);
-module_1.complex.controller('complexController', ['$scope', '$http', function ($scope, $http) {
-        $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
-            $scope.complexes = res.data;
-            $scope.orderProp = 'complexName';
-            // var count = 1;
-            // $scope.complexes.forEach(function(element) {
-            //   element.counter = count++;
-            // });
-        });
-    }]);
-
+module.exports = __webpack_require__.p + "home/template.html";
 
 /***/ }),
 /* 11 */
@@ -35752,13 +35749,36 @@ module_1.complex.controller('complexController', ['$scope', '$http', function ($
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var ng = __webpack_require__(0);
-var complex = ng.module('providerComplex', []);
-exports.complex = complex;
+var module_1 = __webpack_require__(1);
+__webpack_require__(12);
+module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', function ($scope, $http, complexService) {
+        complexService.getComplexes($scope);
+    }]);
 
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var module_1 = __webpack_require__(1);
+var complexService = module_1.complex.factory('complexService', ['$http', function ($http) {
+        return {
+            getComplexes: function (scope) {
+                $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
+                    scope.complexes = res.data;
+                    scope.orderProp = 'complexName';
+                });
+            }
+        };
+    }]);
+// export { complexService }; 
+
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "css/index.css";
