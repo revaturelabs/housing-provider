@@ -94,11 +94,11 @@ __webpack_require__(1);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
-        $location.html5Mode(true).hashPrefix('!');
+        // $location.html5Mode(true).hashPrefix('!');
         $route
             .when('/', {
-            controller: 'complexController',
-            templateUrl: './complex/template.html'
+            controller: 'homeController',
+            templateUrl: './home/template.html'
         })
             .when('/complex', {
             controller: 'complexController',
@@ -35734,15 +35734,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(11);
 __webpack_require__(1);
 module_1.complex.controller('complexController', ['$scope', '$http', function ($scope, $http) {
-        $scope.getComplexes = function () {
-            $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
-                $scope.complexes = res.data;
-                var count = 1;
-                $scope.complexes.forEach(function (element) {
-                    element.counter = count++;
-                });
-            });
-        };
+        $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
+            $scope.complexes = res.data;
+            $scope.orderProp = 'complexName';
+            // var count = 1;
+            // $scope.complexes.forEach(function(element) {
+            //   element.counter = count++;
+            // });
+        });
     }]);
 
 
