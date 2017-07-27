@@ -90,14 +90,14 @@ VALUES
 ('Avalon Reston Landing', 5, 5, 1, GETDATE(), NEWID() );
 
 drop table [person].person;
-drop table [person].Contact;
-drop table [person].[Provider];
-drop table [property].complex;
-drop table [property].[Address];
-drop table [property].Property;
 drop table [request].Request;
 drop table [request].RequestType;
 drop table [request].[Status];
+drop table [property].Property;
+drop table [person].[Provider];
+drop table [property].complex;
+drop table [property].[Address];
+drop table [person].Contact;
 
 
 
