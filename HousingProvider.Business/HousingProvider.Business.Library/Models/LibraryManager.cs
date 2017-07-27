@@ -84,8 +84,8 @@ namespace HousingProvider.Business.Library.Models
 
       private bool IsPropertyValid(Property property)
       {
-         return property.Bedrooms > 0 &&
-            property.Bathrooms > 0 &&
+         return property.NumberOfRooms > 0 &&
+            property.NumberOfBaths > 0 &&
             IsAddressValid(property.Address);
       }
 

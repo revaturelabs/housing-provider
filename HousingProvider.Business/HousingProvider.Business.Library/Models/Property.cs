@@ -13,9 +13,12 @@ namespace HousingProvider.Business.Library.Models
     /// </summary>
     public class Property : IProperty, ILibraryModel
     {
+        public int NumberOfRooms { get; set; }
+        public int NumberOfBaths { get; set; }
         public Address Address { get; set; }
-        public int Bathrooms { get; set; }
-        public int Bedrooms { get; set; }
+        public Guid AddressGuid { get; set; }
+        public Guid ComplexGuid { get; set; }
+        public bool Active { get; set; }
         public Guid Guid { get; set; }
         public DateTime ModifiedDate { get; set; }
         private List<Request> _Requests;
@@ -102,7 +105,7 @@ namespace HousingProvider.Business.Library.Models
         public override string ToString()
         {
             return string.Format("{0} Bedroom{1}, {2} Bathroom{3}\n{4}",
-               Bedrooms, Bedrooms > 1 ? "s" : "", Bathrooms, Bathrooms > 1 ? "s" : "", Address);
+               NumberOfRooms, NumberOfRooms > 1 ? "s" : "", NumberOfBaths, NumberOfBaths > 1 ? "s" : "", Address);
         }
     }
 }
