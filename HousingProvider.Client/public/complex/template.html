@@ -19,10 +19,11 @@
     <div class="col col-md-9">
       <ul id="complexList" data-ng-repeat="complex in complexes | filter:query | orderBy:orderProp">
         <li id="complexItem" class="row">
-          <img id="complexThumbnail" src="{{complex.url}}" data-ng-click="getApartments(complex.guid)" class="col col-md-4">
+          <img id="complexThumbnail" src="{{complex.url}}" class="col col-md-4">
           <section class="col col-md-8">
             <p id="complexName">{{complex.complexName}}</p>
             <p>{{complex.description}}</p>
+            <button class="btn btn-info btn-sm" data-ng-click="showDetails(complex.guid)">Details</button>
           </section>
         </li>
       </ul>

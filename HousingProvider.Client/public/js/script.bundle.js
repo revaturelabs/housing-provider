@@ -103,8 +103,11 @@ __webpack_require__(7);
 __webpack_require__(8);
 __webpack_require__(11);
 __webpack_require__(13);
+__webpack_require__(15);
+__webpack_require__(16);
 __webpack_require__(2);
-var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex']);
+__webpack_require__(17);
+var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
         // $location.html5Mode(true).hashPrefix('!');
@@ -118,9 +121,9 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
             templateUrl: './complex/template.html'
             // requireADLogin: true
         })
-            .when('/complexDetail', {
+            .when('/complexdetail', {
             controller: 'complexDetailController',
-            templateURL: './complex-detail/template.html'
+            templateUrl: './complex-detail/template.html'
         })
             .otherwise({
             redirectTo: '/'
@@ -35751,8 +35754,11 @@ module.exports = __webpack_require__.p + "home/template.html";
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(1);
 __webpack_require__(12);
-module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', function ($scope, $http, complexService) {
+module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', '$location', function ($scope, $http, complexService, $location) {
         complexService.getComplexes($scope);
+        $scope.showDetails = function (guid) {
+            $location.path('/complexdetail');
+        };
     }]);
 
 
@@ -35781,7 +35787,43 @@ var complexService = module_1.complex.factory('complexService', ['$http', functi
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var module_1 = __webpack_require__(14);
+module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', function ($http, $scope) {
+    }]);
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var ng = __webpack_require__(0);
+var complexDetail = ng.module('providerComplexDetail', []);
+exports.complexDetail = complexDetail;
+
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "css/revature.css";
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
 module.exports = __webpack_require__.p + "css/index.css";
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "complex-detail/template.html";
 
 /***/ })
 /******/ ]);

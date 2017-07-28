@@ -83,8 +83,16 @@ td {
 }
 
 #complexItem {
-    border: 2px solid black;
-    padding: 10px;
+    display: block;
+    padding: 4px;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+       -o-transition: border .2s ease-in-out;
+          transition: border .2s ease-in-out;
 }
 
 #complexName {
@@ -96,6 +104,8 @@ td {
 }
 
 #complexThumbnail {
-    width: 120px;
-    height: 120px;
+    width: 200px;
+    height: 200px;
+    padding-bottom: 1em;
+    padding-top: 1em;
 }
