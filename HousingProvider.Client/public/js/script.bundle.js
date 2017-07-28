@@ -35768,8 +35768,6 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(11);
-module_1.home.controller('homeController', ['$scope', function ($scope) {
-var module_1 = __webpack_require__(9);
 module_1.home.controller('homeController', ['$scope', 'adalAuthenticationService', function ($scope, adalAuthenticationService) {
         $scope.signin = function () {
             adalAuthenticationService.login();
