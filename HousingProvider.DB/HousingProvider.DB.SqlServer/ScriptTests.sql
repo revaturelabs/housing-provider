@@ -90,7 +90,7 @@ VALUES
 ('Avalon Reston Landing', 5, 5, 1, GETDATE(), NEWID() );
 
 
-INSERT INTO [Property].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active,[Guid], ModifiedDate)
+INSERT INTO [Property].Property(NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active,[Guid], ModifiedDate)
 values
 (7,3,1,22,1,1, NEWID(),GETDATE()),
 (10,6,1,23,1,1, NEWID(),GETDATE()),
@@ -106,14 +106,14 @@ values
 (7,8,1,33,3,1, NEWID(),GETDATE()),
 (4,13,1,34,3,1, NEWID(),GETDATE()),
 (6,5,1,35,3,1, NEWID(),GETDATE()),
-(3,1,36,3,1, NEWID(),GETDATE()),
+(3,1,1,36,3,1, NEWID(),GETDATE()),
 (10,6,1,37,4,1, NEWID(),GETDATE()),
 (5,13,1,38,4,1, NEWID(),GETDATE()),
 (3,3,1,39,4,1, NEWID(),GETDATE()),
 (4,4,1,40,4,1, NEWID(),GETDATE()),
 (5,8,1,41,4,1, NEWID(),GETDATE()),
 (2,3,1,42,6,1, NEWID(),GETDATE()),
-(3,11,43,6,1, NEWID(),GETDATE()),
+(3,11,1,43,6,1, NEWID(),GETDATE()),
 (1,9,1,44,6,1, NEWID(),GETDATE()),
 (17,13,1,45,6,1, NEWID(),GETDATE()),
 (7,6,1,46,6,1, NEWID(),GETDATE()),
@@ -152,7 +152,7 @@ values
 (1,7,1,79,14,1, NEWID(),GETDATE()),
 (1,6,1,80,14,1, NEWID(),GETDATE()),
 (6,4,1,81,14,1, NEWID(),GETDATE()),
-(4,1,77,82,1, NEWID(),GETDATE()),
+(4,1,1,82,15,1, NEWID(),GETDATE()),
 (1,4,1,83,15,1, NEWID(),GETDATE()),
 (8,9,1,84,15,1, NEWID(),GETDATE()),
 (1,3,1,85,15,1, NEWID(),GETDATE()),
@@ -183,7 +183,7 @@ values
 (8,9,1,110,20,1, NEWID(),GETDATE()),
 (1,1,1,111,20,1, NEWID(),GETDATE()),
 (8,7,1,112,21,1, NEWID(),GETDATE()),
-(18,1,113,21,1, NEWID(),GETDATE()),
+(18,1,1,113,21,1, NEWID(),GETDATE()),
 (8,9,1,114,21,1, NEWID(),GETDATE()),
 (2,1,1,115,21,1, NEWID(),GETDATE()),
 (1,9,1,116,21,1, NEWID(),GETDATE()),
