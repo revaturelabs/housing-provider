@@ -121,6 +121,10 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
             templateUrl: './complex/template.html'
             // requireADLogin: true
         })
+            .when('/complexdetail/:id', {
+            controller: 'complexDetailController',
+            templateUrl: './complex-detail/template.html'
+        })
             .when('/complexdetail', {
             controller: 'complexDetailController',
             templateUrl: './complex-detail/template.html'

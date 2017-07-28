@@ -97,6 +97,11 @@ td {
 
 #complexName {
     font-weight: bold;
+    margin-top: 20px;
+}
+
+#complexAddress {
+    margin-top: 25px;
 }
 
 #complexList {
@@ -106,6 +111,6 @@ td {
 #complexThumbnail {
     width: 200px;
     height: 200px;
-    padding-bottom: 1em;
-    padding-top: 1em;
+    padding-bottom: 2em;
+    padding-top: 2em;
 }

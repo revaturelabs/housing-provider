@@ -28,6 +28,10 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
       controller: 'complexDetailController',
       templateUrl: './complex-detail/template.html'
     })
+    .when('/complexdetail', {
+      controller: 'complexDetailController',
+      templateUrl: './complex-detail/template.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
