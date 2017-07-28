@@ -25,6 +25,12 @@ namespace HousingProvider.Business.Service.Controllers
             return DataFactory<Complex>.Access(DataSvcUrl).GetAll();
         }
 
+        [HttpGet("{guid}")]
+        public Complex Get(string guid)
+        {
+            return DataFactory<Complex>.Access(DataSvcUrl).FindByGuid(Guid.Parse(guid));
+        }
+
         [HttpPost]
         public Guid Post([FromBody] Complex com)
         {
