@@ -90,7 +90,7 @@ VALUES
 ('Avalon Reston Landing', 5, 5, 1, GETDATE(), NEWID() );
 
 
-INSERT INTO [Property].Property(NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active,[Guid], ModifiedDate)
+INSERT INTO [Property].[Property](NumberofRooms,NumberofBaths,ProviderId,AddressId,ComplexId,Active,[Guid], ModifiedDate)
 values
 (7,3,1,22,1,1, NEWID(),GETDATE()),
 (10,6,1,23,1,1, NEWID(),GETDATE()),
