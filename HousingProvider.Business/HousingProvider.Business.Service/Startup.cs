@@ -28,7 +28,7 @@ namespace HousingProvider.Business.Service
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddCors (o => o.AddPolicy ("default", b => b.AllowAnyOrigin ()));
+            services.AddCors(o => o.AddPolicy("default", b => b.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials().SetPreflightMaxAge(TimeSpan.FromSeconds(2520))));
             services.AddMvc();
         }
 
