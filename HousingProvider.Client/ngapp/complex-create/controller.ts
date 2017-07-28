@@ -5,5 +5,7 @@ createComplex.controller('createComplexController', ['$http', '$scope', '$routeP
     $scope.address = {};
     $scope.complex = {};
 
-    
+    $scope.addComplex = function () {
+        createComplexService.postAddress($scope.address, $scope.complex);
+    }
 }]);

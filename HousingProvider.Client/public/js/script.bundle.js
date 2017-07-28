@@ -76465,6 +76465,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(4);
 __webpack_require__(22);
 module_1.createComplex.controller('createComplexController', ['$http', '$scope', '$routeParams', 'createComplexService', function ($http, $scope, $routeParams, createComplexService) {
+        $scope.address = {};
+        $scope.complex = {};
+        $scope.addComplex = function () {
+            createComplexService.postAddress($scope.address, $scope.complex);
+        };
     }]);
 
 
@@ -76477,7 +76482,20 @@ module_1.createComplex.controller('createComplexController', ['$http', '$scope',
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(4);
 module_1.createComplex.factory('createComplexService', ['$http', function ($http) {
-        return {};
+        return {
+            postAddress: function (adr, complex) {
+                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
+                    complex.addressGuid = res.data;
+                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex).then(function (res) {
+                        console.log(res);
+                    }, function (err) {
+                        console.log(err);
+                    });
+                }, function (err) {
+                    console.log(err);
+                });
+            }
+        };
     }]);
 
 
