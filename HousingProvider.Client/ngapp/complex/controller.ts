@@ -1,6 +1,7 @@
+import 'angular-material';
 import { complex } from './module';
 import './service';
 
-complex.controller('complexController', ['$scope', '$http', 'complexService', '$location', function ($scope, $http, complexService, $location) {
+complex.controller('complexController', ['$scope', '$http', 'complexService', function ($scope, $http, complexService) {
   complexService.getComplexes($scope);
 }]);
