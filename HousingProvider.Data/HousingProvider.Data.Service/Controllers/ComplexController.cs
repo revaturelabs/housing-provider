@@ -31,6 +31,13 @@ namespace HousingProvider.Data.Service.Controllers
             return dtos;
         }
 
+        [HttpGet("{guid}")]
+        public Complex Get(string guid)
+        {
+            var com = DataAccessFactory.GetDataAccessObject<Library.Models.Complex>(Context).Find(Guid.Parse(guid));
+            return _Mapper.MapToDTO(com);
+        }
+
         [HttpPost]
         public Guid Post([FromBody] Complex com)
         {
