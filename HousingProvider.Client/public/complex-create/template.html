@@ -1,3 +1,44 @@
-<div>
-  <section></section>
+<div class="container-fluid">
+  <section class="row">
+    <h3 class="col col-md-4 col-md-offset-3">New Complex:</h3>
+  </section>
+
+  <section class="row">
+    <form action="" class="col col-md-4 col-md-offset-4">
+      <div class="row">
+        <p class="col col-md-4">Complex Name:</p>
+        <input type="text" class="col col-md-8" data-ng-model="complex.complexName">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">Complex Description:</p>
+        <input type="text" class="col col-md-8" data-ng-model="complex.description">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">Image URL:</p>
+        <input type="text" class="col col-md-8" data-ng-model="complex.url">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">Street:</p>
+        <input type="text" class="col col-md-8" data-ng-model="address.street1">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">City:</p>
+        <input type="text" class="col col-md-8" data-ng-model="address.city">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">State:</p>
+        <input type="text" class="col col-md-8" data-ng-model="address.state">
+      </div>
+      <div class="row">
+        <p class="col col-md-4">ZipCode:</p>
+        <input type="text" class="col col-md-8" data-ng-model="address.zipCode">
+      </div>
+    </form>
+  </section>
+
+  <section class="row">
+    <div class="col col-md-4 col-md-offset-3">
+      <a col col-md-4 col-md-offset-3 class="btn btn-warning" data-ng-click="addComplex()">Create</a>
+    </div>
+  </section>
 </div>
