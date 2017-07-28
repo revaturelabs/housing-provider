@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <section class="row">
+    <div class="col col-md-10 col-md-offset-2">
+      <h4 id="complexName">Apartments in {{complex.complexName}}</h4>
+
+      <ul id="complexList" data-ng-repeat="apartment in apartments">
+        <li id="complexItem" class="row">
+          <div class="col col-md-6">
+            <p>Address: {{apartment.address.street1}}</p>
+            <p>Number of rooms: {{apartment.numberOfRooms}}</p>
+            <p>Number of baths: {{apartment.numberOfBaths}}</p>
+          </div>
+          <div class="col col-md-6">
+            <pre>Pending Supply Requests: 1           Pending Maintenance Requests: 3</pre>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+</div>
