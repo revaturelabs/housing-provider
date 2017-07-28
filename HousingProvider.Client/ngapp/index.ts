@@ -21,7 +21,7 @@ import 'file-loader?name=[name].[ext]&outputPath=complex-create/!./complex-creat
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
-  // $location.html5Mode(true).hashPrefix('!');
+  $location.html5Mode(true).hashPrefix('!');
 
   $route
     .when('/', {
@@ -30,22 +30,25 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     })
     .when('/complex', {
       controller: 'complexController',
-      templateUrl: './complex/template.html'
-      // requireADLogin: true
+      templateUrl: './complex/template.html',
+      requireADLogin: true
     })
     .when('/complexdetail/:guid', {
       controller: 'complexDetailController',
-      templateUrl: './complex-detail/template.html'
+      templateUrl: './complex-detail/template.html',
+      requireADLogin: true
     })
     .when('/createcomplex', {
       controller: 'createComplexController',
-      templateUrl: './complex-create/template.html'
+      templateUrl: './complex-create/template.html',
+      requireADLogin: true
     })
     .otherwise({
       redirectTo: '/'
     });
 
   adalAuth.init({
+    tenant: 'provider@fredbelotterevature.onmicrosoft.com',
     clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
   }, $http);
 }]);

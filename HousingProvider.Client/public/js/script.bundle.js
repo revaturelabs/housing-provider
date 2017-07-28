@@ -121,7 +121,7 @@ __webpack_require__(19);
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail']);
 exports.ngHousingProvider = ngHousingProvider;
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
-        // $location.html5Mode(true).hashPrefix('!');
+        $location.html5Mode(true).hashPrefix('!');
         $route
             .when('/', {
             controller: 'homeController',
@@ -129,21 +129,24 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
         })
             .when('/complex', {
             controller: 'complexController',
-            templateUrl: './complex/template.html'
-            // requireADLogin: true
+            templateUrl: './complex/template.html',
+            requireADLogin: true
         })
             .when('/complexdetail/:guid', {
             controller: 'complexDetailController',
-            templateUrl: './complex-detail/template.html'
+            templateUrl: './complex-detail/template.html',
+            requireADLogin: true
         })
             .when('/createcomplex', {
             controller: 'createComplexController',
-            templateUrl: './complex-create/template.html'
+            templateUrl: './complex-create/template.html',
+            requireADLogin: true
         })
             .otherwise({
             redirectTo: '/'
         });
         adalAuth.init({
+            tenant: 'provider@fredbelotterevature.onmicrosoft.com',
             clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
         }, $http);
     }]);
@@ -35733,10 +35736,12 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(9);
-module_1.home.controller('homeController', ['$scope', function ($scope) {
+module_1.home.controller('homeController', ['$scope', 'adalAuthenticationService', function ($scope, adalAuthenticationService) {
         $scope.signin = function () {
+            adalAuthenticationService.login();
         };
         $scope.signout = function () {
+            adalAuthenticationService.logOut();
         };
     }]);
 
