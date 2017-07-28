@@ -26,7 +26,8 @@ namespace HousingProvider.Data.Service.Controllers
             var dtos = new List<Property>();
             foreach (var prop in complex.Property)
             {
-                dtos.Add(_Mapper.MapToDTO(prop));
+                var p = DataAccessFactory.GetDataAccessObject<Library.Models.Property>(Context).Find(prop.Guid, new string[] { "Address" });
+                dtos.Add(_Mapper.MapToDTO(p));
             }
             return dtos;
         }
