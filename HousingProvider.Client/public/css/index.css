@@ -53,12 +53,16 @@ td {
     cursor: pointer;
 }
 
-#footer {
-    margin-top: 50px;
+#footerPadding {
+    margin-top: 100px;
+}
+
+#headerPadding {
+    margin-bottom: 120px;
 }
 
 .padding-50 {
-    padding: 20px;
+    padding: 2px;
     margin-top: 60px;
 } 
 
@@ -111,4 +115,16 @@ td {
     height: 200px;
     padding-bottom: 2em;
     padding-top: 2em;
+}
+
+#aptDetailPadding {
+    margin-top: 18px;
+}
+
+#aptRequestPadding {
+    margin-top: 35px;
+}
+
+#createComplex {
+    margin-top:30px;
 }

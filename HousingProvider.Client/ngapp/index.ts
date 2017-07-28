@@ -1,13 +1,22 @@
+// ANGULAR
 import * as ng from 'angular';
 import 'angular-route';
 import 'adal-angular/lib/adal-angular';
+
+// CONTROLLERS
 import './home/controller';
 import './complex/controller';
 import './complex-detail/controller';
+
+// CSS
 import './css/revature.css';
 import './css/index.css';
+
+// TEMPLATES
+import 'file-loader?name=[name].[ext]&outputPath=home/!./home/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex-detail/!./complex-detail/template.html';
+import 'file-loader?name=[name].[ext]&outputPath=complex-create/!./complex-create/template.html';
 
 var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail']);
 
@@ -28,10 +37,10 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
       controller: 'complexDetailController',
       templateUrl: './complex-detail/template.html'
     })
-    // .when('/complexdetail', {
-    //   controller: 'complexDetailController',
-    //   templateUrl: './complex-detail/template.html'
-    // })
+    .when('/createcomplex', {
+      controller: 'createComplexController',
+      templateUrl: './complex-create/template.html'
+    })
     .otherwise({
       redirectTo: '/'
     });
