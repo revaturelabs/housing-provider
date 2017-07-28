@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <section class="row">
     <div class="col col-md-10 col-md-offset-2">
-      <h4 id="complexName">Apartments in {{complex.complexName}}</h4>
+      <h4 id="complexName">Apartments for {{complex.complexName}}</h4>
 
       <ul id="complexList" data-ng-repeat="apartment in apartments">
         <li id="complexItem" class="row">
-          <div class="col col-md-6">
-            <p>Address: {{apartment.address.street1}}</p>
-            <p>Number of rooms: {{apartment.numberOfRooms}}</p>
-            <p>Number of baths: {{apartment.numberOfBaths}}</p>
+          <div class="col col-md-5">
+            <p id="aptDetailPadding">{{apartment.address.street1}}</p>
+            <p>{{apartment.address.city}} {{apartment.address.state}}, {{apartment.address.zipCode}}</p>
+            <p>Apt#: {{apartment.address.apartmentNum}}</p>
           </div>
           <div class="col col-md-6">
-            <pre>Pending Supply Requests: 1           Pending Maintenance Requests: 3</pre>
+            <pre id="aptRequestPadding">Pending Supply Requests: {{apartment.numberOfRooms}}      Pending Maintenance Requests: {{apartment.numberOfBaths}}</pre>
           </div>
         </li>
       </ul>

@@ -14,6 +14,8 @@
         <option value="-complexName">Reverse Alphabetical</option>
       </select>
     </p>
+
+    <a id="createComplex" class="btn btn-warning" data-ng-href="#!/createcomplex">Add New Complex</a>
     </div>
 
     <div class="col col-md-10">
@@ -25,7 +27,7 @@
             <p>{{complex.description}}</p>
             <a class="btn btn-info btn-sm" data-ng-href="#!/complexdetail/{{complex.guid}}">Details</a>
           </section>
-          <div class="col col-md-3">
+          <div class="col col-md-3 col-md-offset-1">
             <p id="complexAddress">Address: {{complex.address.street1}}</p>
             <p>{{complex.address.city}} {{complex.address.state}}, {{complex.address.zipCode}}</p>
           </div>
