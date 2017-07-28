@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   entry: "./ngapp/index.ts",
   output: {
-    filename: "js/script.bundle.js",
+    filename: "./js/script.bundle.js",
     path: path.resolve(__dirname, './public')
   },
   resolve: {

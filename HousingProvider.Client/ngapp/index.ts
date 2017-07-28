@@ -48,7 +48,7 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     });
 
   adalAuth.init({
-    tenant: 'provider@fredbelotterevature.onmicrosoft.com',
+    tenant: 'fredbelotterevature.onmicrosoft.com',
     clientId: '97f55e0c-ea66-486b-8c0d-4f195fa0653c'
   }, $http);
 }]);
