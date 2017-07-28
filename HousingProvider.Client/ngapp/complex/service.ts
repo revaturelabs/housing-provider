@@ -1,6 +1,6 @@
 import { complex } from './module';
 
-var complexService = complex.factory('complexService', ['$http', function ($http) {
+complex.factory('complexService', ['$http', function ($http) {
   return {
     getComplexes: function(scope) {
       $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {

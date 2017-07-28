@@ -3,8 +3,4 @@ import './service';
 
 complex.controller('complexController', ['$scope', '$http', 'complexService', '$location', function ($scope, $http, complexService, $location) {
   complexService.getComplexes($scope);
-
-  $scope.showDetails = function(guid) {
-    $location.path('/complexdetail');
-  };
 }]);
