@@ -1,16 +1,16 @@
 <div class="container-fluid">
   <section class="row">
-    <div class="col col-md-10 col-md-offset-2">
+    <div class="col col-sm-10 col-sm-offset-2">
       <h4 id="complexName">Apartments for {{complex.complexName}}</h4>
 
       <ul id="complexList" data-ng-repeat="apartment in apartments">
         <li id="complexItem" class="row">
-          <div class="col col-md-5">
+          <div class="col col-sm-5">
             <p id="aptDetailPadding">{{apartment.address.street1}}</p>
             <p>{{apartment.address.city}} {{apartment.address.state}}, {{apartment.address.zipCode}}</p>
             <p>Apt#: {{apartment.address.apartmentNum}}</p>
           </div>
-          <div class="col col-md-6">
+          <div class="col col-sm-6">
             <pre id="aptRequestPadding">Pending Supply Requests: {{apartment.numberOfRooms}}      Pending Maintenance Requests: {{apartment.numberOfBaths}}</pre>
           </div>
         </li>

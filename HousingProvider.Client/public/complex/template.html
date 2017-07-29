@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <section class="row">
-    <div class="col col-md-2">
+    <div class="col col-sm-2">
        <!-- <button type="submit" data-ng-click="getComplexes()" style="display: block; margin: 0 auto; float: inherit">DISPLAY APARTMENT COMPLEXES</button>  -->
     <p>
       Search:
@@ -15,19 +15,19 @@
       </select>
     </p>
 
-    <a id="createComplex" class="btn btn-warning" data-ng-href="#!/createcomplex">Add New Complex</a>
+    <a id="createComplex" class="btn btn-warning" data-ng-href="createcomplex">Add New Complex</a>
     </div>
 
-    <div class="col col-md-10">
+    <div class="col col-sm-10">
       <ul id="complexList" data-ng-repeat="complex in complexes | filter:query | orderBy:orderProp">
         <li id="complexItem" class="row">
-          <img id="complexThumbnail" src="{{complex.url}}" class="col col-md-3">
-          <section class="col col-md-6">
+          <img id="complexThumbnail" src="{{complex.url}}" class="col col-sm-3">
+          <section class="col col-sm-6">
             <p id="complexName">{{complex.complexName}}</p>
             <p>{{complex.description}}</p>
             <a class="btn btn-info btn-sm" data-ng-href="complexdetail/{{complex.guid}}">Details</a>
           </section>
-          <div class="col col-md-3 col-md-offset-1">
+          <div class="col col-sm-3 col-sm-offset-1">
             <p id="complexAddress">Address: {{complex.address.street1}}</p>
             <p>{{complex.address.city}} {{complex.address.state}}, {{complex.address.zipCode}}</p>
           </div>
