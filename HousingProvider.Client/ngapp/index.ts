@@ -8,6 +8,7 @@ import './home/controller';
 import './complex/controller';
 import './complex-detail/controller';
 import './complex-create/controller';
+import './property-create/controller';
 
 // CSS
 import './css/revature.css';
@@ -18,8 +19,9 @@ import 'file-loader?name=[name].[ext]&outputPath=home/!./home/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex-detail/!./complex-detail/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex-create/!./complex-create/template.html';
+import 'file-loader?name=[name].[ext]&outputPath=property-create/!./property-create/template.html';
 
-var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail', 'providerCreateComplex']);
+var ngHousingProvider = ng.module('ngHousingProvider', ['ngRoute', 'AdalAngular', 'providerHome', 'providerComplex', 'providerComplexDetail', 'providerCreateComplex', 'providerCreateProperty']);
 
 ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider', 'adalAuthenticationServiceProvider', function ($http, $location, $route, adalAuth) {
   $location.html5Mode(true).hashPrefix('!');
@@ -37,6 +39,11 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
     .when('/complexdetail/:guid', {
       controller: 'complexDetailController',
       templateUrl: './complex-detail/template.html',
+      requireADLogin: true
+    })
+    .when('/createproperty/:guid', {
+      controller: 'createPropertyController',
+      templateUrl: './property-create/template.html',
       requireADLogin: true
     })
     .when('/createcomplex', {
