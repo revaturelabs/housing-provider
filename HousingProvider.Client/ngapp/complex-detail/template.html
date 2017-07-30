@@ -1,22 +1,28 @@
 <div class="container-fluid">
   <section class="row">
-    <div class="col col-sm-10 col-sm-offset-2">
-      <h4 id="complexName">Apartments for {{complexName}}</h4>
+    <div class="col-sm-10 col-sm-offset-2">
+
+      <div class="row">
+        <h4 class="col-sm-3" id="complexName">Apartments for {{complexName}}</h4>
+        <a id="createButtonPadding" class="btn btn-warning col-sm-2 col-sm-offset-7" data-ng-href="createproperty/{{complexName}}/{{guid}}" data-ng-if="apartments[0]">Add Apartment Unit</a>
+      </div>
+
+      <div class="col-sm-4 col-sm-offset-3" id="loading" data-ng-if="!apartments[0]">
+        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+      </div>
 
       <ul id="complexList" data-ng-repeat="apartment in apartments">
         <li id="complexItem" class="row">
-          <div class="col col-sm-5">
+          <div class="col-sm-5">
             <p id="aptDetailPadding">{{apartment.address.street1}}</p>
             <p>{{apartment.address.city}} {{apartment.address.state}}, {{apartment.address.zipCode}}</p>
             <p>Apt#: {{apartment.address.apartmentNum}}</p>
           </div>
-          <div class="col col-sm-6">
+          <div class="col-sm-6">
             <pre id="aptRequestPadding">Pending Supply Requests: {{apartment.numberOfRooms}}      Pending Maintenance Requests: {{apartment.numberOfBaths}}</pre>
           </div>
         </li>
       </ul>
-
-      <a class="btn btn-warning" data-ng-href="createproperty/{{complexName}}/{{guid}}">Add Apartment Unit</a>
 
     </div>
   </section>

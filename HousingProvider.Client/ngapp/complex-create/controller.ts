@@ -1,7 +1,7 @@
 import { createComplex } from './module';
 import './service';
 
-createComplex.controller('createComplexController', ['$http', '$scope', '$routeParams', 'createComplexService', function($http, $scope, $routeParams, createComplexService) {
+createComplex.controller('createComplexController', ['$http', '$scope', 'createComplexService', function($http, $scope, createComplexService) {
     $scope.address = {};
     $scope.complex = {};
 

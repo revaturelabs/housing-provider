@@ -17,6 +17,7 @@ import './css/index.css';
 // TEMPLATES
 import 'file-loader?name=[name].[ext]&outputPath=home/!./home/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/template.html';
+// import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/dialog.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex-detail/!./complex-detail/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=complex-create/!./complex-create/template.html';
 import 'file-loader?name=[name].[ext]&outputPath=property-create/!./property-create/template.html';

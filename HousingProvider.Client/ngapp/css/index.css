@@ -67,7 +67,7 @@ td {
 } 
 
 #auth {
-    margin-top: 200px;
+    margin-top: 10em;
 }
 
 #loginPic {
@@ -107,6 +107,7 @@ td {
 
 #complexList {
     list-style-type: none;
+    margin-top: 2em;
 }
 
 #complexThumbnail {
@@ -124,6 +125,30 @@ td {
     margin-top: 35px;
 }
 
-#createComplex {
-    margin-top:30px;
+#loading {
+    margin-top: 10em;
+}
+
+#query {
+    margin-top: 4em;
+}
+
+#createButtonPadding {
+    margin-top: 1em;
+}
+
+.btn-warning {
+    background-color: #db7318 !important;
+}
+
+.btn-info {
+    background-color: #1880db !important;
+}
+
+.btn-danger {
+    background-color: #db181f !important;
+}
+
+#viewComplexButton {
+    margin-top: 2em;
 }

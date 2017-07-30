@@ -110,7 +110,8 @@ exports.complex = complex;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ng = __webpack_require__(0);
-var complexDetail = ng.module('providerComplexDetail', []);
+__webpack_require__(1);
+var complexDetail = ng.module('providerComplexDetail', ['ngMaterial']);
 exports.complexDetail = complexDetail;
 
 
@@ -161,6 +162,7 @@ __webpack_require__(27);
 // TEMPLATES
 __webpack_require__(28);
 __webpack_require__(29);
+// import 'file-loader?name=[name].[ext]&outputPath=complex/!./complex/dialog.html';
 __webpack_require__(30);
 __webpack_require__(31);
 __webpack_require__(32);
@@ -35819,8 +35821,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var module_1 = __webpack_require__(2);
 __webpack_require__(19);
-module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', function ($scope, $http, complexService) {
+module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', '$mdDialog', function ($scope, $http, complexService, $mdDialog) {
         complexService.getComplexes($scope);
+        $scope.status = '  ';
+        $scope.customFullscreen = false;
+        $scope.showAdvanced = function (ev) {
+            $mdDialog.show({
+                contentElement: '#myDialog',
+                parent: document.body,
+                targetEvent: ev,
+                clickOutsideToClose: true
+            });
+        };
+        $scope.address = {};
+        $scope.complex = {};
+        $scope.addComplex = function () {
+            console.log("TEST");
+            console.log($scope.complex.complexName);
+            complexService.postComplex($scope.address, $scope.complex);
+        };
     }]);
 
 
@@ -76427,12 +76446,24 @@ angular.module("material.core").constant("$MD_THEME_CSS", "md-autocomplete.md-TH
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(2);
-module_1.complex.factory('complexService', ['$http', function ($http) {
+module_1.complex.factory('complexService', ['$http', '$location', function ($http, $location) {
         return {
             getComplexes: function (scope) {
                 $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex').then(function (res) {
                     scope.complexes = res.data;
                     scope.orderProp = 'complexName';
+                });
+            },
+            postComplex: function (adr, complex) {
+                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
+                    complex.addressGuid = res.data;
+                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex).then(function (res) {
+                        $location.path('/complex');
+                    }, function (err) {
+                        console.log(err);
+                    });
+                }, function (err) {
+                    console.log(err);
                 });
             }
         };
@@ -76447,6 +76478,7 @@ module_1.complex.factory('complexService', ['$http', function ($http) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+__webpack_require__(1);
 var module_1 = __webpack_require__(3);
 __webpack_require__(21);
 module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', 'complexDetailService', function ($http, $scope, $routeParams, complexDetailService) {
@@ -76489,7 +76521,7 @@ module_1.complexDetail.factory('complexDetailService', ['$http', function ($http
 Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(4);
 __webpack_require__(23);
-module_1.createComplex.controller('createComplexController', ['$http', '$scope', '$routeParams', 'createComplexService', function ($http, $scope, $routeParams, createComplexService) {
+module_1.createComplex.controller('createComplexController', ['$http', '$scope', 'createComplexService', function ($http, $scope, createComplexService) {
         $scope.address = {};
         $scope.complex = {};
         $scope.addComplex = function () {

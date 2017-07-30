@@ -1,0 +1,56 @@
+<md-dialog>
+  <form ng-cloak>
+    <md-toolbar class="md-warn md-hue-2">
+      <div class="md-toolbar-tools">
+        <h2>Input Complex Information</h2>
+      </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div class="container-fluid">
+          <section class="row">
+            <h4 class="col-sm-12">New Complex:</h4>
+          </section>
+
+          <section class="row">
+            <div class="row">
+              <p class="col col-sm-4">Complex Name:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="complex.complexName">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">Complex Description:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="complex.description">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">Image URL:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="complex.url">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">Street:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="address.street1">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">City:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="address.city">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">State:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="address.state">
+            </div>
+            <div class="row">
+              <p class="col col-sm-4">ZipCode:</p>
+              <input type="text" class="col col-sm-8" data-ng-model="address.zipCode">
+            </div>
+          </section>
+        </div>
+      </div>
+    </md-dialog-content>
+
+    <md-dialog-actions layout="row">
+      <md-button data-ng-click="addComplex()">
+        Create
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

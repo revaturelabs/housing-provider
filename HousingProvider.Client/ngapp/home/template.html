@@ -6,15 +6,16 @@
     </div>
     <div class="col-sm-6">
       <section class="row">
-        <div class="col-sm-offset-4">
-          <a data-ng-hide="userInfo.isAuthenticated" class="btn btn-primary col-sm-4" data-ng-click="signin()">Sign In</a>
-          <a data-ng-show="userInfo.isAuthenticated" class="btn btn-danger col-sm-4" data-ng-click="signout()">Sign Out</a>
+        <div class="col-sm-offset-9">
+          <a data-ng-hide="userInfo.isAuthenticated" class="btn btn-info col-sm-5" data-ng-click="signin()">Sign In</a>
+          <a data-ng-show="userInfo.isAuthenticated" class="btn btn-danger col-sm-5" data-ng-click="signout()">Sign Out</a>
         </div>
       </section>
       <!-- <p data-ng-show="userInfo.isAuthenticated">Welcome Provider!</p> -->
       <section class="row" id="auth">
         <div class="col-sm-offset-4" data-ng-show="userInfo.isAuthenticated">
-          <a class="btn btn-info btn-lg col-sm-4" data-ng-href="complex">View Complexes</a>
+          <h3>Welcome!</h3>
+          <a id="viewComplexButton" class="btn btn-info btn-lg col-sm-5" data-ng-href="complex">View Complexes</a>
         </div>
       </section>
     </div>

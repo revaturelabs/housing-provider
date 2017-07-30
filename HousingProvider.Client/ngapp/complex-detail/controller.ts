@@ -1,3 +1,4 @@
+import 'angular-material';
 import { complexDetail } from './module';
 import './service';
 
