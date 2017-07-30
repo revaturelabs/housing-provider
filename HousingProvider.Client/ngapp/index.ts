@@ -36,12 +36,12 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
       templateUrl: './complex/template.html',
       requireADLogin: true
     })
-    .when('/complexdetail/:guid', {
+    .when('/complexdetail/:complexName/:guid', {
       controller: 'complexDetailController',
       templateUrl: './complex-detail/template.html',
       requireADLogin: true
     })
-    .when('/createproperty/:guid', {
+    .when('/createproperty/:complexName/:guid', {
       controller: 'createPropertyController',
       templateUrl: './property-create/template.html',
       requireADLogin: true

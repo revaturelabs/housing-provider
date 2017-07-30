@@ -178,12 +178,12 @@ ngHousingProvider.config(['$httpProvider', '$locationProvider', '$routeProvider'
             templateUrl: './complex/template.html',
             requireADLogin: true
         })
-            .when('/complexdetail/:guid', {
+            .when('/complexdetail/:complexName/:guid', {
             controller: 'complexDetailController',
             templateUrl: './complex-detail/template.html',
             requireADLogin: true
         })
-            .when('/createproperty/:guid', {
+            .when('/createproperty/:complexName/:guid', {
             controller: 'createPropertyController',
             templateUrl: './property-create/template.html',
             requireADLogin: true
@@ -76450,8 +76450,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(3);
 __webpack_require__(21);
 module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', 'complexDetailService', function ($http, $scope, $routeParams, complexDetailService) {
+        $scope.complexName = $routeParams.complexName;
         $scope.guid = $routeParams.guid;
-        complexDetailService.getComplex($scope, $routeParams.guid);
         complexDetailService.getApartments($scope, $routeParams.guid);
     }]);
 
@@ -76534,12 +76534,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(5);
 __webpack_require__(25);
 module_1.createProperty.controller('createPropertyController', ['$scope', '$routeParams', 'createPropertyService', function ($scope, $routeParams, createPropertyService) {
+        $scope.complexName = $routeParams.complexName;
         $scope.address = {};
         $scope.property = {
             complexGuid: $routeParams.guid
         };
         $scope.addProperty = function () {
-            createPropertyService.postProperty($scope.address, $scope.property, $routeParams.guid);
+            createPropertyService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid);
         };
     }]);
 
@@ -76554,11 +76555,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(5);
 module_1.createProperty.factory('createPropertyService', ['$http', '$location', function ($http, $location) {
         return {
-            postProperty: function (adr, property, guid) {
+            postProperty: function (adr, property, complexName, guid) {
                 $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
                     property.addressGuid = res.data;
                     $http.post('http://housingproviderbusiness.azurewebsites.net/api/property', property).then(function (res) {
-                        $location.path('/complexdetail/' + guid);
+                        $location.path('/complexdetail/' + complexName + '/' + guid);
                     }, function (err) {
                         console.log(err);
                     });
