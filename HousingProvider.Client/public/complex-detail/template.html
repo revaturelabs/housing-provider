@@ -4,7 +4,7 @@
 
       <div class="row">
         <h4 class="col-sm-3" id="complexName" data-ng-show="apartments[0]">Apartments for {{complexName}}</h4>
-        <a id="createButtonPadding" class="btn btn-warning col-sm-2 col-sm-offset-5" data-ng-href="createproperty/{{complexName}}/{{guid}}" data-ng-if="apartments[0]">Add Apartment Unit</a>
+        <a id="createButtonPadding" class="btn btn-warning col-sm-2 col-sm-offset-5" data-ng-click="showPropDialog($event)" data-ng-if="apartments[0]">Add Apartment Unit</a>
         <a id="createButtonPadding" class="btn btn-success col-md-1" ng-href="complex" data-ng-if="apartments[0]">Back</a>
       </div>
 
@@ -27,4 +27,71 @@
 
     </div>
   </section>
+</div>
+
+
+<div style="visibility:hidden">
+  <div class="md-dialog-container" id="addPropDialog">
+    <md-dialog>
+      <form ng-cloak>
+        <md-toolbar class="md-primary md-hue-2">
+          <div class="md-toolbar-tools">
+            <h2>Input Complex Information</h2>
+          </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+          <div class="md-dialog-content">
+            <div class="container-fluid">
+              <!-- <section class="row">
+                <h4 class="col-sm-12">New ComplexNew Complex:</h4>
+              </section> -->
+
+              <section class="row">
+                <div class="row">
+                  <p class="col-sm-5">Complex Name:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="complex.complexName">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">Complex Description:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="complex.description">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">Image URL:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="complex.url">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">Street:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="address.street1">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">City:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="address.city">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">State:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="address.state">
+                </div>
+                <div class="row">
+                  <p class="col-sm-5">ZipCode:</p>
+                  <input type="text" class="col-sm-7" data-ng-model="address.zipCode">
+                </div>
+              </section>
+            </div>
+          </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+          <md-button data-ng-click="cancelOption()">
+            Cancel
+          </md-button>
+          <span flex="10"></span>
+          <md-button data-ng-click="addComplex()">
+            Create
+          </md-button>
+          <span flex="25"></span>
+        </md-dialog-actions>
+      </form>
+    </md-dialog>
+  </div>
 </div>

@@ -5,10 +5,7 @@ import './service';
 complex.controller('complexController', ['$scope', '$http', 'complexService', '$mdDialog', function ($scope, $http, complexService, $mdDialog) {
   complexService.getComplexes($scope);
 
-  $scope.status = '  ';
-  $scope.customFullscreen = false;
-
-  $scope.showAdvanced = function (ev) {
+  $scope.showComplexDialog = function (ev) {
     $mdDialog.show({
       contentElement: '#myDialog',
       parent: document.body,

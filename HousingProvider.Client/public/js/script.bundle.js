@@ -35823,9 +35823,7 @@ var module_1 = __webpack_require__(2);
 __webpack_require__(19);
 module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', '$mdDialog', function ($scope, $http, complexService, $mdDialog) {
         complexService.getComplexes($scope);
-        $scope.status = '  ';
-        $scope.customFullscreen = false;
-        $scope.showAdvanced = function (ev) {
+        $scope.showComplexDialog = function (ev) {
             $mdDialog.show({
                 contentElement: '#myDialog',
                 parent: document.body,
@@ -76485,10 +76483,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __webpack_require__(1);
 var module_1 = __webpack_require__(3);
 __webpack_require__(21);
-module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', 'complexDetailService', function ($http, $scope, $routeParams, complexDetailService) {
+module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function ($http, $scope, $routeParams, $mdDialog, complexDetailService) {
         $scope.complexName = $routeParams.complexName;
         $scope.guid = $routeParams.guid;
         complexDetailService.getApartments($scope, $routeParams.guid);
+        $scope.complexName = $routeParams.complexName;
+        $scope.address = {};
+        $scope.property = {
+            complexGuid: $routeParams.guid
+        };
+        $scope.addProperty = function () {
+            complexDetailService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid);
+            $mdDialog.hide();
+        };
+        $scope.showPropDialog = function (ev) {
+            $mdDialog.show({
+                contentElement: '#addPropDialog',
+                parent: document.body,
+                targetEvent: ev,
+                clickOutsideToClose: true
+            });
+        };
+        $scope.cancelOption = function () {
+            $mdDialog.hide();
+        };
     }]);
 
 

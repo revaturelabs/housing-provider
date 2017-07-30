@@ -157,3 +157,15 @@ td {
 .btn-success {
     background-color: #777777 !important;
 }
+
+ .btn {
+    /* overflow: hidden; */
+    min-width: 8em;
+    /* display: block !important; */
+}
+
+ .btn-lg {
+    /* overflow: hidden; */
+    min-width: 9em !important;
+    /* display: block !important; */
+} 
