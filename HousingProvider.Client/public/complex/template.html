@@ -34,7 +34,7 @@
       <ul id="complexList" data-ng-repeat="complex in complexes | filter:query | orderBy:orderProp">
         <li id="complexItem" class="row">
           <img id="complexThumbnail" src="{{complex.url}}" class="col-sm-3">
-          <section class="col-sm-6">
+          <section class="col-sm-5">
             <p id="complexName">{{complex.complexName}}</p>
             <p>{{complex.description}}</p>
             <a class="btn btn-info btn-sm" data-ng-href="complexdetail/{{complex.complexName}}/{{complex.guid}}">Details</a>
@@ -56,7 +56,7 @@
       <form ng-cloak>
         <md-toolbar class="md-primary md-hue-2">
           <div class="md-toolbar-tools">
-            <h2>Input Complex Information</h2>
+            <h2>Insert Complex Information</h2>
           </div>
         </md-toolbar>
 
