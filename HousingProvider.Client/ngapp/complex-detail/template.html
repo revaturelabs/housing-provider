@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <section class="row">
     <div class="col col-sm-10 col-sm-offset-2">
-      <h4 id="complexName">Apartments for {{complex.complexName}}</h4>
+      <h4 id="complexName">Apartments for {{complexName}}</h4>
 
       <ul id="complexList" data-ng-repeat="apartment in apartments">
         <li id="complexItem" class="row">
@@ -16,7 +16,7 @@
         </li>
       </ul>
 
-      <a class="btn btn-warning" data-ng-href="createproperty/{{guid}}">Add Apartment Unit</a>
+      <a class="btn btn-warning" data-ng-href="createproperty/{{complexName}}/{{guid}}">Add Apartment Unit</a>
 
     </div>
   </section>
