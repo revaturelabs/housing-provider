@@ -135,6 +135,7 @@ td {
 
 #createButtonPadding {
     margin-top: 1em;
+    margin-right: 5px;
 }
 
 .btn-warning {
@@ -151,4 +152,8 @@ td {
 
 #viewComplexButton {
     margin-top: 2em;
+}
+
+.btn-success {
+    background-color: #777777 !important;
 }

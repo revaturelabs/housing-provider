@@ -35839,6 +35839,10 @@ module_1.complex.controller('complexController', ['$scope', '$http', 'complexSer
             console.log("TEST");
             console.log($scope.complex.complexName);
             complexService.postComplex($scope.address, $scope.complex);
+            $mdDialog.hide();
+        };
+        $scope.cancelOption = function () {
+            $mdDialog.hide();
         };
     }]);
 

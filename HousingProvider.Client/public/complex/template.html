@@ -27,7 +27,8 @@
       </div> -->
 
       <div class="row">
-        <a class="btn btn-warning col-md-2 col-md-offset-10" ng-click="showAdvanced($event)" data-ng-if="complexes[0]">Add New Complex</a>
+        <a id="createButtonPadding" class="btn btn-warning col-md-2 col-md-offset-8" ng-click="showAdvanced($event)" data-ng-if="complexes[0]">Add New Complex</a>
+        <a id="createButtonPadding" class="btn btn-success col-md-1" ng-href="/" data-ng-if="complexes[0]">Back</a>
       </div>
 
       <ul id="complexList" data-ng-repeat="complex in complexes | filter:query | orderBy:orderProp">
@@ -101,13 +102,14 @@
         </md-dialog-content>
 
         <md-dialog-actions layout="row">
-          <md-button data-ng-click="addComplex()">
+          <md-button data-ng-click="cancelOption()">
             Cancel
           </md-button>
-          <span flex></span>
+          <span flex="10"></span>
           <md-button data-ng-click="addComplex()">
             Create
           </md-button>
+          <span flex="25"></span>
         </md-dialog-actions>
       </form>
     </md-dialog>
