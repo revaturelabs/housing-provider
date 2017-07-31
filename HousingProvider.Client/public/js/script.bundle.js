@@ -76492,6 +76492,7 @@ var module_1 = __webpack_require__(3);
 __webpack_require__(21);
 module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function ($http, $scope, $routeParams, $mdDialog, complexDetailService) {
         $scope.apartments = [];
+        $scope.waiting = true;
         $scope.complexName = $routeParams.complexName;
         $scope.guid = $routeParams.guid;
         complexDetailService.getApartments($scope, $routeParams.guid);
@@ -76530,6 +76531,7 @@ module_1.complexDetail.factory('complexDetailService', ['$http', function ($http
             getApartments: function (scope, guid) {
                 $http.get('http://housingproviderbusiness.azurewebsites.net/api/property/' + guid).then(function (res) {
                     scope.apartments = res.data;
+                    scope.waiting = false;
                 });
             },
             postProperty: function (adr, property, complexName, guid, scope) {

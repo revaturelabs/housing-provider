@@ -4,6 +4,7 @@ import './service';
 
 complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function($http, $scope, $routeParams, $mdDialog, complexDetailService) {
   $scope.apartments = [];
+  $scope.waiting = true;
   $scope.complexName = $routeParams.complexName;
   $scope.guid = $routeParams.guid;
   complexDetailService.getApartments($scope, $routeParams.guid);

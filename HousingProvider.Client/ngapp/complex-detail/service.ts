@@ -5,6 +5,7 @@ complexDetail.factory('complexDetailService', ['$http', function ($http) {
     getApartments: function (scope, guid) {
       $http.get('http://housingproviderbusiness.azurewebsites.net/api/property/' + guid).then(function (res) {
         scope.apartments = res.data;
+        scope.waiting = false;
       });
     },
     postProperty: function (adr, property, complexName, guid, scope) {
