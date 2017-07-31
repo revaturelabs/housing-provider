@@ -8,11 +8,18 @@ complex.factory('complexService', ['$http', '$location', function ($http, $locat
         scope.orderProp = 'complexName';
       });
     },
-    postComplex: function (adr, complex) {
-      $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
+    postComplex: function (adr, complex, scope) {
+      $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr)
+      .then(function (res) {
         complex.addressGuid = res.data;
-        $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex).then(function (res) {
-          $location.path('/complex');
+        $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex)
+        .then(function (res) {
+          complex.guid = res.data;
+          complex.address = adr;
+          scope.complexes.push(complex);
+          scope.cancelOption();
+          scope.complex = {};
+          scope.address = {};
         }, function (err) {
           console.log(err);
         });

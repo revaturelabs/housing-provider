@@ -3,6 +3,7 @@ import { complexDetail } from './module';
 import './service';
 
 complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function($http, $scope, $routeParams, $mdDialog, complexDetailService) {
+  $scope.apartments = [];
   $scope.complexName = $routeParams.complexName;
   $scope.guid = $routeParams.guid;
   complexDetailService.getApartments($scope, $routeParams.guid);
@@ -14,8 +15,7 @@ complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeP
     };
 
     $scope.addProperty = function () {
-        complexDetailService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid);
-        $mdDialog.hide();
+        complexDetailService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid, $scope);
     }
 
   $scope.showPropDialog = function (ev) {

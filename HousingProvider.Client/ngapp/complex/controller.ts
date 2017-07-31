@@ -3,11 +3,12 @@ import { complex } from './module';
 import './service';
 
 complex.controller('complexController', ['$scope', '$http', 'complexService', '$mdDialog', function ($scope, $http, complexService, $mdDialog) {
+  $scope.complexes = [];
   complexService.getComplexes($scope);
 
   $scope.showComplexDialog = function (ev) {
     $mdDialog.show({
-      contentElement: '#myDialog',
+      contentElement: '#addComplexDialog',
       parent: document.body,
       targetEvent: ev,
       clickOutsideToClose: true
@@ -20,8 +21,7 @@ complex.controller('complexController', ['$scope', '$http', 'complexService', '$
   $scope.addComplex = function () {
     console.log("TEST");
     console.log($scope.complex.complexName);
-    complexService.postComplex($scope.address, $scope.complex);
-    $mdDialog.hide();
+    complexService.postComplex($scope.address, $scope.complex, $scope);
   }
 
   $scope.cancelOption = function () {

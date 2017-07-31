@@ -10,6 +10,9 @@ select * from Property.Property;
 
 select * from Property.Complex;
 
+DELETE FROM Property.Complex
+WHERE (ComplexId > 35);
+
 select * from Person.[Provider];
 
 select * from Property.[Address];

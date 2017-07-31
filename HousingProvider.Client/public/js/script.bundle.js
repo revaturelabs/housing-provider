@@ -35822,10 +35822,11 @@ __webpack_require__(1);
 var module_1 = __webpack_require__(2);
 __webpack_require__(19);
 module_1.complex.controller('complexController', ['$scope', '$http', 'complexService', '$mdDialog', function ($scope, $http, complexService, $mdDialog) {
+        $scope.complexes = [];
         complexService.getComplexes($scope);
         $scope.showComplexDialog = function (ev) {
             $mdDialog.show({
-                contentElement: '#myDialog',
+                contentElement: '#addComplexDialog',
                 parent: document.body,
                 targetEvent: ev,
                 clickOutsideToClose: true
@@ -35836,8 +35837,7 @@ module_1.complex.controller('complexController', ['$scope', '$http', 'complexSer
         $scope.addComplex = function () {
             console.log("TEST");
             console.log($scope.complex.complexName);
-            complexService.postComplex($scope.address, $scope.complex);
-            $mdDialog.hide();
+            complexService.postComplex($scope.address, $scope.complex, $scope);
         };
         $scope.cancelOption = function () {
             $mdDialog.hide();
@@ -76456,11 +76456,18 @@ module_1.complex.factory('complexService', ['$http', '$location', function ($htt
                     scope.orderProp = 'complexName';
                 });
             },
-            postComplex: function (adr, complex) {
-                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
+            postComplex: function (adr, complex, scope) {
+                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr)
+                    .then(function (res) {
                     complex.addressGuid = res.data;
-                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex).then(function (res) {
-                        $location.path('/complex');
+                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/complex', complex)
+                        .then(function (res) {
+                        complex.guid = res.data;
+                        complex.address = adr;
+                        scope.complexes.push(complex);
+                        scope.cancelOption();
+                        scope.complex = {};
+                        scope.address = {};
                     }, function (err) {
                         console.log(err);
                     });
@@ -76484,6 +76491,7 @@ __webpack_require__(1);
 var module_1 = __webpack_require__(3);
 __webpack_require__(21);
 module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function ($http, $scope, $routeParams, $mdDialog, complexDetailService) {
+        $scope.apartments = [];
         $scope.complexName = $routeParams.complexName;
         $scope.guid = $routeParams.guid;
         complexDetailService.getApartments($scope, $routeParams.guid);
@@ -76493,8 +76501,7 @@ module_1.complexDetail.controller('complexDetailController', ['$http', '$scope',
             complexGuid: $routeParams.guid
         };
         $scope.addProperty = function () {
-            complexDetailService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid);
-            $mdDialog.hide();
+            complexDetailService.postProperty($scope.address, $scope.property, $routeParams.complexName, $routeParams.guid, $scope);
         };
         $scope.showPropDialog = function (ev) {
             $mdDialog.show({
@@ -76520,20 +76527,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var module_1 = __webpack_require__(3);
 module_1.complexDetail.factory('complexDetailService', ['$http', function ($http) {
         return {
-            getComplex: function (scope, guid) {
-                $http.get('http://housingproviderbusiness.azurewebsites.net/api/complex/' + guid).then(function (res) {
-                    scope.complex = res.data;
-                });
-            },
             getApartments: function (scope, guid) {
                 $http.get('http://housingproviderbusiness.azurewebsites.net/api/property/' + guid).then(function (res) {
                     scope.apartments = res.data;
                 });
             },
-            postProperty: function (adr, property, complexName, guid) {
-                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr).then(function (res) {
+            postProperty: function (adr, property, complexName, guid, scope) {
+                $http.post('http://housingproviderbusiness.azurewebsites.net/api/address', adr)
+                    .then(function (res) {
                     property.addressGuid = res.data;
-                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/property', property).then(function (res) {
+                    $http.post('http://housingproviderbusiness.azurewebsites.net/api/property', property)
+                        .then(function (res) {
+                        property.address = adr;
+                        scope.apartments.push(property);
+                        scope.cancelOption();
+                        scope.address = {};
                     }, function (err) {
                         console.log(err);
                     });
