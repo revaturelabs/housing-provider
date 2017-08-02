@@ -18,6 +18,7 @@ complexDetail.factory('complexDetailService', ['$http', function ($http) {
               scope.apartments.push(property);
               scope.cancelOption();
               scope.address = {};
+              scope.property = {};
             }, function (err) {
               console.log(err);
             });

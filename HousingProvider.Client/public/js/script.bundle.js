@@ -76491,9 +76491,8 @@ __webpack_require__(1);
 var module_1 = __webpack_require__(3);
 __webpack_require__(21);
 module_1.complexDetail.controller('complexDetailController', ['$http', '$scope', '$routeParams', '$mdDialog', 'complexDetailService', function ($http, $scope, $routeParams, $mdDialog, complexDetailService) {
-        $scope.apartments = [];
         $scope.waiting = true;
-        $scope.complexName = $routeParams.complexName;
+        $scope.apartments = [];
         $scope.guid = $routeParams.guid;
         complexDetailService.getApartments($scope, $routeParams.guid);
         $scope.complexName = $routeParams.complexName;
@@ -76544,6 +76543,7 @@ module_1.complexDetail.factory('complexDetailService', ['$http', function ($http
                         scope.apartments.push(property);
                         scope.cancelOption();
                         scope.address = {};
+                        scope.property = {};
                     }, function (err) {
                         console.log(err);
                     });
