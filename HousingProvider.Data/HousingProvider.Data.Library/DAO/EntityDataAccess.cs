@@ -36,7 +36,7 @@ namespace HousingProvider.Data.Library.DAO
             return false;
         }
 
-        public List<T> Read(string[] includes = null)
+        public List<T> Read(string[] includes = null, int pageIndex = 0, int pageSize = 0)
         {
             IQueryable<T> query = _Context.Set<T>();
             if (includes != null)
@@ -45,6 +45,10 @@ namespace HousingProvider.Data.Library.DAO
                 {
                     query = query.Include(include);
                 }
+            }
+            if (pageSize > 0 && pageIndex > 0)
+            {
+                query = query.Skip((pageIndex - 1) * pageSize).Take(pageSize);
             }
             return query.ToList();
         }
