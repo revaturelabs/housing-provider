@@ -19,8 +19,6 @@ complex.controller('complexController', ['$scope', '$http', 'complexService', '$
   $scope.complex = {};
 
   $scope.addComplex = function () {
-    console.log("TEST");
-    console.log($scope.complex.complexName);
     complexService.postComplex($scope.address, $scope.complex, $scope);
   }
 

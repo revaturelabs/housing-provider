@@ -29,5 +29,3 @@ complex.factory('complexService', ['$http', '$location', function ($http, $locat
     }
   }
 }]);
-
-// export { complexService };

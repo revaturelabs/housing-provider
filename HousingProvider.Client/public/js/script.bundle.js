@@ -35835,8 +35835,6 @@ module_1.complex.controller('complexController', ['$scope', '$http', 'complexSer
         $scope.address = {};
         $scope.complex = {};
         $scope.addComplex = function () {
-            console.log("TEST");
-            console.log($scope.complex.complexName);
             complexService.postComplex($scope.address, $scope.complex, $scope);
         };
         $scope.cancelOption = function () {
